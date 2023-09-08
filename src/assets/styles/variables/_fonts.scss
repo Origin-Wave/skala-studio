@@ -1,13 +1,13 @@
 @use "../utils" as utils;
 
 :root {
-  --ss-font-serif: "Noto Serif", serif;
+  --ss-font-serif: "Noto Serif Display", serif;
   --ss-font-serif-weight-regular: 200;
   --ss-font-serif-weight-bold: 700;
 
   --ss-font-sans-serif: "Manrope", sans-serif;
   --ss-font-sans-serif-weight-light: 200;
-  --ss-font-sans-serif-weight-regular: 400;
+  --ss-font-sans-serif-weight-regular: 300;
   --ss-font-sans-serif-weight-bold: 800;
 
   --ss-font-size-headline: 28px;
@@ -17,9 +17,9 @@
   --ss-font-size-heading-4: 18px;
   --ss-font-size-heading-5: 18px;
   --ss-font-size-heading-6: 18px;
-  --ss-font-size-intro: 17px;
-  --ss-font-size-base: 15px;
-  --ss-font-size-small: 13px;
+  --ss-font-size-intro: 18px;
+  --ss-font-size-base: 16px;
+  --ss-font-size-small: 14px;
 }
 
 @include utils.media(tablet-screen) {

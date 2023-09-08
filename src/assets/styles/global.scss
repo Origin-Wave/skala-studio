@@ -17,6 +17,7 @@ body {
   --body-padding: var(--ss-size-3);
 
   padding: 0 var(--body-padding);
+  font-weight: var(--ss-font-sans-serif-weight-regular);
 
   @include utils.media(tablet-screen) {
     --body-padding: var(--ss-size-5);
