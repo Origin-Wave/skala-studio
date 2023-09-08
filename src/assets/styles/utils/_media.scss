@@ -1,0 +1,62 @@
+$responsive-breakpoint-ls: 1200px !default;
+$responsive-breakpoint-ssm: $responsive-breakpoint-ls - 1 !default;
+$responsive-breakpoint-ss: 992px !default;
+$responsive-breakpoint-tsm: $responsive-breakpoint-ss - 1 !default;
+$responsive-breakpoint-ts: 768px !default;
+$responsive-breakpoint-msm: $responsive-breakpoint-ts - 1 !default;
+
+@mixin media($type) {
+  @if $type == landscape {
+    @media all and (orientation: landscape) {
+      @content;
+    }
+  }
+
+  @if $type == mobile-screen-max {
+    @media all and (max-width: $responsive-breakpoint-msm) {
+      @content;
+    }
+  }
+
+  @if $type == tablet-screen {
+    @media all and (min-width: $responsive-breakpoint-ts) {
+      @content;
+    }
+  }
+
+  @if $type == tablet-screen-only {
+    @media all and (min-width: $responsive-breakpoint-ts) and (max-width: $responsive-breakpoint-tsm) {
+      @content;
+    }
+  }
+
+  @if $type == tablet-screen-max {
+    @media all and (max-width: $responsive-breakpoint-tsm) {
+      @content;
+    }
+  }
+
+  @if $type == small-screen {
+    @media all and (min-width: $responsive-breakpoint-ss) {
+      @content;
+    }
+  }
+
+  @if $type == small-screen-only {
+    @media all and (min-width: $responsive-breakpoint-ss) and (max-width: $responsive-breakpoint-ssm) {
+      @content;
+    }
+  }
+
+  @if $type == small-screen-max {
+    @media all and (max-width: $responsive-breakpoint-ssm) {
+      @content;
+    }
+  }
+
+  @if $type == large-screen {
+    @media all and (min-width: $responsive-breakpoint-ls) {
+      @content;
+    }
+  }
+}

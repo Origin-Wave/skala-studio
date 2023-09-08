@@ -1,0 +1,23 @@
+---
+
+---
+
+<div class="intro-section">
+  <slot />
+</div>
+
+<style lang="scss">
+  @use "../../assets/styles/utils" as utils;
+
+  .intro-section {
+    text-align: center;
+
+    padding-top: var(--ss-flow-space-3);
+    padding-bottom: var(--ss-flow-space-3);
+
+    @include utils.media(tablet-screen) {
+      padding-left: var(--ss-flow-space-3);
+      padding-right: var(--ss-flow-space-3);
+    }
+  }
+</style>

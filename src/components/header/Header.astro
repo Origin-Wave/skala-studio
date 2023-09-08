@@ -1,0 +1,32 @@
+---
+import Logo from "../Logo.astro";
+import Contact from "./HeaderContact.astro";
+---
+
+<header class="header">
+  <Logo class="header__logo" />
+  <Contact />
+</header>
+
+<style lang="scss">
+  @use "../../assets/styles/utils" as utils;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: var(--ss-border-separator);
+    padding: var(--ss-flow-space-1) 0;
+  }
+
+  .header__logo {
+    --header-logo-size: var(--ss-size-9);
+
+    width: var(--header-logo-size);
+    height: auto;
+
+    @include utils.media(tablet-screen) {
+      --header-logo-size: var(--ss-size-11);
+    }
+  }
+</style>

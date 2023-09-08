@@ -1,0 +1,24 @@
+@use "variables/border";
+@use "variables/colors";
+@use "variables/flow-space";
+@use "variables/fonts";
+@use "variables/size";
+@use "base/reset";
+@use "base/images";
+@use "base/typography";
+@use "helpers/text";
+@use "utils" as utils;
+
+body {
+  --body-padding: var(--ss-size-3);
+
+  padding: 0 var(--body-padding);
+
+  @include utils.media(tablet-screen) {
+    --body-padding: var(--ss-size-5);
+  }
+
+  @include utils.media(small-screen) {
+    --body-padding: var(--ss-size-7);
+  }
+}

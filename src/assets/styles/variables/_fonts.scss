@@ -1,0 +1,53 @@
+@use "../utils" as utils;
+
+:root {
+  --ss-font-serif: "Noto Serif", serif;
+  --ss-font-serif-weight-regular: 200;
+  --ss-font-serif-weight-bold: 700;
+
+  --ss-font-sans-serif: "Manrope", sans-serif;
+  --ss-font-sans-serif-weight-light: 200;
+  --ss-font-sans-serif-weight-regular: 400;
+  --ss-font-sans-serif-weight-bold: 800;
+
+  --ss-font-size-headline: 28px;
+  --ss-font-size-heading-1: 26px;
+  --ss-font-size-heading-2: 26px;
+  --ss-font-size-heading-3: 24px;
+  --ss-font-size-heading-4: 18px;
+  --ss-font-size-heading-5: 18px;
+  --ss-font-size-heading-6: 18px;
+  --ss-font-size-intro: 18px;
+  --ss-font-size-base: 15px;
+  --ss-font-size-small: 13px;
+}
+
+@include utils.media(tablet-screen) {
+  :root {
+    --ss-font-size-headline: 42px;
+    --ss-font-size-heading-1: 36px;
+    --ss-font-size-heading-2: 32px;
+    --ss-font-size-heading-3: 28px;
+    --ss-font-size-heading-4: 22px;
+    --ss-font-size-heading-5: 22px;
+    --ss-font-size-heading-6: 22px;
+    --ss-font-size-intro: 19px;
+    --ss-font-size-base: 17px;
+    --ss-font-size-small: 15px;
+  }
+}
+
+@include utils.media(small-screen) {
+  :root {
+    --ss-font-size-headline: 56px;
+    --ss-font-size-heading-1: 48px;
+    --ss-font-size-heading-2: 40px;
+    --ss-font-size-heading-3: 32px;
+    --ss-font-size-heading-4: 32px;
+    --ss-font-size-heading-5: 32px;
+    --ss-font-size-heading-6: 32px;
+    --ss-font-size-intro: 24px;
+    --ss-font-size-base: 20px;
+    --ss-font-size-small: 15px;
+  }
+}

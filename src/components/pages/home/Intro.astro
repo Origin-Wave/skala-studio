@@ -1,0 +1,85 @@
+---
+import { Image } from "astro:assets";
+import IntroSection from "../../typography/IntroSection.astro";
+import ImageSections from "../../typography/ImageSections.astro";
+import ImageSection from "../../typography/ImageSection.astro";
+import cafeInteriorImage from "../../../assets/images/visualisations/cosy-cafe-interior-min.jpg";
+import extensionImage from "../../../assets/images/visualisations/extension-indoor-and-outdoor-min.jpg";
+import barImage from "../../../assets/images/visualisations/bar-interior-design-min.jpg";
+---
+
+<IntroSection>
+  <h2 class="ss-text-h1">
+    Sustainability meets timeless design
+    <span class="ss-text-sub-heading"
+      >And occupants' wellbeing takes centre stage</span
+    >
+  </h2>
+  <p class="ss-text-intro">
+    Working with both residential and commercial clients, we are passionate
+    about creating spaces that harmonise with the environment while <strong
+      >prioritising the health</strong
+    > and <strong>happiness</strong> of those who inhabit them.
+  </p>
+</IntroSection>
+
+<ImageSections>
+  <ImageSection>
+    <Image src={cafeInteriorImage} alt="Cosy cafe interior" slot="image" />
+    <div slot="body">
+      <h3>
+        Did you realise your indoor space has a big impact on your well-being?
+      </h3>
+      <p class="ss-text-intro">
+        Poor indoor air quality, the presence of VOCs, and excessive noise
+        pollution can all compromise physical health.
+      </p>
+      <p>
+        Inadequate natural light and a disconnection from nature can adversely
+        affect our mood and mental well-being. Each of these factors can
+        contribute to 'sick building syndrome', reinforcing the significance of
+        a health-oriented space for our overall wellness.
+      </p>
+    </div>
+  </ImageSection>
+
+  <ImageSection>
+    <Image
+      src={extensionImage}
+      alt="Extension design, interior and exterior"
+      slot="image"
+    />
+    <div slot="body">
+      <h3>
+        Do you need an architect to design a bespoke, healthy space for you?
+      </h3>
+      <p class="ss-text-intro">
+        We create designs with your well-being in mind, informed by research on
+        architecture's impact on mental and physical health.
+      </p>
+      <p>
+        Personalising your sensory needs, we enhance natural light, indoor air
+        quality, and activity-friendly spaces, crafting a functional, beautiful
+        space that leaves a lasting impression.
+      </p>
+    </div>
+  </ImageSection>
+
+  <ImageSection>
+    <Image src={barImage} alt="Bar interior design" slot="image" />
+    <div slot="body">
+      <h3>How can your new space have a positive impact on the environment?</h3>
+      <p class="ss-text-intro">
+        Great design goes beyond aesthetics; it should be a catalyst for
+        positive change.
+      </p>
+      <p>
+        We seamlessly integrate eco-friendly materials, energy-efficient
+        systems, and biophilic design principles, fostering spaces that promote
+        wellbeing, productivity, and a strong connection to nature. We aim for
+        reduced carbon footprint and energy consumption, aligning your project
+        with environmental preservation, positively impacting the environment.
+      </p>
+    </div>
+  </ImageSection>
+</ImageSections>

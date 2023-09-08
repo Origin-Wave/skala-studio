@@ -1,7 +1,7 @@
-import { defineConfig } from 'astro/config';
+import {defineConfig} from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://adampoczatek.github.io',
-  base: '/skala-studio',
+  scopedStyleStrategy: 'where'
 });

@@ -1,0 +1,18 @@
+---
+import { Image } from "astro:assets";
+import image from "../../../assets/images/visualisations/interior-and-exterior-visualisation.jpg";
+---
+
+<div class="presentation">
+  <Image
+    src={image}
+    alt="3d visualisation of an interior and exterior design by Skala Studio"
+  />
+</div>
+
+<style>
+  .presentation {
+    border-radius: var(--ss-border-radius-3);
+    overflow: hidden;
+  }
+</style>

@@ -1,0 +1,87 @@
+---
+
+---
+
+<div class="image-sections">
+  <slot />
+</div>
+
+<style>
+  .image-sections {
+    display: flex;
+    flex-direction: column;
+  }
+</style>
+
+<style is:global lang="scss">
+  @use "../../assets/styles/utils" as utils;
+
+  .image-section {
+    --image-section-border-radius: var(--ss-border-radius-2);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--ss-flow-space-3);
+    align-items: center;
+
+    & + & {
+      margin-top: var(--ss-flow-space-3);
+    }
+  }
+
+  .image-section__column {
+    > img {
+      border-radius: var(--image-section-border-radius);
+    }
+  }
+
+  @include utils.media(tablet-screen) {
+    .image-section {
+      &:nth-child(odd) {
+        flex-direction: row;
+      }
+
+      &:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+
+      &:first-child:not(:last-child) {
+        --image-section-border-radius: var(--ss-border-radius-2)
+          var(--ss-border-radius-2) var(--ss-border-radius-4)
+          var(--ss-border-radius-2);
+      }
+
+      & + &:not(:last-child) {
+        &:nth-child(odd) {
+          --image-section-border-radius: var(--ss-border-radius-2)
+            var(--ss-border-radius-4) var(--ss-border-radius-4)
+            var(--ss-border-radius-2);
+        }
+
+        &:nth-child(even) {
+          --image-section-border-radius: var(--ss-border-radius-4)
+            var(--ss-border-radius-2) var(--ss-border-radius-2)
+            var(--ss-border-radius-4);
+        }
+      }
+
+      & + &:last-child {
+        &:nth-child(odd) {
+          --image-section-border-radius: var(--ss-border-radius-2)
+            var(--ss-border-radius-4) var(--ss-border-radius-2)
+            var(--ss-border-radius-2);
+        }
+
+        &:nth-child(even) {
+          --image-section-border-radius: var(--ss-border-radius-4)
+            var(--ss-border-radius-2) var(--ss-border-radius-2)
+            var(--ss-border-radius-2);
+        }
+      }
+    }
+
+    .image-section__column {
+      flex: 1 1 50%;
+    }
+  }
+</style>

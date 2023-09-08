@@ -1,0 +1,43 @@
+---
+
+---
+
+<div class="headline">
+  <h1 class="headline__heading">
+    <span class="headline__heading-alt">Award Winning</span><br /> Architecture <span
+      class="headline__heading-alt">&amp;</span
+    >
+    <span>&nbsp;Interior Design</span>
+  </h1>
+  <p class="headline__sub-heading">We design to express your character</p>
+</div>
+
+<style lang="scss">
+  .headline {
+    text-align: center;
+    padding: var(--ss-flow-space-3) 0;
+  }
+
+  .headline__heading {
+    font-size: var(--ss-font-size-headline);
+  }
+
+  .headline__heading-alt {
+    font-weight: var(--ss-font-serif-weight-regular);
+  }
+
+  .headline__sub-heading {
+    position: relative;
+    font-size: var(--ss-font-size-heading-3);
+    font-weight: var(--ss-font-sans-serif-weight-light);
+
+    &::before {
+      content: "";
+      display: block;
+      background: var(--ss-color-soil);
+      width: var(--ss-size-5);
+      margin: var(--ss-size-4) auto;
+      border-bottom: var(--ss-border-separator);
+    }
+  }
+</style>

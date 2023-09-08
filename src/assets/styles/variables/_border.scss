@@ -1,0 +1,17 @@
+@use "../utils" as utils;
+
+:root {
+  --ss-border-separator: calc(var(--ss-size-1) / 2) solid var(--ss-color-soil);
+
+  --ss-border-radius-1: var(--ss-size-1);
+  --ss-border-radius-2: var(--ss-size-2);
+  --ss-border-radius-3: var(--ss-size-3);
+  --ss-border-radius-4: var(--ss-size-11);
+
+  @include utils.media(tablet-screen) {
+    --ss-border-radius-1: var(--ss-size-1);
+    --ss-border-radius-2: var(--ss-size-3);
+    --ss-border-radius-3: var(--ss-size-5);
+    --ss-border-radius-4: var(--ss-size-15);
+  }
+}
