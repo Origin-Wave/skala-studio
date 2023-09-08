@@ -4,7 +4,7 @@
   --ss-flow-space-1: var(--ss-size-3);
   --ss-flow-space-2: var(--ss-size-4);
   --ss-flow-space-3: var(--ss-size-6);
-  --ss-flow-space-4: var(--ss-size-11);
+  --ss-flow-space-4: var(--ss-size-8);
 
   @include utils.media(tablet-screen) {
     --ss-flow-space-1: var(--ss-size-4);

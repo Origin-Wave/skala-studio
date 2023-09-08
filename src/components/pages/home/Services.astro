@@ -1,0 +1,80 @@
+---
+import { Image } from "astro:assets";
+import IntroSection from "../../../components/typography/IntroSection.astro";
+import ImageSections from "../../../components/typography/ImageSections.astro";
+import ImageSection from "../../../components/typography/ImageSection.astro";
+import modernCountryHouse from "../../../assets/images/visualisations/modern-country-house-min.jpg";
+import cosyCafeTableView from "../../../assets/images/visualisations/cosy-cafe-interior-table-view-min.jpg";
+import cosyCafeInterior from "../../../assets/images/visualisations/cosy-cafe-interior-min.jpg";
+---
+
+<div class="services">
+  <IntroSection>
+    <h2 class="ss-text-h1">Our services</h2>
+    <p class="ss-text-intro">
+      Skala Studio offers comprehensive architectural services, tailored
+      solutions, and exceptional interior design to elevate your project.
+    </p>
+  </IntroSection>
+
+  <ImageSections>
+    <ImageSection>
+      <Image src={modernCountryHouse} alt="Modern country house" slot="image" />
+      <div slot="body">
+        <h3>Full Architectural Services</h3>
+        <p>
+          We provide comprehensive assistance throughout the entire journey of
+          your project, from conception to completion.
+        </p>
+        <p>
+          This includes obtaining all necessary permissions and administering
+          the construction contract.
+        </p>
+      </div>
+    </ImageSection>
+    <ImageSection>
+      <Image src={modernCountryHouse} alt="Modern country house" slot="image" />
+      <div slot="body">
+        <h3>Partial Architectural Services</h3>
+        <p>
+          Our architectural services can be tailored to meet your specific
+          needs, whether you require limited assistance, such as obtaining
+          planning permission or help with administering your construction
+          contract.
+        </p>
+      </div>
+    </ImageSection>
+    <ImageSection>
+      <Image
+        src={cosyCafeInterior}
+        alt="Cosy cafe interior design"
+        slot="image"
+      />
+      <div slot="body">
+        <h3>Interior Design</h3>
+        <p>
+          Our interior design services address your specific needs, blending
+          functionality and aesthetics to create unique and healthy spaces that
+          reflect your style and vision.
+        </p>
+      </div>
+    </ImageSection>
+    <ImageSection>
+      <Image src={cosyCafeTableView} alt="Couse cafe table view" slot="image" />
+      <div slot="body">
+        <h3>Consulting</h3>
+        <p>
+          We offer personalised consultations regarding your project’ specific
+          needs. Contact us to discuss the details of your project.
+        </p>
+      </div>
+    </ImageSection>
+  </ImageSections>
+</div>
+
+<style>
+  .services {
+    padding-bottom: var(--ss-flow-space-4);
+    border-bottom: var(--ss-border-separator);
+  }
+</style>
