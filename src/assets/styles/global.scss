@@ -9,6 +9,10 @@
 @use "helpers/text";
 @use "utils" as utils;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   --body-padding: var(--ss-size-3);
 

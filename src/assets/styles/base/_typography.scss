@@ -21,7 +21,8 @@ h6 {
 
   + p,
   + ul,
-  + ol {
+  + ol,
+  + address {
     margin-top: var(--ss-flow-space-1);
   }
 }
@@ -60,7 +61,8 @@ strong {
 
 p,
 ul,
-ol {
+ol,
+address {
   + h1,
   + h2,
   + h3,
@@ -73,10 +75,12 @@ ol {
 
 p,
 ul,
-ol {
+ol,
+address {
   + p,
   + ul,
-  + ol {
+  + ol,
+  + address {
     margin-top: var(--ss-flow-space-1);
   }
 }

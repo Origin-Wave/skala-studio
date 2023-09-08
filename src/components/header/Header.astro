@@ -1,11 +1,11 @@
 ---
 import Logo from "../Logo.astro";
-import Contact from "./HeaderContact.astro";
+import Contact from "../../components/Contact.astro";
 ---
 
 <header class="header">
   <Logo class="header__logo" />
-  <Contact />
+  <Contact class="header__contact" compact={true} />
 </header>
 
 <style lang="scss">
@@ -28,5 +28,9 @@ import Contact from "./HeaderContact.astro";
     @include utils.media(tablet-screen) {
       --header-logo-size: var(--ss-size-11);
     }
+  }
+
+  .header__contact {
+    text-align: right;
   }
 </style>

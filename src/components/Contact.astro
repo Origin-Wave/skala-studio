@@ -1,0 +1,70 @@
+---
+interface Props {
+  compact?: boolean;
+}
+
+const { class: className, compact = false } = Astro.props;
+---
+
+<address class:list={["contact", { "contact--compact": compact }, className]}>
+  <p>
+    <span class="contact__label">Email:</span>
+    <a class="contact__silent-link" href="mailto:info@skala-studio.co.uk"
+      >info@skala-studio.co.uk</a
+    >
+  </p>
+  <p>
+    <span class="contact__label">Mobile:</span>
+    <span>
+      <a class="contact__silent-link" href="tel:00447415330360"
+        >(0044) 7415 330 360</a
+      ><br />
+      <a class="contact__silent-link" href="tel:00447921045731"
+        >(0044) 7921 045 731</a
+      >
+    </span>
+  </p>
+  <p class="contact__address">
+    <span class="contact__label">Address:</span>
+    <span>
+      18 Perry Ave,
+      <br /> East Grinstead <br />
+       RH19 2DJ
+    </span>
+  </p>
+</address>
+
+<style lang="scss">
+  .contact {
+    display: flex;
+    flex-direction: column;
+    font-size: var(--ss-font-size-base);
+    gap: var(--ss-size-1);
+  }
+
+  .contact--compact {
+    p {
+      margin: 0;
+    }
+
+    .contact__address {
+      display: none;
+    }
+
+    .contact__label {
+      display: inline;
+    }
+  }
+
+  .contact__label {
+    display: block;
+    font-weight: var(--ss-font-sans-serif-weight-bold);
+    margin-right: var(--ss-size-1);
+  }
+
+  .contact__silent-link {
+    color: var(--ss-color-soil);
+    text-decoration: none;
+    cursor: default;
+  }
+</style>

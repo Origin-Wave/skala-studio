@@ -1,0 +1,75 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { ButtonVariant } from "./Button.models";
+
+type ButtonProps = HTMLAttributes<"a"> | HTMLAttributes<"button">;
+
+interface Props extends ButtonProps {
+  variant: ButtonVariant;
+}
+
+const {
+  variant = ButtonVariant.Primary,
+  href,
+  class: className,
+  ...attrs
+} = Astro.props;
+
+const buttonClasses = [
+  "button",
+  {
+    "button--primary": variant === ButtonVariant.Primary,
+    "button--secondary": variant === ButtonVariant.Secondary,
+  },
+  className,
+];
+---
+
+{
+  href ? (
+    <a href={href} {...attrs} class:list={buttonClasses}>
+      <slot />
+    </a>
+  ) : (
+    <button {...attrs} class:list={buttonClasses}>
+      <slot />
+    </button>
+  )
+}
+
+<style>
+  .button {
+    --button-background: transparent;
+    --button-text-color: transparent;
+
+    appearance: none;
+    background: var(--button-background);
+    border: 0;
+    font-family: inherit;
+    font-size: var(--ss-font-size-small);
+    font-weight: var(--ss-font-sans-serif-weight-regular);
+    text-align: inherit;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    height: var(--ss-size-8);
+    padding: 0 var(--ss-size-6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--button-text-color);
+    border-radius: var(--ss-border-radius-1);
+  }
+
+  .button--primary {
+    --button-background: var(--ss-color-leaf);
+    --button-text-color: var(--ss-color-stone-alt);
+  }
+
+  .button--secondary {
+    --button-background: var(--ss-color-stone-alt);
+    --button-text-color: var(--ss-color-leaf);
+
+    border: calc(var(--ss-size-1) / 2) solid var(--button-text-color);
+  }
+</style>

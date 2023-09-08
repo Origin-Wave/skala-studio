@@ -1,0 +1,29 @@
+---
+import Contact from "./Contact.astro";
+
+interface Props {
+  id?: string;
+}
+
+const { class: className, id } = Astro.props;
+---
+
+<div id={id} class:list={["contact-card", className]}>
+  <h2>What are the next steps?</h2>
+  <p class="ss-text-intro">
+    Discover the transformative design experience at Skala Studio. From full
+    architectural services to tailored solutions and interior design, we bring
+    your vision to life.
+  </p>
+  <p>Contact us now to start creating inspiring spaces together.</p>
+
+  <Contact />
+</div>
+
+<style>
+  .contact-card {
+    background: var(--ss-color-stone);
+    padding: var(--ss-flow-space-3);
+    border-radius: var(--ss-border-radius-3);
+  }
+</style>
