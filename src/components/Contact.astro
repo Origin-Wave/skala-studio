@@ -10,19 +10,13 @@ const { class: className, compact = false } = Astro.props;
 <address class:list={["contact", { "contact--compact": compact }, className]}>
   <p>
     <span class="contact__label">Email:</span>
-    <a class="contact__silent-link" href="mailto:info@skala-studio.co.uk"
-      >info@skala-studio.co.uk</a
-    >
+     info@skala-studio.co.uk
   </p>
   <p>
     <span class="contact__label">Mobile:</span>
     <span>
-      <a class="contact__silent-link" href="tel:00447415330360"
-        >(0044) 7415 330 360</a
-      ><br />
-      <a class="contact__silent-link" href="tel:00447921045731"
-        >(0044) 7921 045 731</a
-      >
+      07415 330 360<br />
+       07921 045 731
     </span>
   </p>
   <p class="contact__address">
@@ -61,11 +55,5 @@ const { class: className, compact = false } = Astro.props;
     display: block;
     font-weight: var(--ss-font-sans-serif-weight-bold);
     margin-right: var(--ss-size-1);
-  }
-
-  .contact__silent-link {
-    color: var(--ss-color-soil);
-    text-decoration: none;
-    cursor: default;
   }
 </style>
