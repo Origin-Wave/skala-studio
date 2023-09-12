@@ -7,14 +7,43 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "semantic-release": "semantic-release",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
   },
   "dependencies": {
     "astro": "^3.0.10"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.0",
-    "sass": "^1.66.1"
+    "sass": "^1.66.1",
+    "semantic-release": "^21.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adampoczatek/skala-studio.git"
+  },
+  "lint-staged": {
+    "*.{js,css,scss,md,tsx,ts,json,astro}": "prettier --write"
+  },
+  "release": {
+    "branches": [
+      "main",
+      {
+        "name": "next",
+        "prerelease": true
+      }
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/github"
+    ]
   }
 }
