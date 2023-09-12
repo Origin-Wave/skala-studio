@@ -2,9 +2,9 @@
 import ImageSection from "@components/typography/ImageSection.astro";
 import ImageSections from "@components/typography/ImageSections.astro";
 import IntroSection from "@components/typography/IntroSection.astro";
-import barImage from "@images/visualisations/bar-interior-design-min.jpg";
-import cafeInteriorImage from "@images/visualisations/cosy-cafe-interior-min.jpg";
-import extensionImage from "@images/visualisations/extension-indoor-and-outdoor-min.jpg";
+import image1 from "@images/home/Larch-Extension-Residential-East-Grinstead-01.jpg";
+import image3 from "@images/home/Larch-Extension-Residential-East-Grinstead-03.jpg";
+import image2 from "@images/home/Suburban-Home-Residential-Basingstoke-01.jpg";
 import { Image } from "astro:assets";
 ---
 
@@ -26,7 +26,11 @@ import { Image } from "astro:assets";
 
   <ImageSections>
     <ImageSection>
-      <Image src={cafeInteriorImage} alt="Cosy cafe interior" slot="image" />
+      <Image
+        src={image1}
+        alt="A kitchen designed by Skala Studio features cabinets with a worktop, wooden chopping board, and a vase filled with fresh flowers. Beyond the cabinets, a vast window opens up to picturesque garden views, flooding the kitchen with abundant natural light and lush greenery. The dark cabinet doors and elegant copper handles create a captivating contrast, making it feel like the outdoors have been graciously welcomed inside."
+        slot="image"
+      />
       <div slot="body">
         <h3>
           Did you realise your indoor space has a big impact on your well-being?
@@ -46,8 +50,8 @@ import { Image } from "astro:assets";
 
     <ImageSection>
       <Image
-        src={extensionImage}
-        alt="Extension design, interior and exterior"
+        src={image2}
+        alt="Skala Studio's visionary design is showcased in this image, highlighting a striking green stone kitchen island with a terracotta backdrop, wooden panels in varying shades cladding the internal walls, and an alluring glass block wall. A window provides glimpses of the verdant garden beyond."
         slot="image"
       />
       <div slot="body">
@@ -67,7 +71,11 @@ import { Image } from "astro:assets";
     </ImageSection>
 
     <ImageSection>
-      <Image src={barImage} alt="Bar interior design" slot="image" />
+      <Image
+        src={image3}
+        alt="This photograph captures an external house extension, displaying a slender, dark-framed window that reflects the surrounding garden's vibrant greenery and the expansive blue sky. The contrasting dark oak timber cladding on the extension's facade harmonizes beautifully with the various shades of green seen in the garden, creating a captivating visual contrast."
+        slot="image"
+      />
       <div slot="body">
         <h3>
           How can your new space have a positive impact on the environment?
