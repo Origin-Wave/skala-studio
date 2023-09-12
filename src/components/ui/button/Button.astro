@@ -1,18 +1,22 @@
 ---
+import { ButtonVariant } from "@components/ui/button/Button.models";
 import type { HTMLAttributes } from "astro/types";
-import { ButtonVariant } from "./Button.models";
 
-type ButtonProps = HTMLAttributes<"a"> | HTMLAttributes<"button">;
+type SharedButtonProps = {
+  variant?: ButtonVariant;
+};
 
-interface Props extends ButtonProps {
-  variant: ButtonVariant;
-}
+type AnchorProps = HTMLAttributes<"a">;
+
+type ButtonProps = HTMLAttributes<"button">;
+
+type Props = SharedButtonProps & (AnchorProps | ButtonProps);
 
 const {
   variant = ButtonVariant.Primary,
-  href,
   class: className,
-  ...attrs
+  children,
+  ...props
 } = Astro.props;
 
 const buttonClasses = [
@@ -23,15 +27,17 @@ const buttonClasses = [
   },
   className,
 ];
+
+const isLink = Object.hasOwn(props, "href");
 ---
 
 {
-  href ? (
-    <a href={href} {...attrs} class:list={buttonClasses}>
+  isLink ? (
+    <a {...(props as AnchorProps)} class:list={buttonClasses}>
       <slot />
     </a>
   ) : (
-    <button {...attrs} class:list={buttonClasses}>
+    <button {...(props as ButtonProps)} class:list={buttonClasses}>
       <slot />
     </button>
   )

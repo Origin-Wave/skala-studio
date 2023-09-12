@@ -1,0 +1,8 @@
+{
+  "cSpell.words": ["astro", "skala", "tsconfigs"],
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  }
+}

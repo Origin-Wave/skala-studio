@@ -1,8 +1,9 @@
 ---
-import Contact from "./Contact.astro";
+import Contact from "@components/Contact.astro";
 
 interface Props {
   id?: string;
+  class?: string;
 }
 
 const { class: className, id } = Astro.props;
