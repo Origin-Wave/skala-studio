@@ -5,9 +5,10 @@ import ImageSections from "@components/typography/ImageSections.astro";
 import IntroSection from "@components/typography/IntroSection.astro";
 import Button from "@components/ui/button/Button.astro";
 import Buttons from "@components/ui/button/Buttons.astro";
-import cosyCafeInterior from "@images/visualisations/cosy-cafe-interior-min.jpg";
-import cosyCafeTableView from "@images/visualisations/cosy-cafe-interior-table-view-min.jpg";
-import modernCountryHouse from "@images/visualisations/modern-country-house-min.jpg";
+import image4 from "@images/home/Kitchen-Design-Residential-01.jpg";
+import image3 from "@images/home/Krakow-Apartment-Residential-01.jpg";
+import image1 from "@images/home/Larch-Extension-Residential-East-Grinstead-02.jpg";
+import image2 from "@images/home/London-Home-Residential-Interior-Design-01.jpg";
 import { Image } from "astro:assets";
 ---
 
@@ -22,7 +23,11 @@ import { Image } from "astro:assets";
 
   <ImageSections>
     <ImageSection>
-      <Image src={modernCountryHouse} alt="Modern country house" slot="image" />
+      <Image
+        src={image1}
+        alt="Skala Studio's design prowess shines through in this image, showcasing an external house extension enveloped in dark oak timber planks and a petite window. The backdrop is set against a brilliant, cloudless blue sky, and a leafless tree with intricate black branches adds a touch of natural elegance to the scene."
+        slot="image"
+      />
       <div slot="body">
         <h3>Full Architectural Services</h3>
         <p>
@@ -36,7 +41,11 @@ import { Image } from "astro:assets";
       </div>
     </ImageSection>
     <ImageSection>
-      <Image src={modernCountryHouse} alt="Modern country house" slot="image" />
+      <Image
+        src={image2}
+        alt="In this inviting interior space, brought to life by Skala Studio, the charm lies in the interplay of elements. White walls, black joinery trims, and a checkered black-and-white floor create a timeless aesthetic. The Crittall-style black steel frame patio door seamlessly connects the indoor and outdoor areas, complemented by a bottle green sofa with a vibrant yellow decorative cushion. A fireplace and a sizable indoor green plant add to the overall appeal."
+        slot="image"
+      />
       <div slot="body">
         <h3>Partial Architectural Services</h3>
         <p>
@@ -52,8 +61,8 @@ import { Image } from "astro:assets";
     </ImageSection>
     <ImageSection>
       <Image
-        src={cosyCafeInterior}
-        alt="Cosy cafe interior design"
+        src={image3}
+        alt="An image of an interior, thoughtfully designed by Skala Studio, showcases a captivating arched brick ceiling gently bathed in LED lighting. Storage cabinets feature decorative light wood three-dimensional doors that interact playfully with the lighting. To the right, an arched black door and a double French black door with stained glass provide elegant transitions. On the opposite side, a striking black kitchen with a soft travertine stone island adds depth and character to the space."
         slot="image"
       />
       <div slot="body">
@@ -69,7 +78,11 @@ import { Image } from "astro:assets";
       </div>
     </ImageSection>
     <ImageSection>
-      <Image src={cosyCafeTableView} alt="Couse cafe table view" slot="image" />
+      <Image
+        src={image4}
+        alt="Captured here is a portion of a kitchen that bears the mark of Skala Studio's expertise. With green cabinets, a travertine stone and brass sheet-backed kitchen island, and an arched utility door, the space exudes sophistication. Ample natural light pours in through the window, creating a welcoming atmosphere that combines style and functionality seamlessly."
+        slot="image"
+      />
       <div slot="body">
         <h3>Consulting</h3>
         <p>
