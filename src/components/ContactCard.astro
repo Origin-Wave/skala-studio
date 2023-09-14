@@ -1,5 +1,8 @@
 ---
 import Contact from "@components/Contact.astro";
+import Heading from "@components/ui/typography/heading/Heading.astro";
+import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
+import Intro from "@components/ui/typography/intro/Intro.astro";
 
 interface Props {
   id?: string;
@@ -10,12 +13,12 @@ const { class: className, id } = Astro.props;
 ---
 
 <div id={id} class:list={["contact-card", className]}>
-  <h2>What are the next steps?</h2>
-  <p class="ss-text-intro">
+  <Heading size={HeadingSize.H2}>What are the next steps?</Heading>
+  <Intro>
     Discover the transformative design experience at Skala Studio. From full
     architectural services to tailored solutions and interior design, we bring
     your vision to life.
-  </p>
+  </Intro>
   <p>Contact us now to start creating inspiring spaces together.</p>
 
   <Contact />

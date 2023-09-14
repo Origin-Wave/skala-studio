@@ -1,0 +1,92 @@
+---
+import Headline from "@components/pages/home/Headline.astro";
+import { HeadingSize } from "@components/ui/typography/heading/Heading.models.ts";
+
+interface Props {
+  class?: string;
+  size?: HeadingSize;
+  as?: HeadingSize;
+}
+
+const {
+  size = HeadingSize.H1,
+  as: displayAs,
+  class: className,
+}: Props = Astro.props;
+
+const headingElements: Record<HeadingSize, string> = {
+  [HeadingSize.Headline]: "h1",
+  [HeadingSize.H1]: "h1",
+  [HeadingSize.H2]: "h2",
+  [HeadingSize.H3]: "h3",
+  [HeadingSize.H4]: "h4",
+  [HeadingSize.H5]: "h5",
+  [HeadingSize.H6]: "h6",
+};
+
+const headingVariants: Record<HeadingSize, string> = {
+  ...headingElements,
+  [HeadingSize.Headline]: "headline",
+};
+
+const HeadingElement: string = headingElements[size];
+
+let variant;
+
+if (displayAs) {
+  variant = headingVariants[displayAs];
+} else if (size === HeadingSize.Headline) {
+  variant = headingVariants[HeadingSize.Headline];
+}
+
+const variantClass = variant ? `heading--${variant}` : "";
+---
+
+<HeadingElement class:list={[variantClass, className]}>
+  <slot />
+  {
+    Astro.slots.has("sub-heading") && (
+      <span class="heading__sub-heading">
+        <slot name="sub-heading" />
+      </span>
+    )
+  }
+</HeadingElement>
+
+<style>
+  .heading--headline {
+    font-size: var(--ss-font-size-headline);
+  }
+
+  .heading--h1 {
+    font-size: var(--ss-font-size-heading-1);
+  }
+
+  .heading--h2 {
+    font-size: var(--ss-font-size-heading-2);
+  }
+
+  .heading--h3 {
+    font-size: var(--ss-font-size-heading-3);
+  }
+
+  .heading--h4 {
+    font-size: var(--ss-font-size-heading-4);
+  }
+
+  .heading--h5 {
+    font-size: var(--ss-font-size-heading-5);
+  }
+
+  .heading--h6 {
+    font-size: var(--ss-font-size-heading-6);
+  }
+
+  .heading__sub-heading {
+    display: block;
+    font-size: 80%;
+    font-family: var(--ss-font-sans-serif);
+    font-weight: var(--ss-font-sans-serif-weight-light);
+    margin-top: var(--ss-size-1);
+  }
+</style>

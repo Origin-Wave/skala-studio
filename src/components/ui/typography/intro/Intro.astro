@@ -1,0 +1,20 @@
+---
+
+---
+
+<p class="intro">
+  <slot />
+</p>
+
+<style lang="scss">
+  @use "@styles/utils" as utils;
+
+  .intro {
+    font-size: var(--ss-font-size-intro);
+    font-weight: var(--ss-font-sans-serif-weight-regular);
+
+    @include utils.media(tablet-screen) {
+      font-weight: var(--ss-font-sans-serif-weight-light);
+    }
+  }
+</style>

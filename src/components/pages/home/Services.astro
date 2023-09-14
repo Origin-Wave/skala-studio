@@ -1,10 +1,12 @@
 ---
 import ContactCard from "@components/ContactCard.astro";
-import ImageSection from "@components/typography/ImageSection.astro";
-import ImageSections from "@components/typography/ImageSections.astro";
-import IntroSection from "@components/typography/IntroSection.astro";
+import ImageSection from "@components/sections/ImageSection.astro";
+import IntroSection from "@components/sections/IntroSection.astro";
 import Button from "@components/ui/button/Button.astro";
 import Buttons from "@components/ui/button/Buttons.astro";
+import Heading from "@components/ui/typography/heading/Heading.astro";
+import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
+import Intro from "@components/ui/typography/intro/Intro.astro";
 import image4 from "@images/home/Kitchen-Design-Residential-01.jpg";
 import image3 from "@images/home/Krakow-Apartment-Residential-01.jpg";
 import image1 from "@images/home/Larch-Extension-Residential-East-Grinstead-02.jpg";
@@ -12,16 +14,16 @@ import image2 from "@images/home/London-Home-Residential-Interior-Design-01.jpg"
 import { Image } from "astro:assets";
 ---
 
-<div class="services">
+<section class="services">
   <IntroSection>
-    <h2 class="ss-text-h1">Our services</h2>
-    <p class="ss-text-intro">
+    <Heading size={HeadingSize.H2}>Our Services</Heading>
+    <Intro>
       Skala Studio offers comprehensive architectural services, tailored
       solutions, and exceptional interior design to elevate your project.
-    </p>
+    </Intro>
   </IntroSection>
 
-  <ImageSections>
+  <div>
     <ImageSection>
       <Image
         src={image1}
@@ -29,7 +31,7 @@ import { Image } from "astro:assets";
         slot="image"
       />
       <div slot="body">
-        <h3>Full Architectural Services</h3>
+        <Heading size={HeadingSize.H3}>Full Architectural Services</Heading>
         <p>
           We provide comprehensive assistance throughout the entire journey of
           your project, from conception to completion. This includes obtaining
@@ -47,7 +49,7 @@ import { Image } from "astro:assets";
         slot="image"
       />
       <div slot="body">
-        <h3>Partial Architectural Services</h3>
+        <Heading size={HeadingSize.H3}>Partial Architectural Services</Heading>
         <p>
           Our architectural services can be tailored to meet your specific
           needs, whether you require limited assistance, such as obtaining
@@ -66,7 +68,7 @@ import { Image } from "astro:assets";
         slot="image"
       />
       <div slot="body">
-        <h3>Interior Design</h3>
+        <Heading size={HeadingSize.H3}>Interior Design</Heading>
         <p>
           Our interior design services address your specific needs, blending
           functionality and aesthetics to create unique and healthy spaces that
@@ -84,7 +86,7 @@ import { Image } from "astro:assets";
         slot="image"
       />
       <div slot="body">
-        <h3>Consulting</h3>
+        <Heading size={HeadingSize.H3}>Consulting</Heading>
         <p>
           We offer personalised consultations regarding your project’ specific
           needs. Contact us to discuss the details of your project.
@@ -94,10 +96,9 @@ import { Image } from "astro:assets";
         </Buttons>
       </div>
     </ImageSection>
-  </ImageSections>
-
+  </div>
   <ContactCard id="contact" class="services__contact" />
-</div>
+</section>
 
 <style>
   .services {

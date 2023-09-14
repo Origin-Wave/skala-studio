@@ -2,19 +2,17 @@
 
 ---
 
-<div class="image-sections">
-  <slot />
+<div class="image-section">
+  <div class="image-section__column">
+    <slot name="image" />
+  </div>
+  <div class="image-section__column">
+    <slot name="body" />
+  </div>
 </div>
 
-<style>
-  .image-sections {
-    display: flex;
-    flex-direction: column;
-  }
-</style>
-
-<style is:global lang="scss">
-  @use "../../assets/styles/utils" as utils;
+<style lang="scss">
+  @use "@styles/utils" as utils;
 
   .image-section {
     --image-section-border-radius: var(--ss-border-radius-2);
@@ -27,16 +25,8 @@
     & + & {
       margin-top: var(--ss-flow-space-3);
     }
-  }
 
-  .image-section__column {
-    > img {
-      border-radius: var(--image-section-border-radius);
-    }
-  }
-
-  @include utils.media(tablet-screen) {
-    .image-section {
+    @include utils.media(tablet-screen) {
       &:nth-child(odd) {
         flex-direction: row;
       }
@@ -45,10 +35,18 @@
         flex-direction: row-reverse;
       }
 
-      &:first-child:not(:last-child) {
+      &:nth-child(odd),
+      :global(:not(&)) + &:nth-child(odd) {
         --image-section-border-radius: var(--ss-border-radius-2)
           var(--ss-border-radius-2) var(--ss-border-radius-4)
           var(--ss-border-radius-2);
+      }
+
+      &:nth-child(even),
+      :global(:not(&)) + &:nth-child(even) {
+        --image-section-border-radius: var(--ss-border-radius-2)
+          var(--ss-border-radius-2) var(--ss-border-radius-2)
+          var(--ss-border-radius-4);
       }
 
       & + &:not(:last-child) {
@@ -79,8 +77,14 @@
         }
       }
     }
+  }
 
-    .image-section__column {
+  .image-section__column {
+    :global(> img) {
+      border-radius: var(--image-section-border-radius);
+    }
+
+    @include utils.media(tablet-screen) {
       flex: 1 1 50%;
     }
   }
