@@ -1,17 +1,18 @@
 ---
-import Header from "@components/header/Header.astro";
 import Headline from "@components/pages/home/Headline.astro";
-import Intro from "@components/pages/home/Intro.astro";
+import Introduction from "@components/pages/home/Introduction.astro";
 import Presentation from "@components/pages/home/Presentation.astro";
 import Services from "@components/pages/home/Services.astro";
 import "@styles/global.scss";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Skala Studio - Award Winning Architecture & Interior Design">
-  <Header />
+<BaseLayout
+  title="Skala Studio - Award Winning Architecture & Interior Design"
+  description="Award-Winning Architectural Design for Healthy Living. Explore our innovative designs and projects that prioritise wellness and sustainability. Elevate your living spaces with our expertise."
+>
   <Headline />
   <Presentation />
-  <Intro />
+  <Introduction />
   <Services />
 </BaseLayout>

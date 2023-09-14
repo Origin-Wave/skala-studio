@@ -6,21 +6,17 @@
   <slot />
 </div>
 
-<style is:global lang="scss">
-  .buttons {
-    p + &,
-    ul + &,
-    ol + &,
-    address + & {
-      margin-top: var(--ss-flow-space-2);
-    }
-  }
-</style>
-
 <style lang="scss">
   .buttons {
     display: flex;
     flex-wrap: wrap;
     gap: var(--ss-flow-space-1);
+
+    :global(p) + &,
+    :global(ul) + &,
+    :global(ol) + &,
+    :global(address) + & {
+      margin-top: var(--ss-flow-space-2);
+    }
   }
 </style>

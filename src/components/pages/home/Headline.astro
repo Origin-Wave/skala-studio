@@ -1,14 +1,13 @@
 ---
-
+import Heading from "@components/ui/typography/heading/Heading.astro";
+import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
 ---
 
 <div class="headline">
-  <h1 class="headline__heading">
-    <span class="headline__heading-alt">Award Winning</span><br /> Architecture <span
-      class="headline__heading-alt">&amp;</span
-    >
+  <Heading size={HeadingSize.Headline}>
+    <u>Award Winning</u><br /> Architecture <u>&amp;</u>
     <span>&nbsp;Interior Design</span>
-  </h1>
+  </Heading>
   <p class="headline__sub-heading">We design to express your character</p>
 </div>
 
@@ -16,14 +15,6 @@
   .headline {
     text-align: center;
     padding: var(--ss-flow-space-3) 0;
-  }
-
-  .headline__heading {
-    font-size: var(--ss-font-size-headline);
-  }
-
-  .headline__heading-alt {
-    font-weight: var(--ss-font-serif-weight-regular);
   }
 
   .headline__sub-heading {
