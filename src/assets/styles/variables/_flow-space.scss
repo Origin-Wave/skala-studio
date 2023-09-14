@@ -1,22 +1,22 @@
-@use "../utils" as utils;
-
 :root {
-  --ss-flow-space-1: var(--ss-size-3);
-  --ss-flow-space-2: var(--ss-size-4);
-  --ss-flow-space-3: var(--ss-size-6);
-  --ss-flow-space-4: var(--ss-size-8);
-
-  @include utils.media(tablet-screen) {
-    --ss-flow-space-1: var(--ss-size-4);
-    --ss-flow-space-2: var(--ss-size-5);
-    --ss-flow-space-3: var(--ss-size-8);
-    --ss-flow-space-4: var(--ss-size-12);
-  }
-
-  @include utils.media(small-screen) {
-    --ss-flow-space-1: var(--ss-size-5);
-    --ss-flow-space-2: var(--ss-size-6);
-    --ss-flow-space-3: var(--ss-size-9);
-    --ss-flow-space-4: var(--ss-size-13);
-  }
+  --ss-flow-space-1: clamp(
+    var(--ss-size-3),
+    calc(var(--ss-size-3) + 0.8vw),
+    var(--ss-size-5)
+  );
+  --ss-flow-space-2: clamp(
+    var(--ss-size-4),
+    calc(var(--ss-size-4) + 1.2vw),
+    var(--ss-size-6)
+  );
+  --ss-flow-space-3: clamp(
+    var(--ss-size-6),
+    calc(var(--ss-size-6) + 2.4vw),
+    var(--ss-size-9)
+  );
+  --ss-flow-space-4: clamp(
+    var(--ss-size-8),
+    calc(var(--ss-size-8) + 4vw),
+    var(--ss-size-13)
+  );
 }
