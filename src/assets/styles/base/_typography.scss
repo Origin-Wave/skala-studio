@@ -1,3 +1,5 @@
+@use "@styles/utils" as utils;
+
 body,
 input,
 select {
@@ -6,7 +8,9 @@ select {
 
 body {
   font-size: var(--ss-font-size-base);
+  font-weight: var(--ss-font-sans-serif-weight-regular);
   line-height: 1.5;
+  color: var(--ss-color-soil);
 }
 
 h1,
@@ -92,3 +96,20 @@ address {
 u {
   text-decoration: none;
 }
+
+a:any-link {
+  font-weight: var(--ss-font-sans-serif-weight-bold);
+  text-decoration-line: underline;
+  text-decoration-thickness: 3%;
+  text-decoration-skip-ink: revert;
+  text-underline-offset: 10%;
+  text-underline-position: under;
+}
+
+a:hover {
+  text-underline-offset: 1%;
+  text-decoration-thickness: 0;
+  text-decoration-color: transparent;
+}
+
+@include utils.links(var(--ss-color-action), var(--ss-color-action-active));

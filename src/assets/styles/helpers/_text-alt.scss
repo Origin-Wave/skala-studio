@@ -1,0 +1,10 @@
+@use "@styles/utils" as utils;
+
+.ss-text-alt {
+  color: var(--ss-color-stone-alt);
+
+  @include utils.links(
+    var(--ss-color-action-alt),
+    var(--ss-color-action-alt-active)
+  );
+}

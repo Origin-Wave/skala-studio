@@ -1,12 +1,15 @@
 ---
 import Contact from "@components/Contact.astro";
 import Logo from "@components/Logo.astro";
+import Container from "@components/ui/container/Container.astro";
 ---
 
-<header class="header">
-  <Logo class="header__logo" />
-  <Contact class="header__contact" compact={true} />
-</header>
+<Container>
+  <header class="header">
+    <Logo class="header__logo" />
+    <Contact class="header__contact" compact={true} />
+  </header>
+</Container>
 
 <style lang="scss">
   @use "@styles/utils" as utils;

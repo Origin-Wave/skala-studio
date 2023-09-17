@@ -1,5 +1,4 @@
 ---
-import Headline from "@components/pages/home/Headline.astro";
 import { HeadingSize } from "@components/ui/typography/heading/Heading.models.ts";
 
 interface Props {
@@ -22,11 +21,15 @@ const headingElements: Record<HeadingSize, string> = {
   [HeadingSize.H4]: "h4",
   [HeadingSize.H5]: "h5",
   [HeadingSize.H6]: "h6",
+  [HeadingSize.Intro]: "p",
+  [HeadingSize.Base]: "p",
 };
 
 const headingVariants: Record<HeadingSize, string> = {
   ...headingElements,
   [HeadingSize.Headline]: "headline",
+  [HeadingSize.Intro]: "intro",
+  [HeadingSize.Base]: "base",
 };
 
 const HeadingElement: string = headingElements[size];
@@ -35,8 +38,8 @@ let variant;
 
 if (displayAs) {
   variant = headingVariants[displayAs];
-} else if (size === HeadingSize.Headline) {
-  variant = headingVariants[HeadingSize.Headline];
+} else if (size) {
+  variant = headingVariants[size];
 }
 
 const variantClass = variant ? `heading--${variant}` : "";
@@ -80,6 +83,20 @@ const variantClass = variant ? `heading--${variant}` : "";
 
   .heading--h6 {
     font-size: var(--ss-font-size-heading-6);
+  }
+
+  .heading--intro,
+  .heading--base {
+    font-family: var(--ss-font-sans-serif);
+    font-weight: var(--ss-font-sans-serif-weight-bold);
+  }
+
+  .heading--intro {
+    font-size: var(--ss-font-size-intro);
+  }
+
+  .heading--base {
+    font-size: var(--ss-font-size-base);
   }
 
   .heading__sub-heading {

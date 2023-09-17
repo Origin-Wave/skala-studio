@@ -1,9 +1,24 @@
 :root {
   --ss-color-soil: #0a0f0c;
   --ss-color-leaf: #205b3f;
+  --ss-color-leaf-active: color-mix(
+    in srgb,
+    var(--ss-color-leaf) 25%,
+    var(--ss-color-soil)
+  );
   --ss-color-leaf-alt: #c7d4ce;
   --ss-color-oil: #dfd57e;
+  --ss-color-oil-active: color-mix(
+    in srgb,
+    var(--ss-color-oil) 25%,
+    var(--ss-color-stone-alt)
+  );
   --ss-color-oil-alt: #f1edcd;
   --ss-color-stone: #ededed;
   --ss-color-stone-alt: #ffffff;
+
+  --ss-color-action: var(--ss-color-leaf);
+  --ss-color-action-active: var(--ss-color-leaf-active);
+  --ss-color-action-alt: var(--ss-color-oil);
+  --ss-color-action-alt-active: var(--ss-color-oil-active);
 }
