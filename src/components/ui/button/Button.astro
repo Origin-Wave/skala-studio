@@ -43,37 +43,52 @@ const isLink = Object.hasOwn(props, "href");
   )
 }
 
-<style>
+<style lang="scss">
   .button {
     --button-background: transparent;
+    --button-background-active: transparent;
     --button-text-color: transparent;
+    --button-text-color-active: transparent;
 
-    appearance: none;
-    background: var(--button-background);
-    border: 0;
-    font-family: inherit;
-    font-size: var(--ss-font-size-small);
-    font-weight: var(--ss-font-sans-serif-weight-regular);
-    text-align: inherit;
-    text-decoration: none;
-    text-transform: uppercase;
-    height: var(--ss-size-8);
-    padding: 0 var(--ss-size-6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--button-text-color);
-    border-radius: var(--ss-border-radius-1);
+    &,
+    &:any-link {
+      appearance: none;
+      background: var(--button-background);
+      border: 0;
+      font-family: inherit;
+      font-size: var(--ss-font-size-small);
+      font-weight: var(--ss-font-sans-serif-weight-regular);
+      text-align: inherit;
+      text-decoration: none;
+      text-transform: uppercase;
+      height: var(--ss-size-8);
+      padding: 0 var(--ss-size-6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--button-text-color);
+      border-radius: var(--ss-border-radius-1);
+      transition: var(--ss-transition-action);
+    }
+
+    &,
+    &:hover {
+      color: var(--button-text-color-active);
+      background: var(--button-background-active);
+    }
   }
 
   .button--primary {
-    --button-background: var(--ss-color-leaf);
+    --button-background: var(--ss-color-action);
+    --button-background-active: var(--ss-color-action-active);
     --button-text-color: var(--ss-color-stone-alt);
+    --button-text-color-active: var(--ss-color-stone-alt);
   }
 
   .button--secondary {
     --button-background: var(--ss-color-stone-alt);
-    --button-text-color: var(--ss-color-leaf);
+    --button-text-color: var(--ss-color-action);
+    --button-text-color-active: var(--ss-color-action-active);
 
     border: calc(var(--ss-size-1) / 2) solid var(--button-text-color);
   }

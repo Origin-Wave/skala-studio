@@ -1,59 +1,68 @@
 ---
+import { companyInfoClient } from "@shared/company-info";
+
 interface Props {
   compact?: boolean;
   class?: string;
 }
 
 const { class: className, compact = false } = Astro.props;
+const { directors, email, address } = await companyInfoClient.getCompanyInfo();
 ---
 
 <address class:list={["contact", { "contact--compact": compact }, className]}>
   <p>
     <span class="contact__label">Email:</span>
-     info@skala-studio.co.uk
+    {email}
   </p>
   <p>
     <span class="contact__label">Mobile:</span>
-    <span>
-      07415 330 360<br />
-       07921 045 731
-    </span>
+    {
+      directors.map((director) => (
+        <span>
+          {director.phone}
+          <br />
+        </span>
+      ))
+    }
+    <p class="contact__address">
+      <span class="contact__label">Address:</span>
+      <span>
+        {address.street}
+        <br />
+        {address.city}
+        <br />
+        {address.postCode}
+      </span>
+    </p>
   </p>
-  <p class="contact__address">
-    <span class="contact__label">Address:</span>
-    <span>
-      18 Perry Ave
-      <br /> East Grinstead <br />
-       RH19 2DJ
-    </span>
-  </p>
-</address>
 
-<style lang="scss">
-  .contact {
-    display: flex;
-    flex-direction: column;
-    font-size: var(--ss-font-size-base);
-    gap: var(--ss-size-1);
-  }
-
-  .contact--compact {
-    > * {
-      margin: 0;
+  <style lang="scss">
+    .contact {
+      display: flex;
+      flex-direction: column;
+      font-size: var(--ss-font-size-base);
+      gap: var(--ss-size-1);
     }
 
-    .contact__address {
-      display: none;
+    .contact--compact {
+      > * {
+        margin: 0;
+      }
+
+      .contact__address {
+        display: none;
+      }
+
+      .contact__label {
+        display: inline;
+      }
     }
 
     .contact__label {
-      display: inline;
+      display: block;
+      font-weight: var(--ss-font-sans-serif-weight-bold);
+      margin-right: var(--ss-size-1);
     }
-  }
-
-  .contact__label {
-    display: block;
-    font-weight: var(--ss-font-sans-serif-weight-bold);
-    margin-right: var(--ss-size-1);
-  }
-</style>
+  </style>
+</address>
