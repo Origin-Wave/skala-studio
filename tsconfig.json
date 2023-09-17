@@ -3,6 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@shared/*": ["src/shared/*"],
       "@components/*": ["src/components/*"],
       "@images/*": ["src/assets/images/*"],
       "@styles/*": ["src/assets/styles/*"]

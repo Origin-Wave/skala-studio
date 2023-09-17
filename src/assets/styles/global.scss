@@ -1,22 +1,8 @@
 @use "variables";
 @use "base";
+@use "helpers";
 @use "utils" as utils;
 
 html {
   scroll-behavior: smooth;
-}
-
-body {
-  --body-padding: var(--ss-size-3);
-
-  padding: 0 var(--body-padding);
-  font-weight: var(--ss-font-sans-serif-weight-regular);
-
-  @include utils.media(tablet-screen) {
-    --body-padding: var(--ss-size-5);
-  }
-
-  @include utils.media(small-screen) {
-    --body-padding: var(--ss-size-7);
-  }
 }

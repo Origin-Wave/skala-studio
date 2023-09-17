@@ -1,0 +1,13 @@
+@mixin links($actionColor, $actionColorActive) {
+  a:any-link {
+    color: $actionColor;
+    &,
+    svg {
+      transition: var(--ss-transition-action);
+    }
+  }
+
+  a:hover {
+    color: $actionColorActive;
+  }
+}

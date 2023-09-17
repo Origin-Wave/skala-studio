@@ -6,6 +6,8 @@ export enum HeadingSize {
   H4,
   H5,
   H6,
+  Intro,
+  Base,
 }
 
 export enum HeadingElements {

@@ -1,5 +1,15 @@
 {
-  "cSpell.words": ["astro", "skala", "tsconfigs"],
+  "cSpell.words": [
+    "astro",
+    "Czapiga",
+    "Grinstead",
+    "Katarzyna",
+    "Marzena",
+    "Pinterest",
+    "skala",
+    "Szwed",
+    "tsconfigs"
+  ],
   "javascript.preferences.importModuleSpecifier": "non-relative",
   "typescript.preferences.importModuleSpecifier": "non-relative",
   "editor.codeActionsOnSave": {

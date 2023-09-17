@@ -1,0 +1,219 @@
+---
+import Container from "@components/ui/container/Container.astro";
+import SocialMedia from "@components/ui/icons/social-media/SocialMedia.astro";
+import { SocialMediaVariant } from "@components/ui/icons/social-media/SocialMedia.models";
+import Heading from "@components/ui/typography/heading/Heading.astro";
+import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
+import ARBImage from "@images/global/ARB-Architects-Regiistration-Board.png";
+import RIBAImage from "@images/global/RIBA-Chartered-Practice.png";
+import { companyInfoClient } from "@shared/company-info";
+import { Image } from "astro:assets";
+
+const {
+  name,
+  email,
+  directors,
+  socialMedia,
+  address,
+  structure,
+  registrationNumber,
+} = await companyInfoClient.getCompanyInfo();
+
+const instagramText = `View ${name} on Instagram`;
+const facebookText = `View ${name} on Facebook`;
+const pinterestText = `View ${name} on Pinterest`;
+---
+
+<footer class="footer ss-text-alt">
+  <Container>
+    <div class="footer__sections">
+      <div class="footer__section">
+        <Heading size={HeadingSize.H2} as={HeadingSize.Base}>
+          Contact Us
+        </Heading>
+        <ul class="footer__list">
+          <li>{email}</li>
+          {directors.map((director) => <li>{director.phone}</li>)}
+        </ul>
+        <ul class="footer__list footer__list--horizontal">
+          <li>
+            <a
+              href={socialMedia.facebook.url}
+              target="_blank"
+              aria-label={facebookText}
+              title={facebookText}
+            >
+              <SocialMedia
+                variant={SocialMediaVariant.Facebook}
+                aria-hidden="true"
+              />
+            </a>
+          </li>
+          <li>
+            <a
+              href={socialMedia.instagram.url}
+              target="_blank"
+              aria-label={instagramText}
+              title={instagramText}
+            >
+              <SocialMedia
+                variant={SocialMediaVariant.Instagram}
+                aria-hidden="true"
+              />
+            </a>
+          </li>
+          <li>
+            <a
+              href={socialMedia.pinterest.url}
+              target="_blank"
+              aria-label={pinterestText}
+              title={pinterestText}
+            >
+              <SocialMedia
+                variant={SocialMediaVariant.Pinterest}
+                aria-hidden="true"
+              />
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer__section">
+        <Heading size={HeadingSize.H2} as={HeadingSize.Base}>Find Us</Heading>
+        <address>
+          <p>
+            {address.street}, {address.city}<br />{address.postCode}
+            <br />
+            <a href={address.googleMapsUrl} target="_blank">Get directions</a>
+          </p>
+        </address>
+      </div>
+
+      <div class="footer__section">
+        <Heading size={HeadingSize.H2} as={HeadingSize.Base}>
+          {name}&nbsp;{structure}
+        </Heading>
+        <ul class="footer__list">
+          <li>
+            ARB Reg No.
+            <a
+              href="https://architects-register.org.uk/Architect/098402G?filterId=Architect"
+              target="_blank"
+            >
+              098402G</a
+            > and <a
+              href="https://architects-register.org.uk/Architect/100588J?filterId=Architect"
+              target="_blank">100588J</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://find-an-architect.architecture.com/skala-studio-ltd/east-grinstead"
+              target="_blank">RIBA Chartered Practice</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.build-review.com/issues/architecture-awards-2022/28/"
+              target="_blank">BUILD 2022 Architecture Awards Winner</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__accreditations">
+      <ul class="footer__list footer__list--horizontal footer__list--center">
+        <li>
+          <Image
+            src={RIBAImage}
+            alt="RIBA Chartered Practice logo"
+            class="footer__accreditation"
+          />
+        </li>
+        <li>
+          <Image
+            src={ARBImage}
+            alt="Architects Registration Board logo"
+            class="footer__accreditation"
+          />
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__legal">
+      <p>
+        &copy; {new Date().getFullYear()}&nbsp;{name}&nbsp;{structure}. All
+        rights reserved. Company No. <a
+          href={`https://find-and-update.company-information.service.gov.uk/company/${registrationNumber}`}
+          target="_blank"
+          aria-label={`View ${name} ${structure} on Companies House`}
+          >{registrationNumber}</a
+        >
+      </p>
+    </div>
+  </Container>
+</footer>
+
+<style lang="scss">
+  @use "@styles/utils" as utils;
+
+  .footer {
+    background: var(--ss-color-soil);
+    padding: var(--ss-flow-space-4) 0;
+
+    @include utils.media(mobile-screen-max) {
+      text-align: center;
+    }
+  }
+
+  .footer__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--ss-size-1);
+  }
+
+  .footer__list--horizontal {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--ss-size-2);
+
+    @include utils.media(mobile-screen-max) {
+      justify-content: center;
+    }
+  }
+
+  .footer__sections {
+    display: flex;
+    flex-direction: column;
+
+    @include utils.media(mobile-screen-max) {
+      gap: var(--ss-flow-space-3);
+    }
+
+    @include utils.media(tablet-screen) {
+      flex-direction: row;
+      gap: var(--ss-flow-space-1);
+    }
+  }
+
+  .footer__section {
+    flex: 0 1 calc(100% / 3);
+  }
+
+  .footer__accreditations {
+    padding: var(--ss-flow-space-3) 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer__accreditation {
+    max-width: 180px;
+  }
+
+  .footer__legal {
+    text-align: center;
+  }
+</style>
