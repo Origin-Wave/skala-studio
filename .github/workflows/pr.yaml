@@ -1,7 +1,7 @@
 name: Check pull request
 on:
   pull_request:
-    types: [opened, reopened]
+    branches:
 jobs:
   test:
     name: Test
