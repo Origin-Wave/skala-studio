@@ -1,12 +1,10 @@
-name: Release
+name: Check pull request
 on:
-  push:
+  pull_request:
     branches:
-      - main
-      - next
 jobs:
-  release:
-    name: Release
+  test:
+    name: Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -23,7 +21,3 @@ jobs:
         run: npm run test
       - name: Build application
         run: npm run build
-      - name: Release package
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: npx semantic-release

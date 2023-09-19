@@ -80,7 +80,8 @@
   }
 
   .image-section__column {
-    :global(> img) {
+    :global(> img),
+    :global(> picture) {
       border-radius: var(--image-section-border-radius);
     }
 
@@ -88,4 +89,81 @@
       flex: 1 1 50%;
     }
   }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .image-section {
+      --image-section-fade-in-offset: 25px;
+      --image-section-fade-in-easing: cubic-bezier(0, 0, 0.25, 1);
+
+      .image-section__column--hidden {
+        opacity: 0;
+        scale: 0.9;
+        filter: blur(10px);
+      }
+
+      @include utils.media(mobile-screen-max) {
+        .image-section__column--hidden {
+          transform: translateX(var(--image-section-fade-in-offset));
+        }
+      }
+
+      @include utils.media(tablet-screen) {
+        &:nth-child(odd) .image-section__column--hidden:first-child,
+        &:nth-child(even) .image-section__column--hidden:first-child {
+          transition-delay: 500ms;
+        }
+
+        &:nth-child(odd) .image-section__column--hidden:first-child,
+        &:nth-child(even) .image-section__column--hidden:last-child {
+          transform: translateX(calc(var(--image-section-fade-in-offset) * -1));
+        }
+
+        &:nth-child(even) .image-section__column--hidden:first-child,
+        &:nth-child(odd) .image-section__column--hidden:last-child {
+          transform: translateX(var(--image-section-fade-in-offset));
+        }
+      }
+
+      .image-section__column--visible {
+        opacity: 1;
+        transform: translateX(0) !important;
+        filter: blur(0);
+        scale: 1;
+        transition:
+          opacity 0.5s var(--image-section-fade-in-easing),
+          filter 0.25s var(--image-section-fade-in-easing),
+          transform 1s var(--image-section-fade-in-easing);
+      }
+    }
+  }
 </style>
+
+<script>
+  document.addEventListener(
+    "DOMContentLoaded",
+    setupIntersectionObserver,
+    false,
+  );
+
+  function setupIntersectionObserver(): void {
+    const IMAGE_SECTION_CLASS = "image-section__column";
+    const IMAGE_SECTION_VISIBLE_CLASS = `${IMAGE_SECTION_CLASS}--visible`;
+    const IMAGE_SECTION_HIDDEN_CLASS = `${IMAGE_SECTION_CLASS}--hidden`;
+
+    const callback: IntersectionObserverCallback = (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(IMAGE_SECTION_VISIBLE_CLASS);
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+    const config: IntersectionObserverInit = { threshold: 0.5 };
+    const observer = new IntersectionObserver(callback, config);
+
+    document.querySelectorAll(`.${IMAGE_SECTION_CLASS}`).forEach((image) => {
+      image.classList.add(IMAGE_SECTION_HIDDEN_CLASS);
+      observer.observe(image);
+    });
+  }
+</script>

@@ -4,6 +4,7 @@ import ImageSection from "@components/sections/ImageSection.astro";
 import IntroSection from "@components/sections/IntroSection.astro";
 import Button from "@components/ui/button/Button.astro";
 import Buttons from "@components/ui/button/Buttons.astro";
+import Picture from "@components/ui/picture/Picture.astro";
 import Heading from "@components/ui/typography/heading/Heading.astro";
 import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
 import Intro from "@components/ui/typography/intro/Intro.astro";
@@ -11,7 +12,6 @@ import image4 from "@images/home/Kitchen-Design-Residential-01.jpg";
 import image3 from "@images/home/Krakow-Apartment-Residential-01.jpg";
 import image1 from "@images/home/Larch-Extension-Residential-East-Grinstead-02.jpg";
 import image2 from "@images/home/London-Home-Residential-Interior-Design-01.jpg";
-import { Image } from "astro:assets";
 ---
 
 <section class="services">
@@ -25,8 +25,8 @@ import { Image } from "astro:assets";
 
   <div>
     <ImageSection>
-      <Image
-        src={image1}
+      <Picture
+        mainImage={image1}
         alt="Skala Studio's design prowess shines through in this image, showcasing an external house extension enveloped in dark oak timber planks and a petite window. The backdrop is set against a brilliant, cloudless blue sky, and a leafless tree with intricate black branches adds a touch of natural elegance to the scene."
         slot="image"
       />
@@ -43,8 +43,8 @@ import { Image } from "astro:assets";
       </div>
     </ImageSection>
     <ImageSection>
-      <Image
-        src={image2}
+      <Picture
+        mainImage={image2}
         alt="In this inviting interior space, brought to life by Skala Studio, the charm lies in the interplay of elements. White walls, black joinery trims, and a checkered black-and-white floor create a timeless aesthetic. The Crittall-style black steel frame patio door seamlessly connects the indoor and outdoor areas, complemented by a bottle green sofa with a vibrant yellow decorative cushion. A fireplace and a sizable indoor green plant add to the overall appeal."
         slot="image"
       />
@@ -62,8 +62,8 @@ import { Image } from "astro:assets";
       </div>
     </ImageSection>
     <ImageSection>
-      <Image
-        src={image3}
+      <Picture
+        mainImage={image3}
         alt="An image of an interior, thoughtfully designed by Skala Studio, showcases a captivating arched brick ceiling gently bathed in LED lighting. Storage cabinets feature decorative light wood three-dimensional doors that interact playfully with the lighting. To the right, an arched black door and a double French black door with stained glass provide elegant transitions. On the opposite side, a striking black kitchen with a soft travertine stone island adds depth and character to the space."
         slot="image"
       />
@@ -80,8 +80,8 @@ import { Image } from "astro:assets";
       </div>
     </ImageSection>
     <ImageSection>
-      <Image
-        src={image4}
+      <Picture
+        mainImage={image4}
         alt="Captured here is a portion of a kitchen that bears the mark of Skala Studio's expertise. With green cabinets, a travertine stone and brass sheet-backed kitchen island, and an arched utility door, the space exudes sophistication. Ample natural light pours in through the window, creating a welcoming atmosphere that combines style and functionality seamlessly."
         slot="image"
       />

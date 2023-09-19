@@ -1,0 +1,93 @@
+---
+import {
+  optimiseImage,
+  type OptimiseImageOptions,
+} from "@shared/optimise-image";
+
+interface Props {
+  class?: string;
+  mainImage: ImageMetadata;
+  alt: string;
+  tabletImage?: ImageMetadata;
+  mobileImage?: ImageMetadata;
+  optimiseOptions?: OptimiseImageOptions;
+}
+
+const {
+  class: className,
+  alt,
+  mainImage,
+  tabletImage,
+  mobileImage,
+  optimiseOptions = {},
+} = Astro.props;
+
+const options: OptimiseImageOptions = {
+  format: "webp",
+  quality: {
+    x1: 80,
+    x2: 40,
+  },
+  ...optimiseOptions,
+};
+
+const [mainImage1x, mainImage2x] = await optimiseImage(mainImage, options);
+
+const hasTabletImage = !!tabletImage;
+const hasMobileImage = !!mobileImage;
+let tabletImage1x, tabletImage2x, mobileImage1x, mobileImage2x;
+
+if (hasTabletImage) {
+  [tabletImage1x, tabletImage2x] = await optimiseImage(tabletImage, options);
+}
+
+if (hasMobileImage) {
+  [mobileImage1x, mobileImage2x] = await optimiseImage(mobileImage, options);
+}
+---
+
+<picture class:list={["picture", className]}>
+  <source
+    media="(min-width: 992px)"
+    srcset={`${mainImage1x.src} 1x, ${mainImage2x.src} 2x`}
+    width={mainImage.width / 2}
+    height={mainImage.height / 2}
+  />
+  {
+    hasTabletImage && (
+      <source
+        media="(min-width: 767px) and (max-width: 991px)"
+        srcset={`${tabletImage1x!.src} 1x, ${tabletImage2x!.src} 2x`}
+        width={tabletImage.width / 2}
+        height={tabletImage.height / 2}
+      />
+    )
+  }
+  {
+    hasMobileImage && (
+      <source
+        media="(max-width: 766px)"
+        srcset={`${mobileImage1x!.src} 1x, ${mobileImage2x!.src} 2x`}
+        width={mobileImage.width / 2}
+        height={mobileImage.height / 2}
+      />
+    )
+  }
+  <img
+    src={mainImage1x.src}
+    width={mainImage.width / 2}
+    height={mainImage.height / 2}
+    alt={alt}
+  />
+</picture>
+
+<style lang="scss">
+  .picture {
+    display: block;
+    overflow: hidden;
+
+    > * {
+      width: 100%;
+    }
+  }
+</style>

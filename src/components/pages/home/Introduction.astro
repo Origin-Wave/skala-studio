@@ -1,13 +1,13 @@
 ---
 import ImageSection from "@components/sections/ImageSection.astro";
 import IntroSection from "@components/sections/IntroSection.astro";
+import Picture from "@components/ui/picture/Picture.astro";
 import Heading from "@components/ui/typography/heading/Heading.astro";
 import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
 import Intro from "@components/ui/typography/intro/Intro.astro";
 import image1 from "@images/home/Larch-Extension-Residential-East-Grinstead-01.jpg";
 import image3 from "@images/home/Larch-Extension-Residential-East-Grinstead-03.jpg";
 import image2 from "@images/home/Suburban-Home-Residential-Basingstoke-01.jpg";
-import { Image } from "astro:assets";
 ---
 
 <section class="intro">
@@ -27,10 +27,10 @@ import { Image } from "astro:assets";
 
   <div>
     <ImageSection>
-      <Image
-        src={image1}
-        alt="A kitchen designed by Skala Studio features cabinets with a worktop, wooden chopping board, and a vase filled with fresh flowers. Beyond the cabinets, a vast window opens up to picturesque garden views, flooding the kitchen with abundant natural light and lush greenery. The dark cabinet doors and elegant copper handles create a captivating contrast, making it feel like the outdoors have been graciously welcomed inside."
+      <Picture
         slot="image"
+        mainImage={image1}
+        alt="A kitchen designed by Skala Studio features cabinets with a worktop, wooden chopping board, and a vase filled with fresh flowers. Beyond the cabinets, a vast window opens up to picturesque garden views, flooding the kitchen with abundant natural light and lush greenery. The dark cabinet doors and elegant copper handles create a captivating contrast, making it feel like the outdoors have been graciously welcomed inside."
       />
       <div slot="body">
         <Heading size={HeadingSize.H3}>
@@ -50,10 +50,10 @@ import { Image } from "astro:assets";
     </ImageSection>
 
     <ImageSection>
-      <Image
-        src={image2}
-        alt="Skala Studio's visionary design is showcased in this image, highlighting a striking green stone kitchen island with a terracotta backdrop, wooden panels in varying shades cladding the internal walls, and an alluring glass block wall. A window provides glimpses of the verdant garden beyond."
+      <Picture
         slot="image"
+        mainImage={image2}
+        alt="Skala Studio's visionary design is showcased in this image, highlighting a striking green stone kitchen island with a terracotta backdrop, wooden panels in varying shades cladding the internal walls, and an alluring glass block wall. A window provides glimpses of the verdant garden beyond."
       />
       <div slot="body">
         <Heading size={HeadingSize.H3}>
@@ -72,10 +72,10 @@ import { Image } from "astro:assets";
     </ImageSection>
 
     <ImageSection>
-      <Image
-        src={image3}
-        alt="This photograph captures an external house extension, displaying a slender, dark-framed window that reflects the surrounding garden's vibrant greenery and the expansive blue sky. The contrasting dark oak timber cladding on the extension's facade harmonizes beautifully with the various shades of green seen in the garden, creating a captivating visual contrast."
+      <Picture
         slot="image"
+        mainImage={image3}
+        alt="This photograph captures an external house extension, displaying a slender, dark-framed window that reflects the surrounding garden's vibrant greenery and the expansive blue sky. The contrasting dark oak timber cladding on the extension's facade harmonizes beautifully with the various shades of green seen in the garden, creating a captivating visual contrast."
       />
       <div slot="body">
         <Heading size={HeadingSize.H3}>
