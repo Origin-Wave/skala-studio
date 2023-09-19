@@ -16,10 +16,11 @@
 
   .image-section {
     --image-section-border-radius: var(--ss-border-radius-2);
+    --image-section-column-gap: var(--ss-flow-space-2);
 
     display: flex;
     flex-direction: column;
-    gap: var(--ss-flow-space-3);
+    gap: var(--image-section-column-gap);
     align-items: center;
 
     & + & {
@@ -27,6 +28,8 @@
     }
 
     @include utils.media(tablet-screen) {
+      --image-section-column-gap: var(--ss-flow-space-3);
+
       &:nth-child(odd) {
         flex-direction: row;
       }
@@ -92,7 +95,7 @@
 
   @media (prefers-reduced-motion: no-preference) {
     .image-section {
-      --image-section-fade-in-offset: 25px;
+      --image-section-fade-in-offset: var(--ss-flow-space-1);
       --image-section-fade-in-easing: cubic-bezier(0, 0, 0.25, 1);
 
       .image-section__column--hidden {
@@ -102,6 +105,8 @@
       }
 
       @include utils.media(mobile-screen-max) {
+        --image-section-fade-in-offset: 0;
+
         .image-section__column--hidden {
           transform: translateX(var(--image-section-fade-in-offset));
         }
