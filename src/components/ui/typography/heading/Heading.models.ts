@@ -1,5 +1,5 @@
 export enum HeadingSize {
-  Headline,
+  Headline = 1,
   H1,
   H2,
   H3,

@@ -33,15 +33,7 @@ const headingVariants: Record<HeadingSize, string> = {
 };
 
 const HeadingElement: string = headingElements[size];
-
-let variant;
-
-if (displayAs) {
-  variant = headingVariants[displayAs];
-} else if (size) {
-  variant = headingVariants[size];
-}
-
+const variant = displayAs ? headingVariants[displayAs] : null;
 const variantClass = variant ? `heading--${variant}` : "";
 ---
 

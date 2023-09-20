@@ -1,17 +1,17 @@
 :root {
-  --ss-size-1: 4px;
-  --ss-size-2: 8px;
-  --ss-size-3: 12px;
-  --ss-size-4: 18px;
-  --ss-size-5: 24px;
-  --ss-size-6: 36px;
-  --ss-size-7: 48px;
-  --ss-size-8: 60px;
-  --ss-size-9: 72px;
-  --ss-size-10: 84px;
-  --ss-size-11: 96px;
-  --ss-size-12: 108px;
-  --ss-size-13: 120px;
-  --ss-size-14: 132px;
-  --ss-size-15: 144px;
+  --ss-size-1: calc(var(--ss-size-3) / 3);
+  --ss-size-2: calc(var(--ss-size-3) / 2);
+  --ss-size-3: clamp(10px, calc(8px + 0.55vw), 14px);
+  --ss-size-4: calc(var(--ss-size-3) * 1.5);
+  --ss-size-5: calc(var(--ss-size-3) * 2);
+  --ss-size-6: calc(var(--ss-size-3) * 3);
+  --ss-size-7: calc(var(--ss-size-3) * 4);
+  --ss-size-8: calc(var(--ss-size-3) * 5);
+  --ss-size-9: calc(var(--ss-size-3) * 6);
+  --ss-size-10: calc(var(--ss-size-3) * 7);
+  --ss-size-11: calc(var(--ss-size-3) * 8);
+  --ss-size-12: calc(var(--ss-size-3) * 9);
+  --ss-size-13: calc(var(--ss-size-3) * 10);
+  --ss-size-14: calc(var(--ss-size-3) * 11);
+  --ss-size-15: calc(var(--ss-size-3) * 12);
 }

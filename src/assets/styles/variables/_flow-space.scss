@@ -1,7 +1,7 @@
 :root {
   --ss-flow-space-1: clamp(
     var(--ss-size-3),
-    calc(var(--ss-size-3) + 0.8vw),
+    calc(var(--ss-size-2) + 1.2vw),
     var(--ss-size-5)
   );
   --ss-flow-space-2: clamp(

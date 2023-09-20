@@ -3,8 +3,5 @@
 .ss-text-alt {
   color: var(--ss-color-stone-alt);
 
-  @include utils.links(
-    var(--ss-color-action-alt),
-    var(--ss-color-action-alt-active)
-  );
+  @include utils.links(var(--ss-color-oil), var(--ss-color-oil-active));
 }

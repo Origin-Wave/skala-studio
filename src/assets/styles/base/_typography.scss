@@ -112,4 +112,4 @@ a:hover {
   text-decoration-color: transparent;
 }
 
-@include utils.links(var(--ss-color-action), var(--ss-color-action-active));
+@include utils.links(var(--ss-color-leaf), var(--ss-color-leaf-active));

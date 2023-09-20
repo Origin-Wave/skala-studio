@@ -1,13 +1,17 @@
 ---
 import Contact from "@components/Contact.astro";
 import Logo from "@components/Logo.astro";
+import Button from "@components/ui/button/Button.astro";
 import Container from "@components/ui/container/Container.astro";
 ---
 
 <Container>
   <header class="header">
     <Logo class="header__logo" />
-    <Contact class="header__contact" compact={true} />
+    <div class="header__contact">
+      <Contact class="header__contact-details" compact={true} />
+      <Button class="header__contact-button" href="#contact">Contact us</Button>
+    </div>
   </header>
 </Container>
 
@@ -15,25 +19,43 @@ import Container from "@components/ui/container/Container.astro";
   @use "@styles/utils" as utils;
 
   .header {
+    --header-padding: var(--ss-flow-space-2);
+    --header-logo-size: var(--ss-size-10);
+
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-bottom: var(--ss-border-separator);
-    padding: var(--ss-flow-space-1) 0;
-  }
 
-  .header__logo {
-    --header-logo-size: var(--ss-size-9);
-
-    width: var(--header-logo-size);
-    height: auto;
+    padding: var(--header-padding) 0;
 
     @include utils.media(tablet-screen) {
       --header-logo-size: var(--ss-size-11);
     }
+
+    @include utils.media(large-screen) {
+      --header-padding: var(--ss-flow-space-1);
+    }
+  }
+
+  .header__logo {
+    width: var(--header-logo-size);
+    height: auto;
   }
 
   .header__contact {
     text-align: right;
+  }
+
+  .header__contact-details {
+    @include utils.media(tablet-screen-max) {
+      display: none !important;
+    }
+  }
+
+  .header__contact-button {
+    @include utils.media(small-screen) {
+      display: none !important;
+    }
   }
 </style>
