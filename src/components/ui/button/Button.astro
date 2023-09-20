@@ -45,8 +45,8 @@ const isLink = Object.hasOwn(props, "href");
 
 <style lang="scss">
   .button {
+    --button-background-position: 0;
     --button-background: transparent;
-    --button-background-active: transparent;
     --button-text-color: transparent;
     --button-text-color-active: transparent;
 
@@ -61,35 +61,52 @@ const isLink = Object.hasOwn(props, "href");
       text-align: inherit;
       text-decoration: none;
       text-transform: uppercase;
-      height: var(--ss-size-8);
-      padding: 0 var(--ss-size-6);
+      padding: 0 var(--ss-size-5);
+      height: var(--ss-size-7);
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--button-text-color);
       border-radius: var(--ss-border-radius-1);
       transition: var(--ss-transition-action);
+      line-height: 1.5;
+      transform: translateY(0);
+      box-shadow: none;
     }
 
-    &,
     &:hover {
       color: var(--button-text-color-active);
       background: var(--button-background-active);
+      transform: translateY(calc(var(--ss-size-1) * -0.5));
+      box-shadow: 0 var(--ss-size-2) var(--ss-size-3)
+        color-mix(in srgb, var(--ss-color-soil) 10%, transparent);
     }
   }
 
   .button--primary {
-    --button-background: var(--ss-color-action);
-    --button-background-active: var(--ss-color-action-active);
-    --button-text-color: var(--ss-color-stone-alt);
-    --button-text-color-active: var(--ss-color-stone-alt);
+    &,
+    &:any-link {
+      --button-background: var(--ss-color-leaf);
+      --button-background-active: var(--ss-color-leaf-active);
+      --button-text-color: var(--ss-color-stone-alt);
+      --button-text-color-active: var(--ss-color-stone-alt);
+    }
   }
 
   .button--secondary {
-    --button-background: var(--ss-color-stone-alt);
-    --button-text-color: var(--ss-color-action);
-    --button-text-color-active: var(--ss-color-action-active);
+    &,
+    &:any-link {
+      --button-background: var(--ss-color-stone-alt);
+      --button-background-active: var(--ss-color-stone);
+      --button-text-color: var(--ss-color-soil);
+      --button-text-color-active: var(--ss-color-soil);
 
-    border: calc(var(--ss-size-1) / 2) solid var(--button-text-color);
+      border: 1px solid
+        color-mix(in srgb, var(--button-text-color) 20%, transparent);
+
+      :global(.ss-text-alt) & {
+        border: none;
+      }
+    }
   }
 </style>

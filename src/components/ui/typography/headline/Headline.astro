@@ -1,20 +1,32 @@
 ---
 import Heading from "@components/ui/typography/heading/Heading.astro";
 import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
+
+interface Props {
+  class?: string;
+  size?: HeadingSize;
+  as?: HeadingSize;
+}
+
+const {
+  class: className,
+  size = HeadingSize.H1,
+  as = HeadingSize.Headline,
+} = Astro.props;
 ---
 
-<div class="headline">
-  <Heading size={HeadingSize.Headline}>
-    <u>Award Winning</u><br /> Architecture <u>&amp;</u>
-    <span>&nbsp;Interior Design</span>
+<div class:list={["headline", className]}>
+  <Heading size={size} as={as}>
+    <slot />
   </Heading>
-  <p class="headline__sub-heading">We design to express your character</p>
+  <p class="headline__sub-heading">
+    <slot name="sub-heading" />
+  </p>
 </div>
 
 <style lang="scss">
   .headline {
     text-align: center;
-    padding: var(--ss-flow-space-3) 0;
   }
 
   .headline__sub-heading {

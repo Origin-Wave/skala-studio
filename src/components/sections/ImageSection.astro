@@ -15,18 +15,27 @@
   @use "@styles/utils" as utils;
 
   .image-section {
-    --image-section-border-radius: var(--ss-border-radius-2);
+    --image-section-border-radius-rounded: var(--ss-border-radius-4);
+    --image-section-border-radius-default: var(--ss-border-radius-2);
+    --image-section-border-radius: var(--image-section-border-radius-default)
+      var(--image-section-border-radius-default)
+      var(--image-section-border-radius-rounded)
+      var(--image-section-border-radius-default);
+    --image-section-column-gap: var(--ss-flow-space-3);
+    --image-section-row-gap: var(--ss-flow-space-4);
 
     display: flex;
     flex-direction: column;
-    gap: var(--ss-flow-space-3);
-    align-items: center;
+    gap: var(--image-section-column-gap);
 
     & + & {
-      margin-top: var(--ss-flow-space-3);
+      margin-top: var(--image-section-row-gap);
     }
 
     @include utils.media(tablet-screen) {
+      --image-section-column-gap: var(--ss-flow-space-3);
+      --image-section-row-gap: var(--ss-flow-space-3);
+
       &:nth-child(odd) {
         flex-direction: row;
       }
@@ -37,55 +46,162 @@
 
       &:nth-child(odd),
       :global(:not(&)) + &:nth-child(odd) {
-        --image-section-border-radius: var(--ss-border-radius-2)
-          var(--ss-border-radius-2) var(--ss-border-radius-4)
-          var(--ss-border-radius-2);
+        --image-section-border-radius: var(
+            --image-section-border-radius-default
+          )
+          var(--image-section-border-radius-default)
+          var(--image-section-border-radius-rounded)
+          var(--image-section-border-radius-default);
       }
 
       &:nth-child(even),
       :global(:not(&)) + &:nth-child(even) {
-        --image-section-border-radius: var(--ss-border-radius-2)
-          var(--ss-border-radius-2) var(--ss-border-radius-2)
-          var(--ss-border-radius-4);
+        --image-section-border-radius: var(
+            --image-section-border-radius-default
+          )
+          var(--image-section-border-radius-default)
+          var(--image-section-border-radius-default)
+          var(--image-section-border-radius-rounded);
       }
 
       & + &:not(:last-child) {
         &:nth-child(odd) {
-          --image-section-border-radius: var(--ss-border-radius-2)
-            var(--ss-border-radius-4) var(--ss-border-radius-4)
-            var(--ss-border-radius-2);
+          --image-section-border-radius: var(
+              --image-section-border-radius-default
+            )
+            var(--image-section-border-radius-rounded)
+            var(--image-section-border-radius-rounded)
+            var(--image-section-border-radius-default);
         }
 
         &:nth-child(even) {
-          --image-section-border-radius: var(--ss-border-radius-4)
-            var(--ss-border-radius-2) var(--ss-border-radius-2)
-            var(--ss-border-radius-4);
+          --image-section-border-radius: var(
+              --image-section-border-radius-rounded
+            )
+            var(--image-section-border-radius-default)
+            var(--image-section-border-radius-default)
+            var(--image-section-border-radius-rounded);
         }
       }
 
       & + &:last-child {
         &:nth-child(odd) {
-          --image-section-border-radius: var(--ss-border-radius-2)
-            var(--ss-border-radius-4) var(--ss-border-radius-2)
-            var(--ss-border-radius-2);
+          --image-section-border-radius: var(
+              --image-section-border-radius-default
+            )
+            var(--image-section-border-radius-rounded)
+            var(--image-section-border-radius-default)
+            var(--image-section-border-radius-default);
         }
 
         &:nth-child(even) {
-          --image-section-border-radius: var(--ss-border-radius-4)
-            var(--ss-border-radius-2) var(--ss-border-radius-2)
-            var(--ss-border-radius-2);
+          --image-section-border-radius: var(
+              --image-section-border-radius-rounded
+            )
+            var(--image-section-border-radius-default)
+            var(--image-section-border-radius-default)
+            var(--image-section-border-radius-default);
         }
       }
+    }
+
+    @include utils.media(small-screen) {
+      --image-section-border-radius-rounded: var(--ss-border-radius-5);
+
+      align-items: center;
     }
   }
 
   .image-section__column {
-    :global(> img) {
+    width: 100%;
+
+    :global(> img),
+    :global(> picture) {
       border-radius: var(--image-section-border-radius);
     }
 
     @include utils.media(tablet-screen) {
       flex: 1 1 50%;
+      width: auto;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .image-section {
+      --image-section-fade-in-offset: var(--ss-flow-space-1);
+      --image-section-fade-in-easing: cubic-bezier(0, 0, 0.25, 1);
+
+      .image-section__column--hidden {
+        opacity: 0;
+        scale: 0.9;
+        filter: blur(10px);
+      }
+
+      @include utils.media(mobile-screen-max) {
+        --image-section-fade-in-offset: 0;
+
+        .image-section__column--hidden {
+          transform: translateX(var(--image-section-fade-in-offset));
+        }
+      }
+
+      @include utils.media(tablet-screen) {
+        &:nth-child(odd) .image-section__column--hidden:first-child,
+        &:nth-child(even) .image-section__column--hidden:first-child {
+          transition-delay: 500ms;
+        }
+
+        &:nth-child(odd) .image-section__column--hidden:first-child,
+        &:nth-child(even) .image-section__column--hidden:last-child {
+          transform: translateX(calc(var(--image-section-fade-in-offset) * -1));
+        }
+
+        &:nth-child(even) .image-section__column--hidden:first-child,
+        &:nth-child(odd) .image-section__column--hidden:last-child {
+          transform: translateX(var(--image-section-fade-in-offset));
+        }
+      }
+
+      .image-section__column--visible {
+        opacity: 1;
+        transform: translateX(0) !important;
+        filter: blur(0);
+        scale: 1;
+        transition:
+          opacity 0.5s var(--image-section-fade-in-easing),
+          filter 0.25s var(--image-section-fade-in-easing),
+          transform 1s var(--image-section-fade-in-easing);
+      }
     }
   }
 </style>
+
+<script>
+  document.addEventListener(
+    "DOMContentLoaded",
+    setupIntersectionObserver,
+    false,
+  );
+
+  function setupIntersectionObserver(): void {
+    const IMAGE_SECTION_CLASS = "image-section__column";
+    const IMAGE_SECTION_VISIBLE_CLASS = `${IMAGE_SECTION_CLASS}--visible`;
+    const IMAGE_SECTION_HIDDEN_CLASS = `${IMAGE_SECTION_CLASS}--hidden`;
+
+    const callback: IntersectionObserverCallback = (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(IMAGE_SECTION_VISIBLE_CLASS);
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+    const config: IntersectionObserverInit = { threshold: 0.25 };
+    const observer = new IntersectionObserver(callback, config);
+
+    document.querySelectorAll(`.${IMAGE_SECTION_CLASS}`).forEach((image) => {
+      image.classList.add(IMAGE_SECTION_HIDDEN_CLASS);
+      observer.observe(image);
+    });
+  }
+</script>
