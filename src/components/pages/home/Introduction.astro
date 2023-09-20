@@ -1,21 +1,22 @@
 ---
 import ImageSection from "@components/sections/ImageSection.astro";
 import IntroSection from "@components/sections/IntroSection.astro";
+import Picture from "@components/ui/picture/Picture.astro";
 import Heading from "@components/ui/typography/heading/Heading.astro";
 import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
 import Intro from "@components/ui/typography/intro/Intro.astro";
 import image1 from "@images/home/Larch-Extension-Residential-East-Grinstead-01.jpg";
 import image3 from "@images/home/Larch-Extension-Residential-East-Grinstead-03.jpg";
 import image2 from "@images/home/Suburban-Home-Residential-Basingstoke-01.jpg";
-import { Image } from "astro:assets";
 ---
 
-<section class="intro">
+<section>
   <IntroSection>
     <Heading size={HeadingSize.H2} as={HeadingSize.H1}>
       Sustainability meets timeless design
-      <span slot="sub-heading">And occupants' wellbeing takes centre stage</span
-      >
+      <Fragment slot="sub-heading">
+        And occupants' wellbeing takes centre stage
+      </Fragment>
     </Heading>
     <Intro>
       Working with both residential and commercial clients, we are passionate
@@ -27,12 +28,12 @@ import { Image } from "astro:assets";
 
   <div>
     <ImageSection>
-      <Image
-        src={image1}
-        alt="A kitchen designed by Skala Studio features cabinets with a worktop, wooden chopping board, and a vase filled with fresh flowers. Beyond the cabinets, a vast window opens up to picturesque garden views, flooding the kitchen with abundant natural light and lush greenery. The dark cabinet doors and elegant copper handles create a captivating contrast, making it feel like the outdoors have been graciously welcomed inside."
+      <Picture
         slot="image"
+        mainImage={image1}
+        alt="A kitchen designed by Skala Studio features cabinets with a worktop, wooden chopping board, and a vase filled with fresh flowers. Beyond the cabinets, a vast window opens up to picturesque garden views, flooding the kitchen with abundant natural light and lush greenery. The dark cabinet doors and elegant copper handles create a captivating contrast, making it feel like the outdoors have been graciously welcomed inside."
       />
-      <div slot="body">
+      <Fragment slot="body">
         <Heading size={HeadingSize.H3}>
           Did you realise your indoor space has a big impact on your well-being?
         </Heading>
@@ -46,16 +47,16 @@ import { Image } from "astro:assets";
           contribute to 'sick building syndrome', reinforcing the significance
           of a health-oriented space for our overall wellness.
         </p>
-      </div>
+      </Fragment>
     </ImageSection>
 
     <ImageSection>
-      <Image
-        src={image2}
-        alt="Skala Studio's visionary design is showcased in this image, highlighting a striking green stone kitchen island with a terracotta backdrop, wooden panels in varying shades cladding the internal walls, and an alluring glass block wall. A window provides glimpses of the verdant garden beyond."
+      <Picture
         slot="image"
+        mainImage={image2}
+        alt="Skala Studio's visionary design is showcased in this image, highlighting a striking green stone kitchen island with a terracotta backdrop, wooden panels in varying shades cladding the internal walls, and an alluring glass block wall. A window provides glimpses of the verdant garden beyond."
       />
-      <div slot="body">
+      <Fragment slot="body">
         <Heading size={HeadingSize.H3}>
           Do you need an architect to design a bespoke, healthy space for you?
         </Heading>
@@ -68,16 +69,16 @@ import { Image } from "astro:assets";
           quality, and activity-friendly spaces, crafting a functional,
           beautiful space that leaves a lasting impression.
         </p>
-      </div>
+      </Fragment>
     </ImageSection>
 
     <ImageSection>
-      <Image
-        src={image3}
-        alt="This photograph captures an external house extension, displaying a slender, dark-framed window that reflects the surrounding garden's vibrant greenery and the expansive blue sky. The contrasting dark oak timber cladding on the extension's facade harmonizes beautifully with the various shades of green seen in the garden, creating a captivating visual contrast."
+      <Picture
         slot="image"
+        mainImage={image3}
+        alt="This photograph captures an external house extension, displaying a slender, dark-framed window that reflects the surrounding garden's vibrant greenery and the expansive blue sky. The contrasting dark oak timber cladding on the extension's facade harmonizes beautifully with the various shades of green seen in the garden, creating a captivating visual contrast."
       />
-      <div slot="body">
+      <Fragment slot="body">
         <Heading size={HeadingSize.H3}>
           How can your new space have a positive impact on the environment?
         </Heading>
@@ -93,14 +94,7 @@ import { Image } from "astro:assets";
           project with environmental preservation, positively impacting the
           environment.
         </p>
-      </div>
+      </Fragment>
     </ImageSection>
   </div>
 </section>
-
-<style>
-  .intro {
-    padding-bottom: var(--ss-flow-space-4);
-    border-bottom: var(--ss-border-separator);
-  }
-</style>

@@ -1,5 +1,5 @@
 @mixin links($actionColor, $actionColorActive) {
-  a:any-link {
+  a:any-link:not(button):not(.button) {
     color: $actionColor;
     &,
     svg {
@@ -7,7 +7,7 @@
     }
   }
 
-  a:hover {
+  a:hover:not(button):not(.button) {
     color: $actionColorActive;
   }
 }

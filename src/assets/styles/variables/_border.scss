@@ -2,19 +2,8 @@
   --ss-border-separator: calc(var(--ss-size-1) / 2) solid var(--ss-color-soil);
 
   --ss-border-radius-1: var(--ss-size-1);
-  --ss-border-radius-2: clamp(
-    var(--ss-size-2),
-    calc(var(--ss-size-1) + 0.6vw),
-    var(--ss-size-3)
-  );
-  --ss-border-radius-3: clamp(
-    var(--ss-size-3),
-    calc(var(--ss-size-2) + 1.1vw),
-    var(--ss-size-5)
-  );
-  --ss-border-radius-4: clamp(
-    var(--ss-size-11),
-    calc(var(--ss-size-9) + 5.5vw),
-    var(--ss-size-15)
-  );
+  --ss-border-radius-2: var(--ss-size-3);
+  --ss-border-radius-3: var(--ss-size-5);
+  --ss-border-radius-4: var(--ss-size-10);
+  --ss-border-radius-5: var(--ss-size-15);
 }

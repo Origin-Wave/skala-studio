@@ -2,6 +2,7 @@
 import Footer from "@components/footer/Footer.astro";
 import Header from "@components/header/Header.astro";
 import Container from "@components/ui/container/Container.astro";
+import "@styles/global.scss";
 
 interface Props {
   title: string;
@@ -19,6 +20,7 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="theme-color" content="#0a0f0c" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       rel="stylesheet"

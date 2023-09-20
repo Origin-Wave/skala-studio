@@ -14,17 +14,17 @@ const { class: className, id } = Astro.props;
 
 <div id={id} class:list={["contact-card", className]}>
   <Heading size={HeadingSize.H2}>What are the next steps?</Heading>
-  <Intro>
-    Discover the transformative design experience at Skala Studio. From full
-    architectural services to tailored solutions and interior design, we bring
-    your vision to life.
-  </Intro>
-  <p>Contact us now to start creating inspiring spaces together.</p>
+  <Intro>Discover the transformative design experience at Skala Studio.</Intro>
+  <p>
+    From full architectural services to tailored solutions and interior design,
+    we bring your vision to life. Contact us now to start creating inspiring
+    spaces together.
+  </p>
 
   <Contact />
 </div>
 
-<style>
+<style lang="scss">
   .contact-card {
     background: var(--ss-color-stone);
     padding: var(--ss-flow-space-3);
