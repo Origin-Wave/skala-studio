@@ -1,16 +1,16 @@
 ---
-import Contact from "@components/Contact.astro";
 import Logo from "@components/Logo.astro";
-import Button from "@components/ui/button/Button.astro";
+import Navigation from "@components/header/navigation/Navigation.astro";
 import Container from "@components/ui/container/Container.astro";
 ---
 
 <Container>
   <header class="header">
-    <Logo class="header__logo" />
+    <a href="/" class="header__logo-link" aria-label="Go to home page">
+      <Logo class="header__logo" />
+    </a>
     <div class="header__contact">
-      <Contact class="header__contact-details" compact={true} />
-      <Button class="header__contact-button" href="#contact">Contact us</Button>
+      <Navigation />
     </div>
   </header>
 </Container>
@@ -36,6 +36,10 @@ import Container from "@components/ui/container/Container.astro";
     @include utils.media(large-screen) {
       --header-padding: var(--ss-flow-space-1);
     }
+  }
+
+  .header__logo-link {
+    display: flex;
   }
 
   .header__logo {

@@ -1,0 +1,84 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+
+interface NavigationLink {
+  href: string;
+  text: string;
+}
+
+const links: NavigationLink[] = [
+  { href: "/projects/", text: "Projects" },
+  { href: "/contact/", text: "Contact" },
+];
+---
+
+<nav class="navigation" aria-label="Primary navigation">
+  <ul class="navigation__list">
+    {
+      links.map((link) => (
+        <li class="navigation__item">
+          <a
+            href={link.href}
+            class:list={[
+              "navigation__link",
+              { "navigation__link--active": pathname === link.href },
+            ]}
+          >
+            {link.text}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style lang="scss">
+  @use "@styles/utils" as utils;
+
+  .navigation__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .navigation__item {
+    position: relative;
+    padding: var(--ss-size-3);
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+  .navigation__item + .navigation__item {
+    &::after {
+      content: "";
+      display: block;
+      width: 1px;
+      height: 20%;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      background-color: var(--ss-color-soil);
+      transform: rotate(15deg) translateY(-50%);
+      transform-origin: 100% 0;
+    }
+  }
+
+  .navigation__link:any-link {
+    text-decoration: none;
+    display: block;
+    padding: var(--ss-size-3);
+    color: var(--ss-color-soil) !important;
+
+    :last-child > & {
+      padding-right: 0;
+    }
+  }
+
+  .navigation__link--active {
+  }
+</style>
