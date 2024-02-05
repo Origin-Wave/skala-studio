@@ -14,9 +14,4 @@
     calc(var(--ss-size-6) + 2.4vw),
     var(--ss-size-9)
   );
-  --ss-flow-space-4: clamp(
-    var(--ss-size-8),
-    calc(var(--ss-size-8) + 4vw),
-    var(--ss-size-13)
-  );
 }

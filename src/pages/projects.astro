@@ -1,0 +1,28 @@
+---
+import ContactCard from "@components/ContactCard.astro";
+import Introduction from "@components/pages/projects/Introduction.astro";
+import Project from "@components/pages/projects/Project.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { PROJECTS } from "./projects";
+---
+
+<BaseLayout
+  title="Projects - Architecture & Interior Design by Skala Studio"
+  description="Examples of architecutral and interior design projects completed by Skala Studio. Most of the projects are located in London and South East England."
+>
+  {
+    PROJECTS.map((project, index) => (
+      <section>
+        {index === 0 && <Introduction />}
+        <Project
+          title={project.title}
+          description={project.description}
+          images={project.images}
+        />
+      </section>
+    ))
+  }
+  <section>
+    <ContactCard />
+  </section>
+</BaseLayout>
