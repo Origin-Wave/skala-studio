@@ -62,7 +62,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         />
         <Fragment slot="body">
           <Heading size={HeadingSize.H2} as={HeadingSize.H3}
-            >The construction world is full of myths.</Heading
+            >The construction world is full of myths</Heading
           >
           <Intro>
             During our time as Contract Administrators, we have come across many
@@ -78,9 +78,46 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </ImageSection>
     </div>
   </section>
+  <section>
+    <div class="course-info">
+      <div class="course-info__content">
+        <Intro>
+          We are proud to present a course that we have worked on for months,
+          aiming to dispel any doubts and answer all of your questions!
+        </Intro>
+        <p>
+          <strong>23-25 April 2024, from 10am to 1pm</strong><br />
+          Live online workshop Skala Studio founders<br />
+          Get our full 9-hour JCT Minor Works Course for Contractors for just &pound;900<br
+          />
+          That’s only &pound;100 per hour!
+        </p>
+        <p>
+          Please provide us with your name and email address in the form below
+          and we'll contact you with further information and payment details.
+        </p>
+      </div>
+    </div>
+  </section>
   <iframe
     src="https://forms.monday.com/forms/embed/f102ad06226901224a80686ad808283e?r=euc1"
     width="100%"
-    height="1000"
+    height="800"
     style="border: 0"></iframe>
 </BaseLayout>
+
+<style>
+  .course-info {
+    background: var(--ss-color-stone);
+    padding: var(--ss-flow-space-3);
+    border-radius: var(--ss-border-radius-3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .course-info__content {
+    max-width: 750px;
+    text-align: center;
+  }
+</style>
