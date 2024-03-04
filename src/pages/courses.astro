@@ -1,0 +1,86 @@
+---
+import ImageSection from "@components/sections/ImageSection.astro";
+import IntroSection from "@components/sections/IntroSection.astro";
+import Picture from "@components/ui/picture/Picture.astro";
+import Heading from "@components/ui/typography/heading/Heading.astro";
+import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
+import Intro from "@components/ui/typography/intro/Intro.astro";
+import image2 from "@images/courses/jct/contractor-and-client-shaking-hands.jpeg";
+import image1 from "@images/courses/jct/pricture-of-a-contract.jpeg";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="JCT Course for Contractors — Skala Studio"
+  description="JCT Course For Contractors helps avoid construction losses. Learn to follow contracts, get paid for work. Bust JCT myths. Join for stress-free projects"
+>
+  <section>
+    <IntroSection>
+      <Heading size={HeadingSize.H1} as={HeadingSize.H2}
+        >JCT Course For Contractors
+        <Fragment slot="sub-heading"
+          >How often do you lose money during construction?</Fragment
+        >
+      </Heading>
+      <Intro
+        >Increasingly, we observe that contractors are losing money when it
+        could have been easily avoided. Find out how to escape common mistakes
+        through a clear understanding of the contract.</Intro
+      >
+    </IntroSection>
+
+    <div>
+      <ImageSection>
+        <Picture
+          mainImage={image1}
+          alt="Skala Studio's design prowess shines through in this image, showcasing an external house extension enveloped in dark oak timber planks and a petite window. The backdrop is set against a brilliant, cloudless blue sky, and a leafless tree with intricate black branches adds a touch of natural elegance to the scene."
+          slot="image"
+        />
+        <Fragment slot="body">
+          <Heading size={HeadingSize.H2} as={HeadingSize.H3}
+            >Did you know that contracts were created to protect contractors?</Heading
+          >
+          <Intro>
+            The JCT contracts are based on the Construction Act, a piece of
+            legislation specifically drafted to protect contractors and avoid
+            disputes.
+          </Intro>
+          <p>
+            During the course, we explain how the contracts work and how you can
+            use them to your advantage. By following a few simple steps, you can
+            ensure that all the work you do is properly quoted and paid for. We
+            will review these steps and ensure you can take on new projects
+            without stress.
+          </p>
+        </Fragment>
+      </ImageSection>
+      <ImageSection>
+        <Picture
+          mainImage={image2}
+          alt="In this inviting interior space, brought to life by Skala Studio, the charm lies in the interplay of elements. White walls, black joinery trims, and a checkered black-and-white floor create a timeless aesthetic. The Crittall-style black steel frame patio door seamlessly connects the indoor and outdoor areas, complemented by a bottle green sofa with a vibrant yellow decorative cushion. A fireplace and a sizable indoor green plant add to the overall appeal."
+          slot="image"
+        />
+        <Fragment slot="body">
+          <Heading size={HeadingSize.H2} as={HeadingSize.H3}
+            >The construction world is full of myths.</Heading
+          >
+          <Intro>
+            During our time as Contract Administrators, we have come across many
+            myths that either contradict the contract clauses or have nothing to
+            do with the contract itself.
+          </Intro>
+          <p>
+            We will debunk all common construction myths and conduct real-life
+            scenario workshops at the end of the course to test your knowledge
+            in practice.
+          </p>
+        </Fragment>
+      </ImageSection>
+    </div>
+  </section>
+  <iframe
+    src="https://forms.monday.com/forms/embed/f102ad06226901224a80686ad808283e?r=euc1"
+    width="100%"
+    height="1000"
+    style="border: 0"></iframe>
+</BaseLayout>
