@@ -82,4 +82,14 @@ const links: NavigationLink[] = [
 
   .navigation__link--active {
   }
+
+  @include utils.media(mobile-screen-max) {
+    .navigation__item:not(:last-child) {
+      padding: var(--ss-size-2);
+    }
+
+    .navigation__link:any-link {
+      padding: var(--ss-size-3) var(--ss-size-1);
+    }
+  }
 </style>
