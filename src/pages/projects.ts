@@ -89,11 +89,11 @@ const graftonRoad: ProjectData = {
     },
     {
       file: graftonRoad2,
-      alt: "Hallway with chequered black and white floor, rust-coloured velvet bench, round mirror, and a Crittal door.",
+      alt: "A vibrant yellow stair railing against a minimalist blue and white background.",
     },
     {
       file: graftonRoad3,
-      alt: "Hallway with black and white tiles, vivid blue staircase, and a contrasting yellow handrail.",
+      alt: "Modern bathroom vanity with a vessel sink, brass faucet, and black wall tiles.",
     },
     {
       file: graftonRoad4,
