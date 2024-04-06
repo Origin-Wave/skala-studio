@@ -1,0 +1,135 @@
+---
+import ImageSection from "@components/sections/ImageSection.astro";
+import IntroSection from "@components/sections/IntroSection.astro";
+import Picture from "@components/ui/picture/Picture.astro";
+import Heading from "@components/ui/typography/heading/Heading.astro";
+import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
+import Intro from "@components/ui/typography/intro/Intro.astro";
+import image1 from "@images/courses/business/marketing-strategy.jpeg";
+import image2 from "@images/courses/business/the-inscription-on-the-board.jpeg";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Business Course — Skala Studio"
+  description="Learn how to navigate essential business principles, quote effectively, manage projects proficiently, and handle challenging clients to enhance your architectural practice."
+>
+  <section>
+    <IntroSection>
+      <Heading size={HeadingSize.H1} as={HeadingSize.H2}
+        >Business Course For Aspiring Architects
+        <Fragment slot="sub-heading"
+          >Find out what we wish we knew before starting our business!</Fragment
+        >
+      </Heading>
+      <Intro
+        >Learn how to navigate essential business principles, quote effectively,
+        manage projects proficiently, and handle challenging clients to enhance
+        your architectural practice.</Intro
+      >
+    </IntroSection>
+
+    <div>
+      <ImageSection>
+        <Picture
+          mainImage={image1}
+          alt="Two People sitting in front of the desk with sheets of paper suggesting in-depth business analysis"
+          slot="image"
+        />
+        <Fragment slot="body">
+          <Heading size={HeadingSize.H2} as={HeadingSize.H3}
+            >Mastering Business Essentials</Heading
+          >
+          <Intro>
+            Learn from us on handling tough clients, streamlining project
+            management, quoting accurately, and overseeing construction to
+            advance your business.
+          </Intro>
+          <p>
+            Our course delivers comprehensive insights into critical business
+            strategies for architects, covering cash flow management, quoting
+            accurately, utilizing effective software, and selecting the best
+            banking and accounting practices. Elevate your architectural firm
+            with these foundational skills and knowledge.
+          </p>
+        </Fragment>
+      </ImageSection>
+      <ImageSection>
+        <Picture
+          mainImage={image2}
+          alt="A person holding a sign titles are you ready."
+          slot="image"
+        />
+        <Fragment slot="body">
+          <Heading size={HeadingSize.H2} as={HeadingSize.H3}
+            >Architectural Expertise and Impact</Heading
+          >
+          <Intro>
+            Explore how to refine your design process, leverage marketing for
+            client acquisition, understand financial planning, and adopt
+            sustainable practices in your projects.
+          </Intro>
+          <p>
+            Our course goes beyond the basics, offering insights into making
+            your design process more efficient, utilizing marketing strategies
+            to attract clients, mastering financial planning to ensure
+            profitability, and incorporating sustainability into your projects.
+            These skills are essential for modern architects looking to make a
+            mark in the industry.
+          </p>
+        </Fragment>
+      </ImageSection>
+    </div>
+  </section>
+  <section>
+    <div class="course-info">
+      <div class="course-info__content">
+        <Intro>
+          We've designed this course reflecting on how much easier our journey
+          would have been if we had access to such a resource.
+        </Intro>
+        <p>
+          <strong>Dates to be annouced soon.</strong><br />
+          Live online workshop with Skala Studio founders.<br />
+          Get our 3-hour Business Course if you want to star your own business for
+          just &pound;300!
+        </p>
+        <p>
+          <strong>Sign up for our waiting list today!</strong>
+          <br />
+          Once the dates are annonced you will be contacted with a payment link to
+          book your spot.
+        </p>
+        <p>
+          <strong>Places for each course will be limited. </strong>
+        </p>
+        <p>
+          We will be contacting you in order you sign up! Please secure your
+          spot by providing us with your name and email address in the form
+          below.
+        </p>
+      </div>
+    </div>
+  </section>
+  <iframe
+    src="https://forms.monday.com/forms/embed/46e718fd390f2302efbe8504c970f6f8?r=euc1"
+    width="100%"
+    height="1000"
+    style="border: 0"></iframe>
+</BaseLayout>
+
+<style>
+  .course-info {
+    background: var(--ss-color-stone);
+    padding: var(--ss-flow-space-3);
+    border-radius: var(--ss-border-radius-3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .course-info__content {
+    max-width: 750px;
+    text-align: center;
+  }
+</style>
