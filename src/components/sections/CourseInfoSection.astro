@@ -1,0 +1,23 @@
+<section>
+  <div class="course-info">
+    <div class="course-info__content">
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style>
+  .course-info {
+    background: var(--ss-color-stone);
+    padding: var(--ss-flow-space-3);
+    border-radius: var(--ss-border-radius-3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .course-info__content {
+    max-width: 750px;
+    text-align: center;
+  }
+</style>

@@ -1,0 +1,80 @@
+---
+import ImageSection from "@components/sections/ImageSection.astro";
+import IntroSection from "@components/sections/IntroSection.astro";
+import Button from "@components/ui/button/Button.astro";
+import Buttons from "@components/ui/button/Buttons.astro";
+import Picture from "@components/ui/picture/Picture.astro";
+import Heading from "@components/ui/typography/heading/Heading.astro";
+import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
+import Intro from "@components/ui/typography/intro/Intro.astro";
+import image2 from "@images/courses/business/team-brainstorming.jpeg";
+import image1 from "@images/courses/jct/pricture-of-a-contract.jpeg";
+import image3 from "@images/courses/revit/residential-building-blueprint-drawings.jpeg";
+---
+
+<section>
+  <IntroSection>
+    <Heading size={HeadingSize.H2}>Our Courses</Heading>
+    <Intro>
+      Skala Studio's Learning Hub: Expert Courses in JCT, Business, and Revit.
+    </Intro>
+  </IntroSection>
+
+  <div>
+    <ImageSection>
+      <Picture
+        mainImage={image1}
+        alt="Skala Studio offers Courses on JCT Contracts for Contractors. This image shows a first page of a construction contract."
+        slot="image"
+      />
+      <Fragment slot="body">
+        <Heading size={HeadingSize.H3}>JCT Course</Heading>
+        <p>
+          Increasingly, we observe that contractors are losing money when it
+          could have been easily avoided. Find out how to escape common mistakes
+          through a clear understanding of the contract.
+        </p>
+        <Buttons>
+          <Button href="/courses/jct">Master JCT Contracts</Button>
+        </Buttons>
+      </Fragment>
+    </ImageSection>
+    <ImageSection>
+      <Picture
+        mainImage={image2}
+        alt="A team engaged in brainstorming around a table, focusing on a sheet of paper with a detailed sketched diagram outlining the process of kickstarting a business."
+        slot="image"
+      />
+      <Fragment slot="body">
+        <Heading size={HeadingSize.H3}>Business Course</Heading>
+        <p>
+          Gain insights into starting your own architecture business with
+          hard-earned tips on managing challenging clients, streamlining
+          projects efficiently, and overseeing construction effectively in our
+          expert-led course.
+        </p>
+        <Buttons>
+          <Button href="/courses/business">Kick-start your business</Button>
+        </Buttons>
+      </Fragment>
+    </ImageSection>
+    <ImageSection>
+      <Picture
+        mainImage={image3}
+        alt="Image showing architecture drawings, plans. They were all drawn using digital softwares"
+        slot="image"
+      />
+      <Fragment slot="body">
+        <Heading size={HeadingSize.H3}>Revit - Coming Soon!</Heading>
+        <p>
+          Buy our state-of-the-art Revit Template for small to medium
+          architectural projects. Developed for months, it includes custom-built
+          3D elements for schedules doors, windows, electrical fixtures etc.
+          This course also provides a 2-hour online workshop on using the
+          template, saving you countless hours and greatly enhancing your
+          efficiency.
+        </p>
+      </Fragment>
+    </ImageSection>
+  </div>
+</section>
