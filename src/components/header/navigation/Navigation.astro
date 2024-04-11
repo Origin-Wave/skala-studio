@@ -126,7 +126,7 @@ const links: NavigationLink[] = [
       width: 80vw;
       background: var(--ss-color-stone-alt);
       transform: translateX(100%);
-      transition: transform 0.2s;
+      transition: transform 0.35s;
       padding-top: var(--ss-size-9);
 
       .navigation__container--open & {
@@ -142,6 +142,12 @@ const links: NavigationLink[] = [
       display: flex;
       align-items: center;
       justify-content: center;
+      color: var(--ss-color-soil);
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
     }
 
     .navigation__button-text {
