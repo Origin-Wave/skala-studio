@@ -1,0 +1,89 @@
+---
+import ContactCard from "@components/ContactCard.astro";
+import ImageSection from "@components/sections/ImageSection.astro";
+import Picture from "@components/ui/picture/Picture.astro";
+import Heading from "@components/ui/typography/heading/Heading.astro";
+import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
+import Intro from "@components/ui/typography/intro/Intro.astro";
+import image1 from "@images/our-story/directors.jpg";
+import image2 from "@images/our-story/architect-drawings.jpg";
+import image3 from "@images/our-story/site-plan.jpg";
+---
+
+<section></section>
+
+<div>
+  <ImageSection>
+    <Picture
+      slot="image"
+      mainImage={image1}
+      alt="This photograph of Kasia and Marzena laughing together and sitting at the desk."
+    />
+    <Fragment slot="body">
+      <Heading size={HeadingSize.H3}>
+        Our Architectural Education Begins
+      </Heading>
+      <Intro>
+        Bachelor's Degree Exploration at University of Westminster
+      </Intro>
+      <p>
+        At the University of Westminster, we embarked on our architectural path,
+        exploring design fundamentals through diverse concepts. Kasia focused on
+        inclusivity in design, while Marzena addressed well-being in dementia
+        care homes, highlighting our early dedication to human-centric
+        architecture.
+      </p>
+    </Fragment>
+  </ImageSection>
+
+  <ImageSection>
+    <Picture
+      slot="image"
+      mainImage={image3}
+      alt="A shaded plan of a building that depicts a new social space where library, educational facilities and theatre interwine. It is a student project from the university - Architectural Association."
+    />
+    <Fragment slot="body">
+      <Heading size={HeadingSize.H3}>
+        Pursuing Advanced Architectural Studies
+      </Heading>
+      <Intro> Master's Degrees and PhD Explorations in Architecture </Intro>
+      <p>
+        Marzena returned to Westminster for her Masters, pioneering in renewable
+        materials and sustainability. Kasia, at the Architectural Association,
+        investigated the social impact of design. Now, she's pursuing a PhD at
+        the University of Kent, further exploring architecture's influence on
+        environments and communities.
+      </p>
+    </Fragment>
+  </ImageSection>
+
+  <ImageSection>
+    <Picture
+      slot="image"
+      mainImage={image2}
+      alt="Detailed, technical architectural drawings."
+    />
+    <Fragment slot="body">
+      <Heading size={HeadingSize.H3}>
+        Real-World Experience and Insights
+      </Heading>
+      <Intro> Diverse Professional Endeavors Post Graduation. </Intro>
+      <p>
+        Post-graduation, we delved into the professional world. Marzena tackled
+        complex projects at Atkins, spanning education to healthcare, while
+        Kasia contributed to educational and cultural developments, enhancing
+        community spaces and focusing on youth engagement through architecture.
+      </p>
+    </Fragment>
+  </ImageSection>
+  <section></section>
+</div>
+
+<ContactCard id="contact" class="services__contact" />
+
+<style>
+  .services__contact {
+    margin-top: var(--ss-flow-space-3);
+  }
+</style>
+<section></section>
