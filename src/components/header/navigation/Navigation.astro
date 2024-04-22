@@ -14,23 +14,52 @@ const links: NavigationLink[] = [
 ---
 
 <nav class="navigation" aria-label="Primary navigation">
-  <ul class="navigation__list">
-    {
-      links.map((link) => (
-        <li class="navigation__item">
-          <a
-            href={link.href}
-            class:list={[
-              "navigation__link",
-              { "navigation__link--active": pathname === link.href },
-            ]}
-          >
-            {link.text}
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+  <button
+    id="open-navigation-trigger"
+    class="navigation__button navigation__button--open"
+    aria-controls="navigation"
+    aria-expanded="false"
+  >
+    <svg focusable="false" aria-hidden="true" viewBox="0 0 24 24">
+      <path d="M3 18h18v-2H3zm0-5h18v-2H3zm0-7v2h18V6z"></path>
+    </svg>
+    <span class="navigation__button-text">Menu</span>
+  </button>
+
+  <div class="navigation__container" id="navigation">
+    <div class="navigation__main">
+      <button
+        id="close-navigation-trigger"
+        class="navigation__button navigation__button--close"
+        aria-controls="navigation"
+        aria-expanded="false"
+      >
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path
+            d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          ></path>
+        </svg>
+        <span class="navigation__button-text">Close</span>
+      </button>
+      <ul class="navigation__list" role="list">
+        {
+          links.map((link) => (
+            <li class="navigation__item" aria-current={pathname === link.href}>
+              <a
+                href={link.href}
+                class:list={[
+                  "navigation__link",
+                  { "navigation__link--active": pathname === link.href },
+                ]}
+              >
+                {link.text}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
 </nav>
 
 <style lang="scss">
@@ -38,8 +67,6 @@ const links: NavigationLink[] = [
 
   .navigation__list {
     display: flex;
-    align-items: center;
-    justify-content: center;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -47,26 +74,6 @@ const links: NavigationLink[] = [
 
   .navigation__item {
     position: relative;
-    padding: var(--ss-size-3);
-
-    &:last-child {
-      padding-right: 0;
-    }
-  }
-
-  .navigation__item + .navigation__item {
-    &::after {
-      content: "";
-      display: block;
-      width: 1px;
-      height: 20%;
-      position: absolute;
-      left: 0;
-      top: 50%;
-      background-color: var(--ss-color-soil);
-      transform: rotate(15deg) translateY(-50%);
-      transform-origin: 100% 0;
-    }
   }
 
   .navigation__link:any-link {
@@ -83,13 +90,167 @@ const links: NavigationLink[] = [
   .navigation__link--active {
   }
 
-  @include utils.media(mobile-screen-max) {
-    .navigation__item:not(:last-child) {
-      padding: var(--ss-size-2);
+  .navigation__button {
+    display: none;
+  }
+
+  @include utils.media(tablet-screen-max) {
+    .navigation__container {
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(0);
+      background: color-mix(in srgb, var(--ss-color-soil) 0%, transparent);
+      transition:
+        backdrop-filter 0.2s,
+        background 0.2s;
+      transition-timing-function: ease-in-out;
     }
 
-    .navigation__link:any-link {
-      padding: var(--ss-size-3) var(--ss-size-1);
+    .navigation__container--open {
+      right: 0;
+      backdrop-filter: blur(4px);
+      background: color-mix(in srgb, var(--ss-color-soil) 30%, transparent);
+    }
+
+    .navigation__main {
+      position: absolute;
+      display: flex;
+      z-index: 1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 80vw;
+      background: var(--ss-color-stone-alt);
+      transform: translateX(100%);
+      transition: transform 0.35s;
+      padding-top: var(--ss-size-9);
+
+      .navigation__container--open & {
+        transform: translateX(0);
+      }
+    }
+
+    .navigation__button {
+      display: block;
+      appearance: none;
+      background: none;
+      border: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ss-color-soil);
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .navigation__button-text {
+      display: none;
+    }
+
+    .navigation__button {
+      width: var(--ss-size-9);
+      height: var(--ss-size-9);
+      padding: var(--ss-size-4);
+      background: var(--ss-color-stone-alt);
+    }
+
+    .navigation__button--close {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      right: 100%;
+      width: var(--ss-size-9);
+      height: var(--ss-size-9);
+      background: var(--ss-color-stone-alt);
+    }
+
+    .navigation__list {
+      flex: 1;
+      flex-direction: column;
+      overflow-y: auto;
+      text-align: left;
+      gap: var(--ss-size-3);
+      padding-left: var(--ss-size-3);
+      padding-right: var(--ss-size-3);
+      margin-bottom: auto;
+      max-height: 100%;
+    }
+
+    .navigation__item {
+      flex: 1;
+    }
+
+    .navigation__link--active {
+      background: var(--ss-color-stone);
+    }
+  }
+
+  @include utils.media(tablet-screen-only) {
+    .navigation__main {
+      width: 40vw;
+    }
+  }
+
+  @include utils.media(small-screen) {
+    .navigation__list {
+      align-items: center;
+      justify-content: center;
+    }
+
+    .navigation__item {
+      padding: var(--ss-size-3);
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    .navigation__item + .navigation__item {
+      &::after {
+        content: "";
+        display: block;
+        width: 1px;
+        height: 20%;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        background-color: var(--ss-color-soil);
+        transform: rotate(15deg) translateY(-50%);
+        transform-origin: 100% 0;
+      }
     }
   }
 </style>
+
+<script>
+  const navigationList = document.getElementById("navigation")!;
+  const openNavigationTrigger = document.getElementById(
+    "open-navigation-trigger",
+  )!;
+  const closeNavigationTrigger = document.getElementById(
+    "close-navigation-trigger",
+  )!;
+  const navigationOpenClassName = "navigation__container--open";
+
+  openNavigationTrigger.addEventListener("click", () => {
+    navigationList.classList.add(navigationOpenClassName);
+    setExpandedAttribute(true);
+  });
+
+  closeNavigationTrigger.addEventListener("click", () => {
+    navigationList.classList.remove(navigationOpenClassName);
+    setExpandedAttribute(false);
+  });
+
+  function setExpandedAttribute(isExpanded: boolean): void {
+    openNavigationTrigger.setAttribute("aria-expanded", isExpanded.toString());
+    closeNavigationTrigger.setAttribute("aria-expanded", isExpanded.toString());
+  }
+</script>
