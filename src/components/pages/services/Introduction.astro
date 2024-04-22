@@ -1,0 +1,235 @@
+---
+import ContactCard from "@components/ContactCard.astro";
+import ImageSection from "@components/sections/ImageSection.astro";
+import IntroSection from "@components/sections/IntroSection.astro";
+import Picture from "@components/ui/picture/Picture.astro";
+import Heading from "@components/ui/typography/heading/Heading.astro";
+import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
+import Intro from "@components/ui/typography/intro/Intro.astro";
+import image1 from "@images/services/stack-of-books.jpeg";
+import image2 from "@images/services/design-studio.jpeg";
+import image3 from "@images/services/two-architects.jpg";
+import image4 from "@images/services/technical-3.jpg";
+import image5 from "@images/services/construction.jpg";
+import image6 from "@images/services/in-use-4.jpg";
+import image7 from "@images/services/interior.jpg";
+import image8 from "@images/services/consulting-3.jpg";
+---
+
+<section>
+  <IntroSection>
+    <Heading size={HeadingSize.H2} as={HeadingSize.H1}>
+      Our Services
+      <Fragment slot="sub-heading">
+        Stages designed by Royal Insitute of British Architects
+      </Fragment>
+    </Heading>
+    <Intro>
+      From <strong>initial design</strong> to <strong>final construction</strong
+      >, engage with us at any stage or select specific stages where you need
+      our expertise. Choose our <strong>interior design</strong>
+      or <strong>consulting</strong> services to match your distinct needs. Experience
+      our <strong>Virtual Reality </strong> simulations and <strong
+        >realistic visualisations</strong
+      > to see your vision come to life.
+    </Intro>
+  </IntroSection>
+
+  <div>
+    <ImageSection>
+      <Picture
+        slot="image"
+        mainImage={image1}
+        alt="A stack of books that need reviewing to review planning documentation. They are all open on different pages."
+      />
+      <Fragment slot="body">
+        <Heading size={HeadingSize.H3}> RIBA Stage 0 and 1 </Heading>
+        <Intro>
+          Planning Framework, Preliminary Project Programme, Site Analysis,
+          Brief Development.
+        </Intro>
+        <p>
+          We carefully check local plannign regulations and previous
+          applications to help your project succeed. We give you a clear report
+          with all the important details, a schedule with key dates, and explain
+          what might affect your project. At this stage we sign a contract
+          between us and we help you organise a measured survey of the property.
+          If needed - Feasibility Study takes place at this tage.
+        </p>
+      </Fragment>
+    </ImageSection>
+
+    <ImageSection>
+      <Picture
+        slot="image"
+        mainImage={image2}
+        alt="Architect's hand with a pencil annotating on architectural drawing. There is a lot of drawings and colour palettes on the table. They all show simple design layouts and options."
+      />
+      <Fragment slot="body">
+        <Heading size={HeadingSize.H3}> RIBA Stage 2 </Heading>
+        <Intro>
+          Initial Design Development (Simple Plans and Elevations), Stage 2
+          Report.
+        </Intro>
+        <p>
+          In Stage 2, we delve into design development, where we explore
+          numerous design and layout options to perfectly align with your needs,
+          resulting in a set of proposed drawings. We also compile a Stage 2
+          Report, a comprehensive summary of the information from this stage for
+          you to review and approve, ensuring your vision is accurately
+          captured.
+        </p>
+      </Fragment>
+    </ImageSection>
+
+    <ImageSection>
+      <Picture
+        slot="image"
+        mainImage={image3}
+        alt="A set of hands pointing to a well drawn detailed plan of a house with textures."
+      />
+      <Fragment slot="body">
+        <Heading size={HeadingSize.H3}> RIBA Stage 3 </Heading>
+        <Intro>
+          Detailed Design and Drawings, Design and Access Statement, Fire Risk
+          Assessment, Project Risk Assessment, <strong
+            >Submission of the Planning Application.</strong
+          >
+        </Intro>
+        <p>
+          In this phase, we create detailed designs and drawings, including
+          plans, elevations, sections, and 3D views, to bring your project to
+          life. We prepare a Design and Access Statement to accompany your
+          drawings for planning approval. Our services also include a Fire Risk
+          Assessment, Project Risk Assessment, and submission of the planning
+          application to local authorities. Additionally, we provide guidance on
+          statutory and legal obligations, including CDM regulations and cost
+          control meetings, ensuring a comprehensive approach to your project's
+          planning phase.
+        </p>
+      </Fragment>
+    </ImageSection>
+
+    <ImageSection>
+      <Picture
+        slot="image"
+        mainImage={image4}
+        alt="A technical architectural detail of a timber sturcture external wall. It shows how the wall is constructed with all its layers."
+      />
+      <Fragment slot="body">
+        <Heading size={HeadingSize.H3}> RIBA Stage 4 </Heading>
+        <Intro>
+          Schedule of Works, MEP Plans, Technical Details, Building Control
+          Appointment, Finishes, Lighting and Electrical Fixtures Specification,
+          Window and Door Schedules, Tendering, Risk Assessment.
+        </Intro>
+        <p>
+          We design your project's technial details and create schedules
+          together with detailing electrical, plumbing, and mechanical services.
+          We draft interior and lighting specifications and list your choices
+          for windows and doors. Our team supports you through the building
+          control application process and pre-construction risk assessment.
+          Additionally, if your project requires it, we help with party wall and
+          build-over agreements.
+        </p>
+      </Fragment>
+    </ImageSection>
+
+    <ImageSection>
+      <Picture
+        slot="image"
+        mainImage={image5}
+        alt="A photograph of a home extension during construction. It shows a timber frame structures with a lot of rooflights inside a pitched roof and three steel beams to support the space."
+      />
+      <Fragment slot="body">
+        <Heading size={HeadingSize.H3}> RIBA Stage 5 and 6 </Heading>
+        <Intro>
+          <strong> Monitoring Construction,</strong> Contract Administration, Payment
+          Certificates, Handover process.
+        </Intro>
+        <p>
+          We oversee site logistics and track construction progress, ensuring
+          the build reflects your design. Regular site visits and monthly
+          construction summaries keep you informed. We handlee tender
+          invitations and processes, contract preparation, issuing instructions
+          and handling claims, leading progress meetings, coordinating site
+          inspections, and issuing payment certificates so that you pay only for
+          what was done on site. Finally we impartially administer all the
+          building contract terms inclusive of Practical and Final Completion
+          and Rectification Period.
+        </p>
+      </Fragment>
+    </ImageSection>
+
+    <ImageSection>
+      <Picture
+        slot="image"
+        mainImage={image6}
+        alt="A beautiful external patio space with 2 comfortable sofas next to the timber cladded kitchen extension. This is one of the completed projects done by Skala Studio."
+      />
+      <Fragment slot="body">
+        <Heading size={HeadingSize.H3}> RIBA Stage 7 </Heading>
+        <Intro> Feedback, Professional Photography and Recording </Intro>
+        <p>
+          We focus on in-depth feedback collection, professionally photographing
+          and recording the completed project to capture its essence and ensure
+          all details meet your expectations and our high standards.
+        </p>
+      </Fragment>
+    </ImageSection>
+    <ImageSection id="interior-design">
+      <Picture
+        slot="image"
+        mainImage={image7}
+        alt="An image of an interior, thoughtfully designed by Skala Studio, showcases a captivating arched brick ceiling gently bathed in LED lighting. Storage cabinets feature decorative light wood three-dimensional doors that interact playfully with the lighting. To the right, an arched black door and a double French black door with stained glass provide elegant transitions. On the opposite side, a striking black kitchen with a soft travertine stone island adds depth and character to the space."
+      />
+      <Fragment slot="body">
+        <Heading size={HeadingSize.H3}> Interior Design </Heading>
+        <Intro>
+          Bespoke Fitted Cabinetry Design, Realistic Visualisations, Virtual
+          Reality, Moodboards, Material boards, Furniture Specification.
+        </Intro>
+        <p>
+          We recognize everyone interacts uniquely with their environment; our
+          interior design services reflect this, ensuring each aspect is
+          directly tailored to your individual needs for a space that truly
+          resonates with you. Our interior design services offer bespoke
+          cabinetry tailored to your space, realistic and immersive
+          visualisations, curated mood and material boards, along with precise
+          furniture specifications to create a cohesive and personalized
+          interior aesthetic.
+        </p>
+      </Fragment>
+    </ImageSection>
+    <ImageSection id="consulting">
+      <Picture
+        slot="image"
+        mainImage={image8}
+        alt="Graphical illustration showing a women explaining a topic to the audience from a computer. The ausience has question marks above their heads and wants to learn what the women is saying."
+      />
+      <Fragment slot="body">
+        <Heading size={HeadingSize.H3}> Consulting </Heading>
+        <Intro>
+          Healthy Design, Technical Details, Construction Contracts, Planning
+          Regulations
+        </Intro>
+        <p>
+          Our consulting services provide specialized guidance on healthy design
+          principles, technical specifics, and adherence to planning
+          regulations, all available on an hourly basis for those not ready to
+          commit fully. We're here to offer expertise on creating spaces that
+          promote health and well-being, ensuring that even if you collaborate
+          with other professionals, our input can enhance their work to ensure
+          your environment is beneficial for you.
+        </p>
+      </Fragment>
+    </ImageSection>
+  </div>
+  <ContactCard id="contact" class="services__contact" />
+</section>
+
+<style>
+  .services__contact {
+    margin-top: var(--ss-flow-space-3);
+  }
+</style>

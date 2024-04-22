@@ -1,8 +1,12 @@
 ---
+interface Props {
+  id?: string;
+}
 
+const { id } = Astro.props;
 ---
 
-<div class="image-section">
+<div id={id} class="image-section">
   <div class="image-section__column">
     <slot name="image" />
   </div>
