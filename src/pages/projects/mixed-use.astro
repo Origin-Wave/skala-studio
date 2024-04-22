@@ -1,0 +1,29 @@
+---
+import ContactCard from "@components/ContactCard.astro";
+import Introduction from "@components/pages/projects/mixed-use/Introduction.astro";
+import Project from "@components/pages/projects/mixed-use/Project.astro";
+import { PROJECTS } from "./mixed-use";
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Mixed-Use Projects - Architecture & Interior Design by Skala Studio"
+  description="Examples of architecutral and interior design projects completed by Skala Studio. Me have worked on a number of complex educational, hospitality and cultural projects."
+>
+  {
+    PROJECTS.map((project, index) => (
+      <section>
+        {index === 0 && <Introduction />}
+        <Project
+          title={project.title}
+          description={project.description}
+          images={project.images}
+        />
+      </section>
+    ))
+  }
+  <section>
+    <ContactCard />
+  </section>
+</BaseLayout>
+./mixed-use

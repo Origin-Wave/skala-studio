@@ -1,0 +1,21 @@
+---
+import Headline from "@components/ui/typography/headline/Headline.astro";
+---
+
+<div class="head">
+  <Headline>
+    <Fragment>
+      <u>Our Story</u><br /> Health <u>&amp;</u>
+      <span>Design</span>
+    </Fragment>
+    <Fragment slot="sub-heading"
+      >How can we live well in our fast-paced world?</Fragment
+    >
+  </Headline>
+</div>
+
+<style lang="scss">
+  .head {
+    padding: var(--ss-flow-space-3) 0;
+  }
+</style>

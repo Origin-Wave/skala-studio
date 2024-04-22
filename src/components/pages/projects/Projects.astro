@@ -1,0 +1,66 @@
+---
+import ImageSection from "@components/sections/ImageSection.astro";
+import IntroSection from "@components/sections/IntroSection.astro";
+import Button from "@components/ui/button/Button.astro";
+import Buttons from "@components/ui/button/Buttons.astro";
+import Picture from "@components/ui/picture/Picture.astro";
+import Heading from "@components/ui/typography/heading/Heading.astro";
+import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
+import Intro from "@components/ui/typography/intro/Intro.astro";
+import image1 from "@images/projects/perry-avenue/5.jpg";
+import image2 from "@images/projects/opera/5.jpg";
+---
+
+<section>
+  <IntroSection>
+    <Heading size={HeadingSize.H2}>Projects</Heading>
+    <Intro>
+      Our portfolio showcases a diverse range of projects, each a testament to
+      our expertise in creating environments that inspire and rejuvenate.
+      Explore our projects below and if you have any questions don't hesitate to
+      get in touch.
+    </Intro>
+  </IntroSection>
+
+  <div>
+    <ImageSection>
+      <Picture
+        mainImage={image1}
+        alt="Exterior of the home extension featuring a large window overlooking the garden. The greenery is reflecting in the anthracite framed windows with modern dark brown larch cladding."
+        slot="image"
+      />
+      <Fragment slot="body">
+        <Heading size={HeadingSize.H3}>Residential</Heading>
+        <p>
+          Discover our bespoke residential designs, where each space is uniquely
+          tailored to its inhabitants. Our projects blend innovative design with
+          personal storytelling, creating homes that not only inspire but also
+          intimately connect with the lives of those who dwell within.
+        </p>
+        <Buttons>
+          <Button href="/projects/residential">Explore the Projects</Button>
+        </Buttons>
+      </Fragment>
+    </ImageSection>
+    <ImageSection>
+      <Picture
+        mainImage={image2}
+        alt="Watercolour paintin of the summer opera house designed by Skala Studio. Rear extension is designed to blend with the surrounding nature."
+        slot="image"
+      />
+      <Fragment slot="body">
+        <Heading size={HeadingSize.H3}>Mixed-use and Public Spaces</Heading>
+        <p>
+          Explore our diverse portfolio of mixed-use and public spaces, designed
+          to enhance community interaction and functionality. Each project
+          showcases our commitment to creating dynamic, multifunctional
+          environments that serve as focal points for social and cultural
+          engagement.
+        </p>
+        <Buttons>
+          <Button href="/projects/mixed-use">Explore the Projects</Button>
+        </Buttons>
+      </Fragment>
+    </ImageSection>
+  </div>
+</section>

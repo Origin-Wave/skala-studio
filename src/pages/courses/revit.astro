@@ -1,0 +1,113 @@
+---
+import CourseInfoSection from "@components/sections/CourseInfoSection.astro";
+import ImageSection from "@components/sections/ImageSection.astro";
+import IntroSection from "@components/sections/IntroSection.astro";
+import Picture from "@components/ui/picture/Picture.astro";
+import Heading from "@components/ui/typography/heading/Heading.astro";
+import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
+import Intro from "@components/ui/typography/intro/Intro.astro";
+import image2 from "@images/courses/revit/revit02.jpg";
+import image1 from "@images/courses/revit/revit01.jpg";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Revit Template / Course"
+  description="How much time can you save when working on a proper Revit Template? The answer is - a lot. I would say on average our efficiency increased by 50% with our new template."
+>
+  <section>
+    <IntroSection>
+      <Heading size={HeadingSize.H1} as={HeadingSize.H2}
+        >Revit Course / Template
+        <Fragment slot="sub-heading"
+          >Save time with our bespoke Revit template!</Fragment
+        >
+      </Heading>
+      <Intro
+        >How much time can you save when working on a proper Revit Template? The
+        answer is - a lot. I would say on average our efficiency increased by
+        50% with our new template.
+      </Intro>
+    </IntroSection>
+
+    <div>
+      <ImageSection>
+        <Picture
+          mainImage={image1}
+          alt="Architectural Technical detail of the timber-framed wall."
+          slot="image"
+        />
+        <Fragment slot="body">
+          <Heading size={HeadingSize.H2} as={HeadingSize.H3}
+            >Integrated Project Efficiency!</Heading
+          >
+          <Intro>
+            Seamlessly Manage Existing, Planning, and Technical Drawings in One
+            Comprehensive Template
+          </Intro>
+          <p>
+            Our Revit template aligns seamlessly with RIBA Stages, integrating
+            existing, planning, and technical drawings all in one place. By
+            using phases, demolition plans update automatically. We've
+            fine-tuned the aesthetics with adjusted line weights, pre-defined
+            wall types, and our architectural timber frame details designed for
+            building regulations compliance. Every detail is designed for both
+            functionality and visual quality, ensuring your project
+            presentations are both efficient and impressive.
+          </p>
+        </Fragment>
+      </ImageSection>
+      <ImageSection>
+        <Picture
+          mainImage={image2}
+          alt="Part of the house floor plan showing lighting layout."
+          slot="image"
+        />
+        <Fragment slot="body">
+          <Heading size={HeadingSize.H2} as={HeadingSize.H3}
+            >Precision and Customization in Design</Heading
+          >
+          <Intro>
+            Automatically Align and Annotate Design Elements with Our Custom
+            Revit Families and Tools.
+          </Intro>
+          <p>
+            Enhance your designs with our bespoke Revit families, tailored for
+            automatic annotation integration. Adding an item like our ceiling
+            lamp auto-aligns it with the correct symbols on all related plans.
+            Each placement of electrical fixtures, doors, and windows
+            automatically populates the correct schedules, simplifying project
+            management and increasing accuracy in your architectural endeavors.
+          </p>
+        </Fragment>
+      </ImageSection>
+    </div>
+  </section>
+
+  <CourseInfoSection>
+    <Intro>
+      We are proud to present a template that we have worked on for a year,
+      aiming to increase our work efficiency and making each project much
+      simpler and enjoyable!
+    </Intro>
+    <p>
+      <strong>The template will be available to purchase soon.</strong><br />
+      The template will be ready soon and it will include access to our webinar which
+      will be scheduled 2 times a year to anwser any questions you may have.<br
+      />
+    </p>
+    <p>
+      <strong
+        >The cost of a commercial licence to use our template is &pound;490 <br
+        /></strong
+      >
+    </p>
+    <p>
+      <strong>We use secure payments run by Stripe.</strong>
+    </p>
+    <p>
+      Once you make a payment you will receive your confirmation right away as
+      well as soon after an access link to download the template.
+    </p>
+  </CourseInfoSection>
+</BaseLayout>

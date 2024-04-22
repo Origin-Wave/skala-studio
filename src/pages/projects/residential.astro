@@ -1,13 +1,13 @@
 ---
 import ContactCard from "@components/ContactCard.astro";
-import Introduction from "@components/pages/projects/Introduction.astro";
-import Project from "@components/pages/projects/Project.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import { PROJECTS } from "./projects";
+import Introduction from "@components/pages/projects/residential/Introduction.astro";
+import Project from "@components/pages/projects/residential/Project.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { PROJECTS } from "./residential";
 ---
 
 <BaseLayout
-  title="Projects - Architecture & Interior Design by Skala Studio"
+  title="Residential Projects - Architecture & Interior Design by Skala Studio"
   description="Examples of architecutral and interior design projects completed by Skala Studio. Most of the projects are located in London and South East England."
 >
   {
@@ -26,3 +26,4 @@ import { PROJECTS } from "./projects";
     <ContactCard />
   </section>
 </BaseLayout>
+./residential
