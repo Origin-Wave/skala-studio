@@ -24,11 +24,69 @@ import twinHouse2 from "@images/projects/twin-house/2.jpg";
 import twinHouse3 from "@images/projects/twin-house/3.jpg";
 import twinHouse4 from "@images/projects/twin-house/4.jpg";
 
+import richmond1 from "@images/projects/richmond/1.jpg";
+import richmond2 from "@images/projects/richmond/2.jpg";
+import richmond3 from "@images/projects/richmond/3.jpg";
+import richmond4 from "@images/projects/richmond/4.jpg";
+
+import greenway1 from "@images/projects/greenway/1.jpg";
+import greenway2 from "@images/projects/greenway/2.jpg";
+import greenway3 from "@images/projects/greenway/3.jpg";
+import greenway4 from "@images/projects/greenway/4.jpg";
+
 interface ProjectData {
   title: string;
   description: string;
   images: ProjectImage[];
 }
+
+const greenway: ProjectData = {
+  title: "Greenway Estate",
+  description:
+    "This spacious family home is defined by its striking black and white tile mosaic wave floor, which sets a dynamic tone throughout the space. The interior is balanced with natural light and dark wooden elements, creating a warm and inviting atmosphere. A prominent kitchen island crafted from natural dark stone anchors the culinary space. Externally, the home is enveloped in full light brick cladding, extending to a brick-covered roof that harmonizes with the natural surroundings. A large swimming pool opens directly to the patio, offering a seamless transition from the luxurious interior to the tranquil outdoors.",
+  images: [
+    {
+      file: greenway1,
+      alt: "Modern interior design, open space with dining table and chairs in the center of the room, kitchen behind it, staircase to second floor right next to dining area, dark metal spiral stair, warm light, beige furniture, black and white wave mosaic floor tiles.",
+    },
+    {
+      file: greenway2,
+      alt: "Full of natural light wooden kitchen with black, white and green marble island, variety of textures, natural tones, black bar kitchen chairs, interior design photography.",
+    },
+    {
+      file: greenway3,
+      alt: "A modern white brick house with a gable roof, covered terraces and large trees in the yard, in an English countryside village. Soft light and natural lighting.",
+    },
+    {
+      file: greenway4,
+      alt: "A tv wall mounted on an oak panel in the center of room with two large cream colored couches, with a textured grid patterned brown wood panels behind it.",
+    },
+  ],
+};
+
+const richmond: ProjectData = {
+  title: "Richmond Home",
+  description:
+    "This semi-detached home in Richmond features a large, open-plan kitchen-dining-living space that seamlessly connects to the garden. The ceiling mirrors the pitched roof above, enhanced by eight large rooflights that flood the interior with natural light. An L-shaped rear extension includes two levels of windows, both upper and lower, maximizing the view and sunlight. Two expansive corner windows are perfectly positioned for sunset views from the comfort of a sofa. Inside, the living space is complemented by large, light wood bespoke cabinetry that includes a cleverly hidden desk. The entire home has undergone a comprehensive renovation, including a newly designed loft that now houses a stunning master bedroom with bi-fold doors and an edge-free glass balustrade, blending modern luxury with panoramic vistas.",
+  images: [
+    {
+      file: richmond1,
+      alt: "photo of ceiling in a modern home, with 8 skylights, two round speakers in the white ceiling.",
+    },
+    {
+      file: richmond2,
+      alt: "Photograph of an interior wall with white cabinets and shelves, small plants on the shelves, natural light from a skylight window, light wood grain, interior design photography, interior detail in the style of interior design photography.",
+    },
+    {
+      file: richmond3,
+      alt: "The top view of two flat roof windows on the red tile roof. The focus is set to highlight the contrast between the smooth surface of ceramic tiles against the dark metal beams of each skylight frame",
+    },
+    {
+      file: richmond4,
+      alt: "Close up of black window frames on the corner of a yellow and red brick house showing off its blend of traditional and modern design features.",
+    },
+  ],
+};
 
 const perryAvenue: ProjectData = {
   title: "Perry Avenue",
@@ -37,7 +95,7 @@ const perryAvenue: ProjectData = {
   images: [
     {
       file: perryAvenue1,
-      alt: "House extension with dark wooden cladding under a blue sky, surrounded by lush greenery.",
+      alt: "Photograph depicts a building with a minimalist architectural design, featuring black vertical cladding and rosewood panels on its side profile. Small window details add intricate touches. The building, painted white, is accented by a slanted roof. Captured under daylight, the image includes a clear blue sky. In the background, a leafless tree complements the scene, highlighting the stark beauty of architectural photography.",
     },
     {
       file: perryAvenue2,
@@ -85,7 +143,7 @@ const graftonRoad: ProjectData = {
   images: [
     {
       file: graftonRoad1,
-      alt: "Living room with bottle green velvet sofa, modern fireplace, and a Crittall patio door opening to a large indoor plant.",
+      alt: "A photo of an industrial style kitchen with a brick wall, black pendant lights and a large yellow clock on the back wall. A white island in front of it with dark blue cabinets and a coffee machine, a paper cup holder, wooden plants on shelves. A white counter top with a red fruit bowl, a glass jar filled with salt and pepper next to the sink, white floor tiles",
     },
     {
       file: graftonRoad2,
@@ -151,9 +209,11 @@ const twinHouse: ProjectData = {
 };
 
 export const PROJECTS: ProjectData[] = [
-  perryAvenue,
+  greenway,
+  richmond,
   brackenBank,
-  graftonRoad,
+  perryAvenue,
   apartment01,
+  graftonRoad,
   twinHouse,
 ];
