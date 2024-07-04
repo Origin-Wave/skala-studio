@@ -7,8 +7,8 @@ import Picture from "@components/ui/picture/Picture.astro";
 import Heading from "@components/ui/typography/heading/Heading.astro";
 import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
 import Intro from "@components/ui/typography/intro/Intro.astro";
-import image1 from "@images/projects/perry-avenue/5.jpg";
 import image2 from "@images/projects/opera/5.jpg";
+import image1 from "@images/projects/perry-avenue/5.jpg";
 ---
 
 <section>
@@ -24,11 +24,12 @@ import image2 from "@images/projects/opera/5.jpg";
 
   <div>
     <ImageSection>
-      <Picture
-        mainImage={image1}
-        alt="Exterior of the home extension featuring a large window overlooking the garden. The greenery is reflecting in the anthracite framed windows with modern dark brown larch cladding."
-        slot="image"
-      />
+      <a href="/projects/residential" slot="image">
+        <Picture
+          mainImage={image1}
+          alt="Exterior of the home extension featuring a large window overlooking the garden. The greenery is reflecting in the anthracite framed windows with modern dark brown larch cladding."
+        />
+      </a>
       <Fragment slot="body">
         <Heading size={HeadingSize.H3}>Residential</Heading>
         <p>
@@ -43,11 +44,12 @@ import image2 from "@images/projects/opera/5.jpg";
       </Fragment>
     </ImageSection>
     <ImageSection>
-      <Picture
-        mainImage={image2}
-        alt="Watercolour paintin of the summer opera house designed by Skala Studio. Rear extension is designed to blend with the surrounding nature."
-        slot="image"
-      />
+      <a href="/projects/mixed-use" slot="image">
+        <Picture
+          mainImage={image2}
+          alt="Watercolour paintin of the summer opera house designed by Skala Studio. Rear extension is designed to blend with the surrounding nature."
+        />
+      </a>
       <Fragment slot="body">
         <Heading size={HeadingSize.H3}>Mixed-use and Public Spaces</Heading>
         <p>

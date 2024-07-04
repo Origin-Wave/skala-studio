@@ -120,7 +120,9 @@ const { id } = Astro.props;
     width: 100%;
 
     :global(> img),
-    :global(> picture) {
+    :global(> a > img),
+    :global(> picture),
+    :global(> a > picture) {
       border-radius: var(--image-section-border-radius);
     }
 
