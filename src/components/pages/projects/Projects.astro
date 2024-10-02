@@ -1,14 +1,13 @@
 ---
-import ImageSection from "@components/sections/ImageSection.astro";
 import IntroSection from "@components/sections/IntroSection.astro";
-import Button from "@components/ui/button/Button.astro";
-import Buttons from "@components/ui/button/Buttons.astro";
 import Picture from "@components/ui/picture/Picture.astro";
+import Pod from "@components/ui/pod/Pod.astro";
+import Pods from "@components/ui/pods/Pods.astro";
 import Heading from "@components/ui/typography/heading/Heading.astro";
 import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
 import Intro from "@components/ui/typography/intro/Intro.astro";
+import image1 from "@images/projects/marksburry/extension.jpg";
 import image2 from "@images/projects/opera/5.jpg";
-import image1 from "@images/projects/perry-avenue/5.jpg";
 ---
 
 <section>
@@ -23,46 +22,37 @@ import image1 from "@images/projects/perry-avenue/5.jpg";
   </IntroSection>
 
   <div>
-    <ImageSection>
-      <a href="/projects/residential" slot="image">
+    <Pods>
+      <Pod label="Residential" url="/projects/residential">
+        <Fragment slot="sub-content">
+          <p>
+            Discover our bespoke residential designs, where each space is
+            uniquely tailored to its inhabitants. Our projects blend innovative
+            design with personal storytelling, creating homes that not only
+            inspire but also intimately connect with the lives of those who
+            dwell within.
+          </p>
+        </Fragment>
         <Picture
           mainImage={image1}
-          alt="Exterior of the home extension featuring a large window overlooking the garden. The greenery is reflecting in the anthracite framed windows with modern dark brown larch cladding."
+          alt="A modern brick and glass extension with large corner windows and sliding doors opens onto a patio and garden, with a children's toy car in front and an open balcony visible on the top floor of the house."
         />
-      </a>
-      <Fragment slot="body">
-        <Heading size={HeadingSize.H3}>Residential</Heading>
-        <p>
-          Discover our bespoke residential designs, where each space is uniquely
-          tailored to its inhabitants. Our projects blend innovative design with
-          personal storytelling, creating homes that not only inspire but also
-          intimately connect with the lives of those who dwell within.
-        </p>
-        <Buttons>
-          <Button href="/projects/residential">Explore the Projects</Button>
-        </Buttons>
-      </Fragment>
-    </ImageSection>
-    <ImageSection>
-      <a href="/projects/mixed-use" slot="image">
+      </Pod>
+      <Pod label="Mixed-use and Public Spaces" url="/projects/mixed-use">
+        <Fragment slot="sub-content">
+          <p>
+            Explore our diverse portfolio of mixed-use and public spaces,
+            designed to enhance community interaction and functionality. Each
+            project showcases our commitment to creating dynamic,
+            multifunctional environments that serve as focal points for social
+            and cultural engagement.
+          </p>
+        </Fragment>
         <Picture
           mainImage={image2}
           alt="Watercolour paintin of the summer opera house designed by Skala Studio. Rear extension is designed to blend with the surrounding nature."
         />
-      </a>
-      <Fragment slot="body">
-        <Heading size={HeadingSize.H3}>Mixed-use and Public Spaces</Heading>
-        <p>
-          Explore our diverse portfolio of mixed-use and public spaces, designed
-          to enhance community interaction and functionality. Each project
-          showcases our commitment to creating dynamic, multifunctional
-          environments that serve as focal points for social and cultural
-          engagement.
-        </p>
-        <Buttons>
-          <Button href="/projects/mixed-use">Explore the Projects</Button>
-        </Buttons>
-      </Fragment>
-    </ImageSection>
+      </Pod>
+    </Pods>
   </div>
 </section>

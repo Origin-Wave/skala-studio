@@ -1,9 +1,8 @@
 ---
-import ImageSection from "@components/sections/ImageSection.astro";
 import IntroSection from "@components/sections/IntroSection.astro";
-import Button from "@components/ui/button/Button.astro";
-import Buttons from "@components/ui/button/Buttons.astro";
 import Picture from "@components/ui/picture/Picture.astro";
+import Pod from "@components/ui/pod/Pod.astro";
+import Pods from "@components/ui/pods/Pods.astro";
 import Heading from "@components/ui/typography/heading/Heading.astro";
 import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
 import Intro from "@components/ui/typography/intro/Intro.astro";
@@ -21,63 +20,50 @@ import image3 from "@images/courses/revit/residential-building-blueprint-drawing
   </IntroSection>
 
   <div>
-    <ImageSection>
-      <Picture
-        mainImage={image1}
-        alt="Skala Studio offers Courses on JCT Contracts for Contractors. This image shows a first page of a construction contract."
-        slot="image"
-      />
-      <Fragment slot="body">
-        <Heading size={HeadingSize.H3}>JCT Course</Heading>
-        <p>
-          Increasingly, we observe that contractors are losing money when it
-          could have been easily avoided. Find out how to escape common mistakes
-          through a clear understanding of the contract.
-        </p>
-        <Buttons>
-          <Button href="/courses/jct">Master JCT Contracts</Button>
-        </Buttons>
-      </Fragment>
-    </ImageSection>
-    <ImageSection>
-      <Picture
-        mainImage={image2}
-        alt="A team engaged in brainstorming around a table, focusing on a sheet of paper with a detailed sketched diagram outlining the process of kickstarting a business."
-        slot="image"
-      />
-      <Fragment slot="body">
-        <Heading size={HeadingSize.H3}>Business Course</Heading>
-        <p>
-          Gain insights into starting your own architecture business with
-          hard-earned tips on managing challenging clients, streamlining
-          projects efficiently, and overseeing construction effectively in our
-          expert-led course.
-        </p>
-        <Buttons>
-          <Button href="/courses/business">Kick-start your business</Button>
-        </Buttons>
-      </Fragment>
-    </ImageSection>
-    <ImageSection>
-      <Picture
-        mainImage={image3}
-        alt="Image showing architecture drawings, plans. They were all drawn using digital softwares"
-        slot="image"
-      />
-      <Fragment slot="body">
-        <Heading size={HeadingSize.H3}>Revit - Coming Soon!</Heading>
-        <p>
-          Buy our state-of-the-art Revit Template for small to medium
-          architectural projects. Developed for months, it includes custom-built
-          3D elements for schedules doors, windows, electrical fixtures etc.
-          This course also provides a 2-hour online workshop on using the
-          template, saving you countless hours and greatly enhancing your
-          efficiency.
-        </p>
-        <Buttons>
-          <Button href="/courses/revit">Save Time with Revit</Button>
-        </Buttons>
-      </Fragment>
-    </ImageSection>
+    <Pods>
+      <Pod label="JCT Course" url="/courses/jct">
+        <Fragment slot="sub-content">
+          <p>
+            Increasingly, we observe that contractors are losing money when it
+            could have been easily avoided. Find out how to escape common
+            mistakes through a clear understanding of the contract.
+          </p>
+        </Fragment>
+        <Picture
+          mainImage={image1}
+          alt="Skala Studio offers Courses on JCT Contracts for Contractors. This image shows a first page of a construction contract."
+        />
+      </Pod>
+      <Pod label="Business Course" url="/courses/business">
+        <Fragment slot="sub-content">
+          <p>
+            Gain insights into starting your own architecture business with
+            hard-earned tips on managing challenging clients, streamlining
+            projects efficiently, and overseeing construction effectively in our
+            expert-led course.
+          </p>
+        </Fragment>
+        <Picture
+          mainImage={image2}
+          alt="A team engaged in brainstorming around a table, focusing on a sheet of paper with a detailed sketched diagram outlining the process of kickstarting a business."
+        />
+      </Pod>
+      <Pod label="Revit - Coming Soon!" url="/courses/revit">
+        <Fragment slot="sub-content">
+          <p>
+            Buy our state-of-the-art Revit Template for small to medium
+            architectural projects. Developed for months, it includes
+            custom-built 3D elements for schedules doors, windows, electrical
+            fixtures etc. This course also provides a 2-hour online workshop on
+            using the template, saving you countless hours and greatly enhancing
+            your efficiency.
+          </p>
+        </Fragment>
+        <Picture
+          mainImage={image3}
+          alt="Image showing architecture drawings, plans. They were all drawn using digital softwares"
+        />
+      </Pod>
+    </Pods>
   </div>
 </section>

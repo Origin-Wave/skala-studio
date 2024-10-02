@@ -1,12 +1,12 @@
 :root {
-  --ss-font-serif: "Noto Serif Display", serif;
-  --ss-font-serif-weight-regular: 200;
-  --ss-font-serif-weight-bold: 700;
+  --ss-font-primary: "Manrope", sans-serif;
+  --ss-font-primary-weight-regular: 100;
+  --ss-font-primary-weight-bold: 700;
 
-  --ss-font-sans-serif: "Manrope", sans-serif;
-  --ss-font-sans-serif-weight-light: 200;
-  --ss-font-sans-serif-weight-regular: 300;
-  --ss-font-sans-serif-weight-bold: 800;
+  --ss-font-secondary: "Manrope", sans-serif;
+  --ss-font-secondary-weight-light: 100;
+  --ss-font-secondary-weight-regular: 300;
+  --ss-font-secondary-weight-bold: 700;
 
   --ss-font-size-headline: clamp(34px, calc(20px + 2.5vw), 56px);
   --ss-font-size-heading-1: clamp(30px, calc(19px + 2vw), 48px);
