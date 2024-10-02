@@ -1,0 +1,96 @@
+---
+interface Props {
+  label?: string;
+  url?: string;
+  newWindow?: boolean;
+}
+
+const { label, url, newWindow } = Astro.props;
+const target = newWindow ? "_blank" : undefined;
+const Element = url ? "a" : "span";
+const props = url ? { href: url, target } : {};
+---
+
+<div class="pod">
+  <Element
+    class="pod__item"
+    class:list={[{ ["pod__item--link"]: !!url }]}
+    {...props}
+  >
+    {label && <span class="pod__label">{label}</span>}
+    <span class="pod__content">
+      <slot />
+      {
+        Astro.slots.has("sub-content") && (
+          <div class="pod__sub-content">
+            <slot name="sub-content" />
+          </div>
+        )
+      }
+    </span>
+  </Element>
+</div>
+
+<style lang="scss">
+  @use "@styles/utils" as utils;
+
+  .pod__item {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .pod__label {
+    margin-top: var(--ss-size-4);
+    font-size: var(--ss-font-size-intro);
+  }
+
+  .pod__item,
+  .pod__item:any-link {
+    text-decoration: none;
+    color: var(--ss-color-soil) !important;
+    font-weight: var(--ss-font-secondary-weight-bold);
+  }
+
+  .pod__content {
+    aspect-ratio: 1 / 1;
+    position: relative;
+
+    :global(> picture) {
+      height: 100%;
+    }
+
+    :global(> picture > img) {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      transition: var(--ss-transition-action);
+
+      .pod__item--link:hover & {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .pod__sub-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    padding: var(--ss-size-5);
+    background-color: color-mix(in srgb, var(--ss-color-soil) 75%, transparent);
+    opacity: 0;
+    transition: var(--ss-transition-action);
+    transition-delay: 0.15s;
+    color: var(--ss-color-stone);
+    font-size: var(--ss-font-size-small);
+    backdrop-filter: blur(0);
+    font-weight: var(--ss-font-secondary-weight-regular);
+  }
+
+  .pod__item--link:hover .pod__sub-content {
+    opacity: 1;
+    backdrop-filter: blur(10px);
+  }
+</style>

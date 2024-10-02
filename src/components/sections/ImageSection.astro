@@ -19,12 +19,6 @@ const { id } = Astro.props;
   @use "@styles/utils" as utils;
 
   .image-section {
-    --image-section-border-radius-rounded: var(--ss-border-radius-4);
-    --image-section-border-radius-default: var(--ss-border-radius-2);
-    --image-section-border-radius: var(--image-section-border-radius-default)
-      var(--image-section-border-radius-default)
-      var(--image-section-border-radius-rounded)
-      var(--image-section-border-radius-default);
     --image-section-column-gap: var(--ss-flow-space-3);
     --image-section-row-gap: var(--ss-flow-space-3);
 
@@ -36,9 +30,22 @@ const { id } = Astro.props;
       margin-top: var(--image-section-row-gap);
     }
 
+    :global(picture) {
+      aspect-ratio: 1 / 1;
+    }
+
+    :global(picture > img) {
+      object-fit: cover;
+      object-position: center;
+      width: 100%;
+      height: 100%;
+    }
+
     @include utils.media(tablet-screen) {
       --image-section-column-gap: var(--ss-flow-space-3);
       --image-section-row-gap: var(--ss-flow-space-3);
+
+      align-items: center;
 
       &:nth-child(odd) {
         flex-direction: row;
@@ -47,84 +54,11 @@ const { id } = Astro.props;
       &:nth-child(even) {
         flex-direction: row-reverse;
       }
-
-      &:nth-child(odd),
-      :global(:not(&)) + &:nth-child(odd) {
-        --image-section-border-radius: var(
-            --image-section-border-radius-default
-          )
-          var(--image-section-border-radius-default)
-          var(--image-section-border-radius-rounded)
-          var(--image-section-border-radius-default);
-      }
-
-      &:nth-child(even),
-      :global(:not(&)) + &:nth-child(even) {
-        --image-section-border-radius: var(
-            --image-section-border-radius-default
-          )
-          var(--image-section-border-radius-default)
-          var(--image-section-border-radius-default)
-          var(--image-section-border-radius-rounded);
-      }
-
-      & + &:not(:last-child) {
-        &:nth-child(odd) {
-          --image-section-border-radius: var(
-              --image-section-border-radius-default
-            )
-            var(--image-section-border-radius-rounded)
-            var(--image-section-border-radius-rounded)
-            var(--image-section-border-radius-default);
-        }
-
-        &:nth-child(even) {
-          --image-section-border-radius: var(
-              --image-section-border-radius-rounded
-            )
-            var(--image-section-border-radius-default)
-            var(--image-section-border-radius-default)
-            var(--image-section-border-radius-rounded);
-        }
-      }
-
-      & + &:last-child {
-        &:nth-child(odd) {
-          --image-section-border-radius: var(
-              --image-section-border-radius-default
-            )
-            var(--image-section-border-radius-rounded)
-            var(--image-section-border-radius-default)
-            var(--image-section-border-radius-default);
-        }
-
-        &:nth-child(even) {
-          --image-section-border-radius: var(
-              --image-section-border-radius-rounded
-            )
-            var(--image-section-border-radius-default)
-            var(--image-section-border-radius-default)
-            var(--image-section-border-radius-default);
-        }
-      }
-    }
-
-    @include utils.media(small-screen) {
-      --image-section-border-radius-rounded: var(--ss-border-radius-5);
-
-      align-items: center;
     }
   }
 
   .image-section__column {
     width: 100%;
-
-    :global(> img),
-    :global(> a > img),
-    :global(> picture),
-    :global(> a > picture) {
-      border-radius: var(--image-section-border-radius);
-    }
 
     @include utils.media(tablet-screen) {
       flex: 1 1 50%;

@@ -6,9 +6,9 @@ import Heading from "@components/ui/typography/heading/Heading.astro";
 import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
 import Intro from "@components/ui/typography/intro/Intro.astro";
 import image1 from "@images/our-story/apartment-interior.jpg";
+import image4 from "@images/our-story/kitchen-2.jpg";
 import image2 from "@images/our-story/kitchen.jpg";
 import image3 from "@images/our-story/staircase.jpg";
-import image4 from "@images/our-story/kitchen-2.jpg";
 ---
 
 <IntroSection>
@@ -18,76 +18,79 @@ import image4 from "@images/our-story/kitchen-2.jpg";
     Enhance Well-being and Relaxation.
   </Intro>
 </IntroSection>
+<div>
+  <ImageSection>
+    <Picture
+      slot="image"
+      mainImage={image1}
+      alt="Kitchen with carved stone peninsula, dark wooden bar stools, 'Girl with a Pearl Earring' painting, and an old brick ceiling."
+    />
+    <Fragment slot="body">
+      <Heading size={HeadingSize.H3}> Foundations of Wellness </Heading>
+      <Intro> Building Health into Every Corner </Intro>
+      <p>
+        Our designs are centered on health, integrating natural light, clean
+        air, and green spaces to encourage a healthy lifestyle. Each project is
+        a step towards a world where buildings help us thrive physically and
+        mentally.
+      </p>
+    </Fragment>
+  </ImageSection>
 
-<ImageSection>
-  <Picture
-    slot="image"
-    mainImage={image1}
-    alt="Kitchen with carved stone peninsula, dark wooden bar stools, 'Girl with a Pearl Earring' painting, and an old brick ceiling."
-  />
-  <Fragment slot="body">
-    <Heading size={HeadingSize.H3}> Foundations of Wellness </Heading>
-    <Intro> Building Health into Every Corner </Intro>
-    <p>
-      Our designs are centered on health, integrating natural light, clean air,
-      and green spaces to encourage a healthy lifestyle. Each project is a step
-      towards a world where buildings help us thrive physically and mentally.
-    </p>
-  </Fragment>
-</ImageSection>
+  <ImageSection>
+    <Picture
+      slot="image"
+      mainImage={image2}
+      alt="Captured here is a portion of a kitchen that bears the mark of Skala Studio's expertise. With green cabinets, a travertine stone and brass sheet-backed kitchen island, and an arched utility door, the space exudes sophistication. Ample natural light pours in through the window, creating a welcoming atmosphere that combines style and functionality seamlessly."
+    />
+    <Fragment slot="body">
+      <Heading size={HeadingSize.H3}> Peaceful Spaces by Design </Heading>
+      <Intro> Designing Spaces for Quietude and Focus </Intro>
+      <p>
+        Our approach integrates architectural elements that promote silence and
+        focus, essential in today’s fast-paced world. Utilizing sound-absorbing
+        materials, strategic layouts, and calming aesthetics, we create
+        environments where individuals can unwind, focus, and find personal
+        peace.
+      </p>
+    </Fragment>
+  </ImageSection>
+  <ImageSection>
+    <Picture
+      slot="image"
+      mainImage={image3}
+      alt="A vibrant yellow stair railing against a minimalist blue and white background."
+    />
+    <Fragment slot="body">
+      <Heading size={HeadingSize.H3}> Spaces That Spark Imagination </Heading>
+      <Intro> Designing for Innovation and Play </Intro>
+      <p>
+        Our designs are conceived to invigorate and inspire, creating
+        environments that nurture innovation and playful exploration. By
+        integrating flexible layouts and through the use of colour, we aim to
+        foster environments where creativity flourishes and every space invites
+        discovery and experimentation.
+      </p>
+    </Fragment>
+  </ImageSection>
 
-<ImageSection>
-  <Picture
-    slot="image"
-    mainImage={image2}
-    alt="Captured here is a portion of a kitchen that bears the mark of Skala Studio's expertise. With green cabinets, a travertine stone and brass sheet-backed kitchen island, and an arched utility door, the space exudes sophistication. Ample natural light pours in through the window, creating a welcoming atmosphere that combines style and functionality seamlessly."
-  />
-  <Fragment slot="body">
-    <Heading size={HeadingSize.H3}> Peaceful Spaces by Design </Heading>
-    <Intro> Designing Spaces for Quietude and Focus </Intro>
-    <p>
-      Our approach integrates architectural elements that promote silence and
-      focus, essential in today’s fast-paced world. Utilizing sound-absorbing
-      materials, strategic layouts, and calming aesthetics, we create
-      environments where individuals can unwind, focus, and find personal peace.
-    </p>
-  </Fragment>
-</ImageSection>
-<ImageSection>
-  <Picture
-    slot="image"
-    mainImage={image3}
-    alt="A vibrant yellow stair railing against a minimalist blue and white background."
-  />
-  <Fragment slot="body">
-    <Heading size={HeadingSize.H3}> Spaces That Spark Imagination </Heading>
-    <Intro> Designing for Innovation and Play </Intro>
-    <p>
-      Our designs are conceived to invigorate and inspire, creating environments
-      that nurture innovation and playful exploration. By integrating flexible
-      layouts and through the use of colour, we aim to foster environments where
-      creativity flourishes and every space invites discovery and
-      experimentation.
-    </p>
-  </Fragment>
-</ImageSection>
-
-<ImageSection>
-  <Picture
-    slot="image"
-    mainImage={image4}
-    alt="Industrial style kitchen with white quartz countertops, black cbainets with copper handles. Brick back wall with visible bulb wall lights and large vintage yellow clock. There is a kitchen island with black large pendant light above and a kitchen hob. "
-  />
-  <Fragment slot="body">
-    <Heading size={HeadingSize.H3}> Identity and Architecture </Heading>
-    <Intro> Spaces for Individual Narratives </Intro>
-    <p>
-      Our design process centers on storytelling, using it as a tool to make
-      spaces deeply personal, whether they're for one, five, or twenty people.
-      We listen to each client's story, translating it into practical,
-      meaningful environments. Through this approach, we ensure that every space
-      not only serves its function but also connects with its users on a
-      personal level.
-    </p>
-  </Fragment>
-</ImageSection>
+  <ImageSection>
+    <Picture
+      slot="image"
+      mainImage={image4}
+      alt="Industrial style kitchen with white quartz countertops, black cbainets with copper handles. Brick back wall with visible bulb wall lights and large vintage yellow clock. There is a kitchen island with black large pendant light above and a kitchen hob. "
+    />
+    <Fragment slot="body">
+      <Heading size={HeadingSize.H3}> Identity and Architecture </Heading>
+      <Intro> Spaces for Individual Narratives </Intro>
+      <p>
+        Our design process centers on storytelling, using it as a tool to make
+        spaces deeply personal, whether they're for one, five, or twenty people.
+        We listen to each client's story, translating it into practical,
+        meaningful environments. Through this approach, we ensure that every
+        space not only serves its function but also connects with its users on a
+        personal level.
+      </p>
+    </Fragment>
+  </ImageSection>
+</div>

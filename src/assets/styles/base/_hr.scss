@@ -1,4 +1,8 @@
 hr {
+  --hr-gap: var(--ss-flow-space-3);
+
+  margin-top: var(--hr-gap);
+  margin-bottom: var(--hr-gap);
   display: block;
   border-top: var(--ss-border-separator);
 }

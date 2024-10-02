@@ -1,22 +1,40 @@
 ---
 import Picture from "@components/ui/picture/Picture.astro";
-import desktopImage from "@images/home/hero/Suburban-Home-Residential-Basingstoke-Hero-D.jpeg";
-import mobileImage from "@images/home/hero/Suburban-Home-Residential-Basingstoke-Hero-M.jpeg";
-import tabletImage from "@images/home/hero/Suburban-Home-Residential-Basingstoke-Hero-T.jpeg";
+import image2 from "@images/home/hero/wooden-cladding-person.jpg";
+import image1 from "@images/home/hero/wooden-cladding.jpg";
 ---
 
-<Picture
-  class="presentation"
-  alt="Designed by Skala Studio, this image captures a wooden kitchen with a green marble island, complete with a courtyard-style garden boasting green plants, trees, and a yellow brick wall. The patio pocket doors are fully open, effortlessly blurring the boundaries between indoor and outdoor spaces. Natural materials abound in the kitchen's cabinetry, while the play of sunlight beautifully illuminates both the patio and the interior."
-  mainImage={desktopImage}
-  tabletImage={tabletImage}
-  mobileImage={mobileImage}
-/>
+<div class="presentation">
+  <Picture
+    class="presentation__image"
+    alt="A cosy outdoor garden space with a wooden planter full of colorful flowers, a cushioned bench, and a backdrop of lush green hedges beside a dark wood-clad building."
+    mainImage={image1}
+    cover={true}
+  />
+  <Picture
+    class="presentation__image"
+    alt="A woman sits outdoors, sipping tea from a patterned cup, wearing a dark green top and a bright orange skirt, beside a wooden-clad building with a lush garden and reflective window in the background."
+    mainImage={image2}
+    cover={true}
+  />
+</div>
 
-<style>
+<style lang="scss">
+  @use "@styles/utils" as utils;
+
   .presentation {
-    border-radius: var(--ss-border-radius-3);
+    display: flex;
+    gap: var(--ss-size-3);
+
+    @include utils.media(mobile-screen-max) {
+      flex-direction: column;
+    }
+  }
+
+  .presentation__image {
+    flex: 1 0 calc(50% - (var(--ss-size-3) / 2));
     overflow: hidden;
     background: var(--ss-color-soil);
+    aspect-ratio: 1 / 1;
   }
 </style>

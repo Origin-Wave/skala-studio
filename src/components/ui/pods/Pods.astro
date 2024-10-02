@@ -1,0 +1,47 @@
+---
+
+---
+
+<div class="pods">
+  <slot />
+</div>
+
+<style lang="scss">
+  @use "@styles/utils" as utils;
+
+  .pods {
+    --pods-gap: var(--ss-size-6);
+    --pods-cols: 3;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: var(--pods-gap);
+
+    @include utils.media(tablet-screen) {
+      --pods-cols: 2;
+
+      flex-direction: row;
+    }
+
+    @include utils.media(small-screen) {
+      --pods-cols: 3;
+    }
+
+    :global(> *) {
+      --pods-pod-size: 100%;
+
+      flex: 0 0 var(--pods-pod-size);
+      width: var(--pods-pod-size);
+
+      @include utils.media(tablet-screen) {
+        --pods-total-gap: calc((var(--pods-cols) - 1) * (var(--pods-gap)));
+        --pods-pod-size: calc(
+          (100% - var(--pods-total-gap)) / var(--pods-cols)
+        );
+      }
+    }
+  }
+</style>
