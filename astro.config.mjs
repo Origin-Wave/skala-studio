@@ -9,7 +9,7 @@ const __dirname = dirname(__filename);
 
 // https://astro.build/config
 export default defineConfig({
-  output: "server",
+  output: "hybrid",
   adapter: vercel({
     webAnalytics: { enabled: true },
   }),
