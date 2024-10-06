@@ -1,3 +1,4 @@
+import vercel from "@astrojs/vercel/serverless";
 import { defineConfig } from "astro/config";
 
 import path, { dirname } from "path";
@@ -8,6 +9,10 @@ const __dirname = dirname(__filename);
 
 // https://astro.build/config
 export default defineConfig({
+  output: "server",
+  adapter: vercel({
+    webAnalytics: { enabled: true },
+  }),
   site: "https://www.skala-studio.co.uk",
   scopedStyleStrategy: "where",
   vite: {
