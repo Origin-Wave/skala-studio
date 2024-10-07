@@ -1,17 +1,19 @@
 ---
-import Headline from "@components/ui/typography/headline/Headline.astro";
+import IntroSection from "@components/sections/IntroSection.astro";
+import Heading from "@components/ui/typography/heading/Heading.astro";
+import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
 ---
 
 <div class="head">
-  <Headline>
-    <Fragment>
+  <IntroSection>
+    <Heading as={HeadingSize.H1}>
       <u>Our Story</u><br /> Health <u>&amp;</u>
       <span>Design</span>
-    </Fragment>
-    <Fragment slot="sub-heading"
-      >How can we live well in our fast-paced world?</Fragment
-    >
-  </Headline>
+      <Fragment slot="sub-heading">
+        How can we live well in our fast-paced world?
+      </Fragment>
+    </Heading>
+  </IntroSection>
 </div>
 
 <style lang="scss">
