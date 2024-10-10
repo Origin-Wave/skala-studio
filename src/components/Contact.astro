@@ -6,7 +6,7 @@ interface Props {
 }
 
 const { class: className } = Astro.props;
-const { directors, email, address } = await companyInfoClient.getCompanyInfo();
+const { email, branches } = await companyInfoClient.getCompanyInfo();
 ---
 
 <address class:list={["contact", className]}>
@@ -14,40 +14,28 @@ const { directors, email, address } = await companyInfoClient.getCompanyInfo();
     <span class="contact__label">Email:</span>
     {email}
   </p>
-  <p>
-    <span class="contact__label">Mobile:</span>
-    {
-      directors.map((director) => (
-        <span>
-          {director.phone}
-          <br />
-        </span>
-      ))
-    }
-    <p class="contact__address">
-      <span class="contact__label">Address:</span>
-      <span>
-        {address.street}
-        <br />
-        {address.city}
-        <br />
-        {address.postCode}
-      </span>
-    </p>
-  </p>
 
-  <style lang="scss">
-    .contact {
-      display: flex;
-      flex-direction: column;
-      font-size: var(--ss-font-size-base);
-      gap: var(--ss-size-1);
-    }
-
-    .contact__label {
-      display: block;
-      font-weight: var(--ss-font-secondary-weight-bold);
-      margin-right: var(--ss-size-1);
-    }
-  </style>
+  {
+    branches.map((branch) => (
+      <p>
+        <span class="contact__label">{branch.name} branch:</span>
+        <span>{branch.branchManager.phone}</span>
+      </p>
+    ))
+  }
 </address>
+
+<style lang="scss">
+  .contact {
+    display: flex;
+    flex-direction: column;
+    font-size: var(--ss-font-size-base);
+    gap: var(--ss-size-1);
+  }
+
+  .contact__label {
+    display: block;
+    font-weight: var(--ss-font-secondary-weight-bold);
+    margin-right: var(--ss-size-1);
+  }
+</style>

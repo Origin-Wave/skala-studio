@@ -16,6 +16,7 @@ export interface CompanyInfo {
     instagram: SocialMediaDetails;
     pinterest: SocialMediaDetails;
   };
+  branches: CompanyBranch[];
 }
 
 export interface Employee {
@@ -28,4 +29,17 @@ export interface Employee {
 export interface SocialMediaDetails {
   url: string;
   name: string;
+}
+
+export interface CompanyBranch {
+  name: string;
+  regions: string[];
+  branchManager: Employee;
+  address: {
+    street: string;
+    city: string;
+    postCode: string;
+    country: string;
+    googleMapsUrl: string;
+  };
 }

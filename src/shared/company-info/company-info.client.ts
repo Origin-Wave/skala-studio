@@ -1,4 +1,8 @@
-import type { CompanyInfo, Employee } from "@shared/company-info";
+import type {
+  CompanyBranch,
+  CompanyInfo,
+  Employee,
+} from "@shared/company-info";
 
 export const companyInfoClient = {
   async getCompanyInfo(): Promise<CompanyInfo> {
@@ -18,6 +22,32 @@ const DIRECTOR_MARZENA_SZWED: Employee = {
   lastName: "Szwed",
   email: "marzena@skala-studio.co.uk",
   phone: "07921 045 731",
+};
+
+export const EAST_GRINSTEAD_BRANCH: CompanyBranch = {
+  name: "East Grinstead",
+  regions: ["East Sussex", "West Sussex", "South London", "Kent"],
+  branchManager: DIRECTOR_KATARZYNA_CZAPIGA,
+  address: {
+    street: "18 Perry Avenue",
+    city: "East Grinstead",
+    postCode: "RH19 2DJ",
+    country: "United Kingdom",
+    googleMapsUrl: "https://maps.app.goo.gl/ZmESKb8gPZZmWqij7",
+  },
+};
+
+export const GODALMING_BRANCH: CompanyBranch = {
+  name: "Godalming",
+  regions: ["Surrey", "Hampshire", "West Sussex"],
+  branchManager: DIRECTOR_MARZENA_SZWED,
+  address: {
+    street: "17 Aarons Hill",
+    city: "Godalming",
+    postCode: "GU7 2LG",
+    country: "United Kingdom",
+    googleMapsUrl: "https://maps.app.goo.gl/tNjDr1BY7skogmYv7",
+  },
 };
 
 const SKALA_STUDIO_INFO: CompanyInfo = {
@@ -47,4 +77,5 @@ const SKALA_STUDIO_INFO: CompanyInfo = {
       name: "Skala_Studio",
     },
   },
+  branches: [EAST_GRINSTEAD_BRANCH, GODALMING_BRANCH],
 };
