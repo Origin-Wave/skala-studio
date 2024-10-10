@@ -4,24 +4,52 @@ import Navigation from "@components/header/navigation/Navigation.astro";
 import Container from "@components/ui/container/Container.astro";
 ---
 
-<Container>
-  <header class="header">
-    <a href="/" class="header__logo-link" aria-label="Go to home page">
-      <Logo class="header__logo" />
-    </a>
-    <div class="header__contact">
-      <Navigation />
-    </div>
-  </header>
-</Container>
+<div class="header-container">
+  <Container>
+    <header class="header" id="global-header">
+      <a href="/" class="header__logo-link" aria-label="Go to home page">
+        <Logo class="header__logo" />
+      </a>
+      <div class="header__contact">
+        <Navigation />
+      </div>
+    </header>
+  </Container>
+</div>
+
+<script>
+  const header = document.getElementById("global-header")!;
+  const activeClass = "header--active";
+
+  document.addEventListener(
+    "scroll",
+    () => {
+      if (window.scrollY > 20) {
+        header.classList.add(activeClass);
+      } else {
+        header.classList.remove(activeClass);
+      }
+    },
+    { passive: true },
+  );
+</script>
 
 <style lang="scss">
   @use "@styles/utils" as utils;
+
+  .header-container {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background: var(--ss-color-stone-alt);
+  }
 
   .header {
     --header-padding: var(--ss-flow-space-2);
     --header-logo-size: var(--ss-size-10);
 
+    transition: all 0.2s;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -38,6 +66,11 @@ import Container from "@components/ui/container/Container.astro";
     }
   }
 
+  .header--active {
+    --header-padding: var(--ss-size-3);
+    --header-logo-size: var(--ss-size-9);
+  }
+
   .header__logo-link {
     display: flex;
   }
@@ -45,6 +78,7 @@ import Container from "@components/ui/container/Container.astro";
   .header__logo {
     width: var(--header-logo-size);
     height: auto;
+    transition-timing-function: ease-in-out;
   }
 
   .header__contact {
