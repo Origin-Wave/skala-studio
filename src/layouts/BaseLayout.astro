@@ -29,7 +29,7 @@ const { title, description } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
+  <body class="body">
     <Header />
     <main>
       <Container>
@@ -39,3 +39,9 @@ const { title, description } = Astro.props;
     <Footer />
   </body>
 </html>
+
+<style lang="scss">
+  .body {
+    padding-top: calc(var(--ss-flow-space-2) * 2 + var(--ss-size-10));
+  }
+</style>
