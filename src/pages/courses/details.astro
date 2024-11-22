@@ -1,0 +1,113 @@
+---
+import CourseInfoSection from "@components/sections/CourseInfoSection.astro";
+import ImageSection from "@components/sections/ImageSection.astro";
+import IntroSection from "@components/sections/IntroSection.astro";
+import Picture from "@components/ui/picture/Picture.astro";
+import Heading from "@components/ui/typography/heading/Heading.astro";
+import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
+import Intro from "@components/ui/typography/intro/Intro.astro";
+import image1 from "@images/courses/details/details01.jpg";
+import image2 from "@images/courses/details/details02.jpg";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Details Course — Skala Studio"
+  description="Master drawing architectural details and specifying materials."
+>
+  <section>
+    <IntroSection>
+      <Heading size={HeadingSize.H1} as={HeadingSize.H2}
+        >Architectural Details and Material Specifications
+        <Fragment slot="sub-heading"
+          >Master drawing architectural details and specifying materials to
+          ensure quality, functionality, and sustainability in your projects.</Fragment
+        >
+      </Heading>
+      <Intro
+        >This course provides practical knowledge and techniques to create
+        precise technical drawings and make informed decisions about materials
+        for architectural and interior design projects.
+      </Intro>
+    </IntroSection>
+
+    <div>
+      <ImageSection>
+        <Picture
+          mainImage={image1}
+          alt="Architectural Drawings and Details."
+          slot="image"
+        />
+        <Fragment slot="body">
+          <Heading size={HeadingSize.H2} as={HeadingSize.H3}
+            >Learn to Draft with Precision</Heading
+          >
+          <Intro>
+            Discover the principles of creating clear, accurate architectural
+            details for successful construction outcomes.
+          </Intro>
+          <p>
+            Gain essential skills in drafting technical details that communicate
+            effectively with contractors and builders. The course covers how to
+            balance creativity with practicality, ensuring your designs are both
+            innovative and buildable.
+          </p>
+        </Fragment>
+      </ImageSection>
+      <ImageSection>
+        <Picture
+          mainImage={image2}
+          alt="Material Board and Mood Board for Material Specification."
+          slot="image"
+        />
+        <Fragment slot="body">
+          <Heading size={HeadingSize.H2} as={HeadingSize.H3}
+            >Understand Material Specification</Heading
+          >
+          <Intro>
+            Develop the expertise to select materials that align with design
+            intent, budget, and sustainability goals.
+          </Intro>
+          <p>
+            Explore the properties of various materials, learn to assess their
+            suitability, and understand the critical considerations when
+            specifying materials for architecture and interior design. This
+            ensures quality and functionality in every project.
+          </p>
+        </Fragment>
+      </ImageSection>
+    </div>
+  </section>
+  <CourseInfoSection>
+    <Intro>
+      Gain the technical knowledge to create precise architectural details and
+      informed material specifications, while earning a certificate to enhance
+      your credentials and you’ll receive a certificate upon completion to
+      showcase your achievement.
+    </Intro>
+    <p>
+      <strong>Dates to be announced soon.</strong><br />
+      Live online workshop with Skala Studio founders.<br />
+      Get our 3-hour Details Course if you want to start your own business for just
+      &pound;200!
+    </p>
+    <p>
+      <strong>Sign up for our waiting list today!</strong>
+      <br />
+      Once the dates are announced you will be contacted with a payment link to book
+      your spot.
+    </p>
+    <p>
+      <strong>Places for each course will be limited. </strong>
+    </p>
+    <p>
+      We will be contacting you in order you sign up! Secure your spot by
+      providing us with your name and email address in the form below.
+    </p>
+  </CourseInfoSection>
+  <iframe
+    src="https://forms.monday.com/forms/embed/6dba679e343419081cac65fe5eb48402?r=euc1"
+    width="100%"
+    height="1000"
+    style="border: 0"></iframe>
+</BaseLayout>

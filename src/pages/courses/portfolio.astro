@@ -1,0 +1,121 @@
+---
+import CourseInfoSection from "@components/sections/CourseInfoSection.astro";
+import ImageSection from "@components/sections/ImageSection.astro";
+import IntroSection from "@components/sections/IntroSection.astro";
+import Picture from "@components/ui/picture/Picture.astro";
+import Heading from "@components/ui/typography/heading/Heading.astro";
+import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
+import Intro from "@components/ui/typography/intro/Intro.astro";
+import image1 from "@images/courses/uni/sketchbook01.jpg";
+import image2 from "@images/courses/uni/sketchbook02.jpg";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Portfolio for University Applications"
+  description="This course is designed to help students develop professional and visually cohesive portfolios for university applications."
+>
+  <section>
+    <IntroSection>
+      <Heading size={HeadingSize.H1} as={HeadingSize.H2}
+        >Portfolio for University Applications
+        <Fragment slot="sub-heading"
+          >Design a portfolio for architecture and interior design courses.</Fragment
+        >
+      </Heading>
+      <Intro
+        >This course is designed to help students develop professional and
+        visually cohesive portfolios tailored for university applications in
+        architecture and interior design. Perfect for first-time applicants or
+        those refining their existing work, the course provides expert guidance
+        to present creativity and skills effectively.</Intro
+      >
+    </IntroSection>
+
+    <div>
+      <ImageSection>
+        <Picture
+          mainImage={image1}
+          alt="Sketchbooks showing drawings of buildings."
+          slot="image"
+        />
+        <Fragment slot="body">
+          <Heading size={HeadingSize.H2} as={HeadingSize.H3}
+            >Create Your Portfolio with Professional Guidance</Heading
+          >
+          <Intro>
+            Benefit from expertise blending academic and professional insights
+            into architecture and interior design.
+          </Intro>
+          <p>
+            The course is led by directors of a chartered architectural office
+            who also lecture at the University of Kent’s Spatial Interior Design
+            course. Their teaching blends the creative and technical aspects of
+            both disciplines, ensuring the portfolio course reflects academic
+            and professional standards.
+          </p>
+        </Fragment>
+      </ImageSection>
+      <ImageSection>
+        <Picture
+          mainImage={image2}
+          alt="Material board in a sketchbook."
+          slot="image"
+        />
+        <Fragment slot="body">
+          <Heading size={HeadingSize.H2} as={HeadingSize.H3}
+            >Prepare to Impress Admissions Panels</Heading
+          >
+          <Intro>
+            Gain the confidence to present your work and creativity
+            professionally for a strong and compelling university application.
+          </Intro>
+          <p>
+            This course ensures that students develop polished, professional
+            portfolios that effectively communicate their design skills and
+            creativity. It helps build confidence and positions applicants for
+            success when applying to leading architecture and interior design
+            programmes.
+          </p>
+        </Fragment>
+      </ImageSection>
+    </div>
+  </section>
+  <CourseInfoSection>
+    <Intro>
+      Stand out from the crowd with a portfolio that reflects the professional
+      standards expected by top universities, guided by experts who understand
+      what admissions panels are looking for.
+    </Intro>
+    <p>
+      <strong>Contact us for a free no obligation talk!</strong>
+      <br />
+      Sign up below and choose assessment under course time. We can then discuss
+      the how the lessons work in detail. Assess current development progress and
+      what is needed to suceed.
+    </p>
+
+    <p>
+      <strong>Sign up for our Group Course today!</strong>
+      <br />
+      Get our 1-hour Group Course if you want to learn alongside like-minded applicants.
+      &pound;25 per 1-hour session. The Group Course will start when 4 students sign
+      up. Once the dates are announced you will be contacted with a payment link
+      to book your spot. Lessons will be organised to suit the timeline of all students.
+    </p>
+    <p>
+      <strong>Sign up for our Individual Lessons today! </strong>
+    </p>
+    <p>
+      Get our 1-hour Individual lessons if you want a dedicated time and quick
+      improvement. &pound;100 per 1-hour lesson. We will be contacting you to
+      schedule your first lesson. We will also send you a payment link to book
+      your spot.
+    </p>
+  </CourseInfoSection>
+  <iframe
+    src="https://forms.monday.com/forms/embed/3adabaf2877fc6f5eefdd0a20ba9c4d5?r=euc1"
+    width="100%"
+    height="1000"
+    style="border: 0"></iframe>
+</BaseLayout>
