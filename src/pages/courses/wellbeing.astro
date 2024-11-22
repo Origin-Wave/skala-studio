@@ -1,0 +1,115 @@
+---
+import CourseInfoSection from "@components/sections/CourseInfoSection.astro";
+import ImageSection from "@components/sections/ImageSection.astro";
+import IntroSection from "@components/sections/IntroSection.astro";
+import Picture from "@components/ui/picture/Picture.astro";
+import Heading from "@components/ui/typography/heading/Heading.astro";
+import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
+import Intro from "@components/ui/typography/intro/Intro.astro";
+import image1 from "@images/courses/wellbeing/sensory01.png";
+import image2 from "@images/courses/wellbeing/sensory02.png";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Wellbeing Course — Skala Studio"
+  description="This course explored the integration of sensory design and well-being into architecture and interiors."
+>
+  <section>
+    <IntroSection>
+      <Heading size={HeadingSize.H1} as={HeadingSize.H2}
+        >Well-Being and Sensory Design
+        <Fragment slot="sub-heading"
+          >Discover the art of designing spaces that engage the senses and
+          foster a deeper connection to well-being.</Fragment
+        >
+      </Heading>
+      <Intro
+        >This course explores the integration of sensory design and well-being
+        into architecture and interiors, focusing on creating human-centred
+        spaces that positively impact users' experiences.</Intro
+      >
+    </IntroSection>
+
+    <div>
+      <ImageSection>
+        <Picture
+          mainImage={image1}
+          alt="The space is covered by 3-dimensional carpets creating an unusual sensory experience."
+          slot="image"
+        />
+        <Fragment slot="body">
+          <Heading size={HeadingSize.H2} as={HeadingSize.H3}
+            >Design for Health and Harmony</Heading
+          >
+          <Intro>
+            Understand how sensory design influences emotions, behaviour, and
+            overall well-being in built environments.
+          </Intro>
+          <p>
+            The course provides insights into creating spaces that reduce
+            stress, improve mental health, and foster connection with nature.
+            Through case studies and practical tools, you will learn to
+            incorporate sensory elements, textures, and materials into your
+            designs for enhanced user experience.
+          </p>
+        </Fragment>
+      </ImageSection>
+      <ImageSection>
+        <Picture
+          mainImage={image2}
+          alt="An interior space with a rock formation wall behind the armchair."
+          slot="image"
+        />
+        <Fragment slot="body">
+          <Heading size={HeadingSize.H2} as={HeadingSize.H3}
+            >Taught by Skala Studio Chartered Architects and Company Directors.</Heading
+          >
+          <Intro>
+            Led by professionals with extensive knowledge of well-being, sensory
+            design, and sustainable architecture and interiors.
+          </Intro>
+          <p>
+            The course is taught by directors of a chartered architectural
+            office with expertise in sensory design, sustainability, and
+            human-centred spaces. Their background in academia and practice
+            ensures a comprehensive approach to designing for well-being. With
+            their guidance, you'll learn to create thoughtful spaces that
+            balance functionality with emotional impact.
+          </p>
+        </Fragment>
+      </ImageSection>
+    </div>
+  </section>
+  <CourseInfoSection>
+    <Intro>
+      This course equips you with the skills to design meaningful, human-centred
+      spaces that promote well-being, and you’ll receive a certificate upon
+      completion to showcase your achievement.
+    </Intro>
+    <p>
+      <strong>Dates to be announced soon.</strong><br />
+      Live online workshop with Skala Studio founders.<br />
+      Get our 3-hour Wellbeing Course if you want to start your own business for
+      just &pound;200!
+    </p>
+    <p>
+      <strong>Sign up for our waiting list today!</strong>
+      <br />
+      Once the dates are announced you will be contacted with a payment link to book
+      your spot.
+    </p>
+    <p>
+      <strong>Places for each course will be limited. </strong>
+    </p>
+    <p>
+      We will be contacting you in order you sign up! Secure your spot by
+      providing us with your name and email address in the form below.
+    </p>
+  </CourseInfoSection>
+  <iframe
+    src="https://forms.monday.com/forms/embed/6f9241a9cc7c6cfa970350c84f5390f5?r=euc1"
+    width="100%"
+    height="1000"
+    style="border: 0"></iframe>
+</BaseLayout>

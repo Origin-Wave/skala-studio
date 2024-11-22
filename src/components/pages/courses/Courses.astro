@@ -7,21 +7,25 @@ import Heading from "@components/ui/typography/heading/Heading.astro";
 import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
 import Intro from "@components/ui/typography/intro/Intro.astro";
 import image2 from "@images/courses/business/team-brainstorming.jpeg";
+import image6 from "@images/courses/details/detail-min.jpg";
 import image1 from "@images/courses/jct/pricture-of-a-contract.jpeg";
 import image3 from "@images/courses/revit/residential-building-blueprint-drawings.jpeg";
+import image4 from "@images/courses/uni/website-course-uni.jpg";
+import image5 from "@images/courses/wellbeing/sensory-design.jpg";
 ---
 
 <section>
   <IntroSection>
     <Heading size={HeadingSize.H2}>Our Courses</Heading>
     <Intro>
-      Skala Studio's Learning Hub: Expert Courses in JCT, Business, and Revit.
+      Skala Studio's Learning Hub: Expert Courses in JCT, Architecture, and
+      Software.
     </Intro>
   </IntroSection>
 
   <div>
     <Pods>
-      <Pod label="JCT Course" url="/courses/jct">
+      <Pod label="Learn How to Navigate JCT Minor Works." url="/courses/jct">
         <Fragment slot="sub-content">
           <p>
             Increasingly, we observe that contractors are losing money when it
@@ -34,7 +38,10 @@ import image3 from "@images/courses/revit/residential-building-blueprint-drawing
           alt="Skala Studio offers Courses on JCT Contracts for Contractors. This image shows a first page of a construction contract."
         />
       </Pod>
-      <Pod label="Business Course" url="/courses/business">
+      <Pod
+        label="Start Your Own Architecture Business."
+        url="/courses/business"
+      >
         <Fragment slot="sub-content">
           <p>
             Gain insights into starting your own architecture business with
@@ -48,7 +55,10 @@ import image3 from "@images/courses/revit/residential-building-blueprint-drawing
           alt="A team engaged in brainstorming around a table, focusing on a sheet of paper with a detailed sketched diagram outlining the process of kickstarting a business."
         />
       </Pod>
-      <Pod label="Revit - Coming Soon!" url="/courses/revit">
+      <Pod
+        label="Revit Template and Learning - Coming Soon! "
+        url="/courses/revit"
+      >
         <Fragment slot="sub-content">
           <p>
             Buy our state-of-the-art Revit Template for small to medium
@@ -61,6 +71,65 @@ import image3 from "@images/courses/revit/residential-building-blueprint-drawing
         </Fragment>
         <Picture
           mainImage={image3}
+          alt="Image showing architecture drawings, plans. They were all drawn using digital softwares"
+        />
+      </Pod>
+      <Pod
+        label="Portfolio for Architecture and Interior Design Studies. "
+        url="/courses/portfolio"
+      >
+        <Fragment slot="sub-content">
+          <p>
+            Our online course supports architecture and interior design students
+            in creating strong portfolios for university applications. Led by a
+            chartered architectural office, it focuses on presenting work
+            professionally, showcasing creativity, and aligning with the
+            standards of both disciplines to enhance application success. The
+            course is taught by directors who lecture at the University of
+            Kent's Spatial Interior Design course, known for blending
+            architecture and interior design.
+          </p>
+        </Fragment>
+        <Picture
+          mainImage={image4}
+          alt="Skala Studio offers Courses that help future students with their portfolio preparation for university degree in architecture and interior design."
+        />
+      </Pod>
+      <Pod
+        label="Wellbeing in Architecture and Sensory Design."
+        url="/courses/wellbeing"
+      >
+        <Fragment slot="sub-content">
+          <p>
+            Explore the impact of well-being and sensory design in architecture
+            and interior design through our specialised course. Led by Chartered
+            Architects, it delves into creating spaces that promote health,
+            reduce stress, and enhance harmony. Perfect for understanding the
+            human experience and integrating sensory principles into thoughtful,
+            sustainable design solutions.
+          </p>
+        </Fragment>
+        <Picture
+          mainImage={image5}
+          alt="A team engaged in brainstorming around a table, focusing on a sheet of paper with a detailed sketched diagram outlining the process of kickstarting a business."
+        />
+      </Pod>
+      <Pod
+        label="Architectural Details and Specifications."
+        url="/courses/details"
+      >
+        <Fragment slot="sub-content">
+          <p>
+            Develop essential skills in drafting architectural details and
+            specifying materials with our course for young architects. Gain
+            practical knowledge on creating precise technical drawings and learn
+            what to consider when selecting materials to ensure quality,
+            functionality, and sustainability in your designs. Ideal for
+            building confidence in professional practice.
+          </p>
+        </Fragment>
+        <Picture
+          mainImage={image6}
           alt="Image showing architecture drawings, plans. They were all drawn using digital softwares"
         />
       </Pod>
