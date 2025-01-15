@@ -1,8 +1,10 @@
 ---
+import FoundersSection from "@components/pages/our-story/FoundersSection.astro";
 import Head from "@components/pages/our-story/Head.astro";
-import Introduction from "@components/pages/our-story/Introduction.astro";
-import Services from "@components/pages/our-story/Services.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+import BottomSection from "@components/pages/our-story/BottomSection.astro";
+import IntroductorySection from "@components/pages/our-story/IntroductorySection.astro";
 ---
 
 <BaseLayout
@@ -10,8 +12,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   description="Learn more about our background, experience and design principles. Why is it so important to ivest in healthy design?"
 >
   <Head />
-
-  <Introduction />
-  <hr />
-  <Services />
+  <IntroductorySection />
+  <FoundersSection />
+  <BottomSection />
 </BaseLayout>

@@ -1,0 +1,31 @@
+---
+import ContactCard from "@components/ContactCard.astro";
+import SplitImageSection from "@components/sections/split-image-section/SplitImageSection.astro";
+import type { SplitImageSectionImage } from "@components/sections/split-image-section/models";
+import image6 from "@images/our-story/6.jpg";
+import image7 from "@images/our-story/7.jpg";
+import image8 from "@images/our-story/8.jpg";
+
+const images: SplitImageSectionImage[] = [
+  {
+    data: image6,
+    alt: "A cozy green armchair placed by a large window, with soft natural light illuminating the room and a view of trees outside.",
+  },
+  {
+    data: image7,
+    alt: "A corner of a modern living room with a brown sectional sofa, a bright orange guitar resting on the cushions, and a large glass window offering a view of a leafy backyard.",
+  },
+  {
+    data: image8,
+    alt: "The exterior of a contemporary two-storey house with wooden cladding, large windows, and surrounded by dense green foliage.",
+  },
+];
+---
+
+<section>
+  <SplitImageSection images={images} />
+</section>
+
+<section>
+  <ContactCard />
+</section>
