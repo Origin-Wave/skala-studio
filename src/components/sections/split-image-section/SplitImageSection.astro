@@ -1,0 +1,46 @@
+---
+import Picture from "@components/ui/picture/Picture.astro";
+import type { SplitImageSectionImage } from "./models";
+
+interface Props {
+  columns?: number;
+  images: SplitImageSectionImage[];
+}
+
+const { images, columns = images.length } = Astro.props;
+---
+
+<div class="split-image-section" style={`--split-image-columns: ${columns};`}>
+  {
+    images.map((image) => (
+      <div class="split-image-section__item">
+        <Picture alt={image.alt} mainImage={image.data} cover={true} />
+      </div>
+    ))
+  }
+</div>
+
+<style lang="scss">
+  @use "@styles/utils" as utils;
+
+  .split-image-section {
+    --split-image-column-gutter: var(--ss-size-3);
+    --split-image-column-width: calc(100% / var(--split-image-columns));
+    --split-image-column-gap: calc(
+      (var(--split-image-columns) - 1) * var(--split-image-column-gutter) /
+        var(--split-image-columns)
+    );
+
+    display: flex;
+    gap: var(--split-image-column-gutter);
+    flex-wrap: wrap;
+  }
+
+  .split-image-section__item {
+    flex: 0 0
+      calc(var(--split-image-column-width) - var(--split-image-column-gap));
+    overflow: hidden;
+    background: var(--ss-color-soil);
+    aspect-ratio: 1 / 1;
+  }
+</style>

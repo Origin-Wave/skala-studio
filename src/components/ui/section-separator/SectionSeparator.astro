@@ -1,0 +1,34 @@
+---
+
+---
+
+<div class="section-separator">
+  <slot />
+</div>
+
+<style lang="scss">
+  @use "@styles/utils" as utils;
+
+  .section-separator {
+    --section-separator-padding: var(--ss-flow-space-3);
+
+    margin: var(--ss-flow-space-3) 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: var(--ss-flow-space-3);
+
+    &::after {
+      content: "";
+      display: block;
+      background: var(--ss-color-soil);
+      width: var(--ss-size-5);
+      border-bottom: var(--ss-border-separator);
+    }
+  }
+
+  .section-separator--with-content {
+    padding-top: 0;
+  }
+</style>

@@ -1,13 +1,33 @@
 ---
 interface Props {
   id?: string;
+  justify?: "top" | "center" | "bottom";
+  imageSize?: string;
+  imageAspectRatio?: string;
 }
 
-const { id } = Astro.props;
+const {
+  id,
+  justify = "center",
+  imageSize = "50%",
+  imageAspectRatio = "1 / 1",
+} = Astro.props;
+
+const variantClass: Record<string, string> = {
+  top: "image-section--top",
+  center: "image-section--center",
+  bottom: "image-section--bottom",
+};
 ---
 
-<div id={id} class="image-section">
-  <div class="image-section__column">
+<div id={id} class:list={["image-section", variantClass[justify]]}>
+  <div
+    class="image-section__column"
+    style={{
+      "--image-section-image-size": imageSize,
+      "--image-section-image-aspect-ratio": imageAspectRatio,
+    }}
+  >
     <slot name="image" />
   </div>
   <div class="image-section__column">
@@ -19,6 +39,7 @@ const { id } = Astro.props;
   @use "@styles/utils" as utils;
 
   .image-section {
+    --image-section-columns: 2;
     --image-section-column-gap: var(--ss-flow-space-3);
     --image-section-row-gap: var(--ss-flow-space-3);
 
@@ -31,7 +52,7 @@ const { id } = Astro.props;
     }
 
     :global(picture) {
-      aspect-ratio: 1 / 1;
+      aspect-ratio: var(--image-section-image-aspect-ratio);
     }
 
     :global(picture > img) {
@@ -57,12 +78,27 @@ const { id } = Astro.props;
     }
   }
 
+  @include utils.media(tablet-screen) {
+    .image-section--top {
+      align-items: flex-start;
+    }
+
+    .image-section--bottom {
+      align-items: flex-end;
+    }
+  }
+
   .image-section__column {
     width: 100%;
 
     @include utils.media(tablet-screen) {
-      flex: 1 1 50%;
-      width: auto;
+      --image-section-column-width: calc(
+        var(--image-section-image-size) -
+          ((var(--image-section-columns) - 1) * var(--image-section-column-gap))
+      );
+
+      flex: 0 0 var(--image-section-column-width);
+      width: var(--image-section-column-width);
     }
   }
 

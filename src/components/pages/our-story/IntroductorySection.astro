@@ -1,0 +1,55 @@
+---
+import ImageSection from "@components/sections/ImageSection.astro";
+import IntroSection from "@components/sections/IntroSection.astro";
+import Button from "@components/ui/button/Button.astro";
+import Buttons from "@components/ui/button/Buttons.astro";
+import Picture from "@components/ui/picture/Picture.astro";
+import SectionSeparator from "@components/ui/section-separator/SectionSeparator.astro";
+import Heading from "@components/ui/typography/heading/Heading.astro";
+import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
+import Intro from "@components/ui/typography/intro/Intro.astro";
+import image4 from "@images/our-story/4.jpg";
+---
+
+<section>
+  <IntroSection>
+    <Heading size={HeadingSize.H2}>Architecture as an Extension of Self</Heading
+    >
+    <Intro>
+      Designing with Purpose: Spaces That Promote Health, Inspire Creativity,
+      and Enhance Well-being and Relaxation.
+    </Intro>
+  </IntroSection>
+
+  <ImageSection justify="top" imageSize="39%">
+    <Picture
+      slot="image"
+      mainImage={image4}
+      alt="A children's study area with a wooden desk and green chair, next to a large window framing a view of dense greenery outside. "
+    />
+    <Fragment slot="body">
+      <Heading size={HeadingSize.H3}> Foundations of Wellness </Heading>
+      <p>
+        Our designs are centered on health, integrating natural light, clean
+        air, and green spaces to encourage a healthy lifestyle. Our approach
+        integrates architectural elements that promote silence and focus,
+        essential in today’s fast-paced world. Each project is a step towards a
+        world where buildings help us thrive physically and mentally.
+      </p>
+      <Heading size={HeadingSize.H3}> Spaces That Spark Imagination </Heading>
+      <p>
+        We create designs that invigorate and inspire, creating environments
+        that nurture innovation and playful exploration. By integrating flexible
+        layouts and through the use of colour, we aim to foster environments
+        where creativity flourishes and every space invites discovery and
+        experimentation.
+      </p>
+    </Fragment>
+  </ImageSection>
+</section>
+
+<SectionSeparator>
+  <Buttons>
+    <Button href="/services">Find out more</Button>
+  </Buttons>
+</SectionSeparator>

@@ -1,9 +1,24 @@
 ---
 import Head from "@components/pages/home/Head.astro";
 import Introduction from "@components/pages/home/Introduction.astro";
-import Presentation from "@components/pages/home/Presentation.astro";
 import Services from "@components/pages/home/Services.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+import type { SplitImageSectionImage } from "@components/sections/split-image-section/models";
+import SplitImageSection from "@components/sections/split-image-section/SplitImageSection.astro";
+import image2 from "@images/home/hero/wooden-cladding-person.jpg";
+import image1 from "@images/home/hero/wooden-cladding.jpg";
+
+const images: SplitImageSectionImage[] = [
+  {
+    data: image1,
+    alt: "A cosy outdoor garden space with a wooden planter full of colorful flowers, a cushioned bench, and a backdrop of lush green hedges beside a dark wood-clad building.",
+  },
+  {
+    data: image2,
+    alt: "A woman sits outdoors, sipping tea from a patterned cup, wearing a dark green top and a bright orange skirt, beside a wooden-clad building with a lush garden and reflective window in the background.",
+  },
+];
 ---
 
 <BaseLayout
@@ -11,7 +26,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   description="Award-Winning Architectural Design for Healthy Living in London and South East England. Explore our designs and projects that prioritise wellness and sustainability."
 >
   <Head />
-  <Presentation />
+  <SplitImageSection images={images} />
   <Introduction />
   <hr />
   <Services />

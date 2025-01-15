@@ -1,0 +1,68 @@
+---
+import ImageSection from "@components/sections/ImageSection.astro";
+import Picture from "@components/ui/picture/Picture.astro";
+import SectionSeparator from "@components/ui/section-separator/SectionSeparator.astro";
+import Heading from "@components/ui/typography/heading/Heading.astro";
+import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
+import Intro from "@components/ui/typography/intro/Intro.astro";
+import image5 from "@images/our-story/5.jpg";
+---
+
+<section>
+  <ImageSection justify="top" imageSize="39%" imageAspectRatio="auto">
+    <Picture
+      slot="image"
+      mainImage={image5}
+      alt="A portrait of two women, both wearing black tops, standing in front of a blurred architectural background."
+    />
+    <Fragment slot="body">
+      <Heading size={HeadingSize.H2}>Meet the Founders</Heading>
+
+      <Intro>
+        <strong>Katarzyna Czapiga</strong><br />
+        ARB/RIBA Chartered Architect
+      </Intro>
+
+      <p>
+        I aim to create architecture that celebrates and inspires new human
+        interactions, and designs spaces of beauty and comfort. My experience
+        includes designing educational projects that enhance learning through
+        spatial design and residential spaces that prioritize peace, joy, and
+        personal connection. I am also deeply interested in Urban Studies and am
+        undertaking a PhD focused on the processes of city reconstruction.
+      </p>
+
+      <p>
+        <a
+          href="https://www.linkedin.com/in/katarzyna-czapiga-66a153146/"
+          target="_blank">Check my LinkedIn Profile</a
+        >
+      </p>
+      <br />
+      <br />
+      <Intro>
+        <strong>Marzena Szwed</strong><br />
+        ARB/RIBA Chartered Architect
+      </Intro>
+
+      <p>
+        I believe in creating designs that prioritize both human well-being and
+        environmental sustainability. My experience spans public and private
+        sectors, including educational, healthcare, and residential projects.
+        I’ve explored renewable materials like wood and clay, researched
+        building longevity and adaptive reuse, and worked on conservation and
+        renovations, transforming abandoned structures into flexible,
+        future-proofed spaces.
+      </p>
+
+      <p>
+        <a
+          href="https://www.linkedin.com/in/marzena-szwed-a36405191/"
+          target="_blank">Check my LinkedIn Profile</a
+        >
+      </p>
+    </Fragment>
+  </ImageSection>
+</section>
+
+<SectionSeparator />
