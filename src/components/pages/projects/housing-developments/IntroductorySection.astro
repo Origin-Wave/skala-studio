@@ -1,0 +1,59 @@
+---
+import ImageSection from "@components/sections/ImageSection.astro";
+import IntroSection from "@components/sections/IntroSection.astro";
+import Button from "@components/ui/button/Button.astro";
+import Buttons from "@components/ui/button/Buttons.astro";
+import Picture from "@components/ui/picture/Picture.astro";
+import SectionSeparator from "@components/ui/section-separator/SectionSeparator.astro";
+import Heading from "@components/ui/typography/heading/Heading.astro";
+import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
+import Intro from "@components/ui/typography/intro/Intro.astro";
+import image4 from "@images/projects/housing-developments/4.jpg";
+---
+
+<section>
+  <IntroSection>
+    <Heading size={HeadingSize.H2}>Designed for Life</Heading>
+    <Intro>
+      By incorporating flexible layouts, inspiring interiors, and tranquil
+      outdoor spaces, we create an environment that nurtures creativity, fosters
+      relaxation, and promotes a strong sense of community.
+    </Intro>
+  </IntroSection>
+
+  <ImageSection justify="top" imageSize="39%" imagePosition="right">
+    <Picture
+      slot="image"
+      mainImage={image4}
+      alt="A site plan showcasing a planned housing development with plots of various sizes marked in shades of yellow and orange, arranged along a grid of roads surrounded by greenery."
+    />
+    <Fragment slot="body">
+      <Heading size={HeadingSize.H3}>Masterplanning for Community</Heading>
+      <p>
+        Our designs are centred on health, integrating natural light, clean air,
+        and green spaces to encourage a healthy lifestyle. Architectural
+        elements that promote silence and focus are central to our approach,
+        recognising their importance in today’s fast-paced world. Each project
+        represents a step towards a future where buildings enable us to thrive
+        both physically and mentally. This project is located in the village of
+        Błędowo, just a short drive from Warsaw, Poland.
+      </p>
+      <Heading size={HeadingSize.H3}>Data-Driven Design</Heading>
+      <p>
+        Our approach involves conducting detailed research, consolidated into
+        organised Excel spreadsheets and a live system on Monday.com, where our
+        clients can access the research in real time. This ensures that each
+        house’s location, design, and features are meticulously planned to meet
+        the needs of potential buyers. Such attention to detail enables us to
+        deliver bespoke solutions aligned with market demands and buyer
+        expectations.
+      </p>
+    </Fragment>
+  </ImageSection>
+</section>
+
+<SectionSeparator>
+  <Buttons>
+    <Button href="/contact">Contact us</Button>
+  </Buttons>
+</SectionSeparator>

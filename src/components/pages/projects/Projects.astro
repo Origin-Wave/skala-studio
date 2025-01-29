@@ -6,6 +6,7 @@ import Pods from "@components/ui/pods/Pods.astro";
 import Heading from "@components/ui/typography/heading/Heading.astro";
 import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
 import Intro from "@components/ui/typography/intro/Intro.astro";
+import image3 from "@images/projects/housing-developments/12.jpg";
 import image1 from "@images/projects/marksburry/dining-room.jpg";
 import image2 from "@images/projects/opera/5.jpg";
 ---
@@ -53,6 +54,23 @@ import image2 from "@images/projects/opera/5.jpg";
         <Picture
           mainImage={image2}
           alt="Watercolour paintin of the summer opera house designed by Skala Studio. Rear extension is designed to blend with the surrounding nature."
+        />
+      </Pod>
+      <Pod label="Housing Development" url="/projects/housing-developments/">
+        <Fragment slot="sub-content">
+          <p>
+            Explore our housing developments designed to foster community,
+            well-being, and individuality through thoughtful masterplanning and
+            innovative architecture.
+          </p><p>
+            From bespoke designs and diverse housing options to advanced
+            infrastructure and immersive visualisations, our approach ensures a
+            seamless blend of functionality and aesthetics.
+          </p>
+        </Fragment>
+        <Picture
+          mainImage={image3}
+          alt="A modern outdoor patio area adjacent to a single-storey house with a sleek metal roof. The patio features stylish striped cushioned chairs and a dining table with black chairs."
         />
       </Pod>
     </Pods>

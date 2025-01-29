@@ -1,0 +1,67 @@
+---
+import ContactCard from "@components/ContactCard.astro";
+import ImageSection from "@components/sections/ImageSection.astro";
+import SplitImageSection from "@components/sections/split-image-section/SplitImageSection.astro";
+import type { SplitImageSectionImage } from "@components/sections/split-image-section/models";
+import Picture from "@components/ui/picture/Picture.astro";
+import Heading from "@components/ui/typography/heading/Heading.astro";
+import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
+import image10 from "@images/projects/housing-developments/10.jpg";
+import image11 from "@images/projects/housing-developments/11.jpg";
+import image12 from "@images/projects/housing-developments/12.jpg";
+import image9 from "@images/projects/housing-developments/9.jpg";
+
+const images: SplitImageSectionImage[] = [
+  {
+    data: image9,
+    alt: "A scenic autumn landscape featuring a row of trees with golden-brown foliage alongside a grassy field, set under a bright blue sky.",
+  },
+  {
+    data: image10,
+    alt: "An open field bordered by autumnal trees with golden and orange hues, under a clear blue sky, with patches of grass and greenery in the foreground.",
+  },
+  {
+    data: image11,
+    alt: "A vast open field covered with green and golden grasses, bordered by a dense line of trees with autumnal foliage in shades of orange, yellow, and green. The scene is set under a clear blue sky, evoking a peaceful and serene rural landscape.",
+  },
+];
+---
+
+<section>
+  <ImageSection justify="top" imageSize="39%" imagePosition="right">
+    <Picture
+      slot="image"
+      mainImage={image12}
+      alt="A modern outdoor patio area adjacent to a single-storey house with a sleek metal roof. The patio features stylish striped cushioned chairs and a dining table with black chairs."
+    />
+    <Fragment slot="body">
+      <Heading size={HeadingSize.H3}>Marketing and Visualisation</Heading>
+      <p>
+        As part of the project, we are developing a new website and social media
+        marketing strategy to highlight the estate’s unique features. All
+        visualisations and animations are produced in-house to ensure a cohesive
+        and high-quality presentation. Additionally, the project includes VR
+        experiences, enabling potential clients to virtually explore homes and
+        the development in an immersive manner.
+      </p>
+      <Heading size={HeadingSize.H3}>Infrastructure and Innovation</Heading>
+      <p>
+        The development features state-of-the-art infrastructure, including
+        fully planned utilities, roads, and sidewalks. Advanced planning ensures
+        not only functionality but also long-term sustainability. Buyers can
+        choose between two distinct building technologies before their house is
+        constructed. The land is sold with planning permission and a
+        construction contract, allowing clients to make minor but relevant
+        changes to the design and execution.
+      </p>
+    </Fragment>
+  </ImageSection>
+</section>
+
+<section>
+  <SplitImageSection images={images} />
+</section>
+
+<section>
+  <ContactCard />
+</section>

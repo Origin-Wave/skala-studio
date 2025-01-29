@@ -2,6 +2,7 @@
 interface Props {
   id?: string;
   justify?: "top" | "center" | "bottom";
+  imagePosition?: "left" | "right" | "auto";
   imageSize?: string;
   imageAspectRatio?: string;
 }
@@ -11,6 +12,7 @@ const {
   justify = "center",
   imageSize = "50%",
   imageAspectRatio = "1 / 1",
+  imagePosition = "auto",
 } = Astro.props;
 
 const variantClass: Record<string, string> = {
@@ -18,9 +20,21 @@ const variantClass: Record<string, string> = {
   center: "image-section--center",
   bottom: "image-section--bottom",
 };
+
+const imagePositionClass: Record<string, string> = {
+  left: "image-section--left",
+  right: "image-section--right",
+};
 ---
 
-<div id={id} class:list={["image-section", variantClass[justify]]}>
+<div
+  id={id}
+  class:list={[
+    "image-section",
+    variantClass[justify],
+    imagePositionClass[imagePosition],
+  ]}
+>
   <div
     class="image-section__column"
     style={{
@@ -73,6 +87,14 @@ const variantClass: Record<string, string> = {
       }
 
       &:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+
+      &.image-section--left {
+        flex-direction: row;
+      }
+
+      &.image-section--right {
         flex-direction: row-reverse;
       }
     }
