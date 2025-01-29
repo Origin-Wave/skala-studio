@@ -1,0 +1,75 @@
+---
+import ImageSection from "@components/sections/ImageSection.astro";
+import Picture from "@components/ui/picture/Picture.astro";
+import SectionSeparator from "@components/ui/section-separator/SectionSeparator.astro";
+import Heading from "@components/ui/typography/heading/Heading.astro";
+import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
+import Intro from "@components/ui/typography/intro/Intro.astro";
+import image5 from "@images/projects/housing-developments/5.jpg";
+import image6 from "@images/projects/housing-developments/6.jpg";
+import image7 from "@images/projects/housing-developments/7.jpg";
+---
+
+<section>
+  <ImageSection justify="top" imageSize="39%" imageAspectRatio="auto">
+    <div class="images" slot="image">
+      <Picture
+        mainImage={image5}
+        alt="An elegant and minimalist interior featuring a dining area with a circular table and modern chairs, framed by large windows that let in ample natural light, with a striking bubble chandelier above."
+      />
+      <Picture
+        mainImage={image6}
+        alt="The front façade of a modern single-storey house with a metal roof, a garage on one side, and large windows. The entrance is connected to the driveway by a stepping stone pathway through a well-maintained lawn."
+      />
+      <Picture
+        mainImage={image7}
+        alt="A spacious interior kitchen and dining area, with a large circular dining table, modern black chairs, and a sculptural bubble chandelier, illuminated by natural light from large windows."
+      />
+    </div>
+    <Fragment slot="body">
+      <Heading size={HeadingSize.H2}>Diverse Housing</Heading>
+
+      <Intro>
+        <strong>Increasing Variety and Character</strong>
+      </Intro>
+
+      <p>
+        Sunny Glade Estate offers six distinct house designs, ensuring diversity
+        across the development. This approach avoids the monotony of identical
+        homes, creating a visually dynamic and unique community. The diverse
+        housing options cater to various tastes and lifestyles, fostering
+        individuality while maintaining a cohesive design vision. By
+        prioritising variety, we enhance the estate’s character and broaden its
+        appeal.
+      </p>
+
+      <br />
+      <br />
+
+      <Intro>
+        <strong>Bespoke Designs and Flexible Options</strong>
+      </Intro>
+
+      <p>
+        We also provide buyers with interior design services, including
+        visualisations that showcase a range of design possibilities. Our
+        portfolio features houses, bungalows, ground-floor homes with lofts, and
+        double-storey designs. External claddings are crafted from natural
+        materials in complementary colour tones, with variations in texture and
+        execution to add aesthetic richness. Floor plans are thoughtfully
+        adjusted to accommodate diverse needs, offering buyers the flexibility
+        to select a home that aligns with their lifestyle.
+      </p>
+    </Fragment>
+  </ImageSection>
+</section>
+
+<SectionSeparator />
+
+<style lang="scss">
+  .images {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ss-size-3);
+  }
+</style>
