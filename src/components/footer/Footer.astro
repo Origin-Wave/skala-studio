@@ -5,7 +5,6 @@ import { SocialMediaVariant } from "@components/ui/icons/social-media/SocialMedi
 import Heading from "@components/ui/typography/heading/Heading.astro";
 import { HeadingSize } from "@components/ui/typography/heading/Heading.models";
 import ARBImage from "@images/global/ARB-Architects-Regiistration-Board.png";
-import RIBAImage from "@images/global/RIBA-Chartered-Practice.png";
 import { companyInfoClient } from "@shared/company-info";
 import { Image } from "astro:assets";
 
@@ -108,12 +107,6 @@ const pinterestText = `View ${name} on Pinterest`;
           </li>
           <li>
             <a
-              href="https://find-an-architect.architecture.com/skala-studio-ltd/east-grinstead"
-              target="_blank">RIBA Chartered Practice</a
-            >
-          </li>
-          <li>
-            <a
               href="https://www.build-review.com/issues/architecture-awards-2022/29/"
               target="_blank">BUILD 2022 Architecture Awards Winner</a
             >
@@ -124,13 +117,6 @@ const pinterestText = `View ${name} on Pinterest`;
 
     <div class="footer__accreditations">
       <ul class="footer__list footer__list--horizontal footer__list--center">
-        <li>
-          <Image
-            src={RIBAImage}
-            alt="RIBA Chartered Practice logo"
-            class="footer__accreditation"
-          />
-        </li>
         <li>
           <Image
             src={ARBImage}
